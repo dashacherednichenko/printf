@@ -16,7 +16,8 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdarg.h>
 
-void ft_printf(char *str);
+void ft_printf(char *str, ...);
 
 #endif
