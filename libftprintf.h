@@ -21,5 +21,6 @@
 
 void ft_printf(char *fmt, ...);
 void ft_putstrn(char *str, int n);
+void ft_putnbrn(int n, int z);
 
 #endif

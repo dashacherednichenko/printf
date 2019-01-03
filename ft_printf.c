@@ -54,7 +54,7 @@ void	ft_printf(char *fmt, ...)
 		else if (s[i] == 'd')
 		{
 			d = va_arg(arg, int);
-			ft_putnbr(d);
+			ft_putnbrn(d, n);
 		}
 /*		else if (s[i] == 'p')
 		{

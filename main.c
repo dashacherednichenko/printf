@@ -16,13 +16,13 @@ int	main(void)
 {
 //	printf("hello\n");
 //	ft_printf("hello\n");
-	char *s = "hello";
+//	char *s = "hello";
 	printf("--test 1 %.9s\n", "MY_!");
 	ft_printf("mytest 1 %.9s\n", "MY_!");
 	printf("--test 2 %c\n", 'N');
 	ft_printf("mytest 2 %c\n", 'N');
-	printf("--test 3 %.3d\n", 42);
-	ft_printf("mytest 3 %.3d\n", 42);
+	printf("--test 3 %.4d\n", -42);
+	ft_printf("mytest 3 %.4d\n", 42);
 //	printf("--test 4 %p\n", &s);
 //	ft_printf("mytest 4 %p\n", &s);
 	return (0);
