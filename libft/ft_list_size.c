@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_list_size.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpiven <dpiven@student.unit.ua>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/27 15:06:34 by dpiven            #+#    #+#             */
-/*   Updated: 2018/12/27 15:06:58 by dpiven           ###   ########.fr       */
+/*   Created: 2018/11/10 14:55:31 by dpiven            #+#    #+#             */
+/*   Updated: 2018/11/10 15:11:28 by dpiven           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-int	main(void)
+size_t	ft_list_size(t_list *begin_list)
 {
-//	printf("hello\n");
-//	ft_printf("hello\n");
-	char *s = "hello";
-	printf("--test 1 %.9s\n", "MY_!");
-	ft_printf("mytest 1 %.9s\n", "MY_!");
-	printf("--test 2 %c\n", 'N');
-	ft_printf("mytest 2 %c\n", 'N');
-	printf("--test 3 %.3d\n", 42);
-	ft_printf("mytest 3 %.3d\n", 42);
-//	printf("--test 4 %p\n", &s);
-//	ft_printf("mytest 4 %p\n", &s);
-	return (0);
+	size_t		len;
+	t_list		*temp;
+
+	if (!begin_list)
+		return (0);
+	len = 0;
+	temp = begin_list;
+	while (temp)
+	{
+		temp = temp->next;
+		len++;
+	}
+	return (len);
 }

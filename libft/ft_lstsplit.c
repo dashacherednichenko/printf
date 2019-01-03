@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpiven <dpiven@student.unit.ua>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/27 15:06:34 by dpiven            #+#    #+#             */
-/*   Updated: 2018/12/27 15:06:58 by dpiven           ###   ########.fr       */
+/*   Created: 2018/11/10 15:22:09 by dpiven            #+#    #+#             */
+/*   Updated: 2018/11/10 17:02:33 by dpiven           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-int	main(void)
+t_list		*ft_lstsplit(char const *s, char c)
 {
-//	printf("hello\n");
-//	ft_printf("hello\n");
-	char *s = "hello";
-	printf("--test 1 %.9s\n", "MY_!");
-	ft_printf("mytest 1 %.9s\n", "MY_!");
-	printf("--test 2 %c\n", 'N');
-	ft_printf("mytest 2 %c\n", 'N');
-	printf("--test 3 %.3d\n", 42);
-	ft_printf("mytest 3 %.3d\n", 42);
-//	printf("--test 4 %p\n", &s);
-//	ft_printf("mytest 4 %p\n", &s);
-	return (0);
+	t_list	*begin;
+	char	**newarr;
+	int		i;
+
+	i = 0;
+	if (!s)
+		return (NULL);
+	newarr = ft_strsplit(s, c);
+	begin = NULL;
+	ft_lstadd(&begin, ft_lstnew(newarr[i], ft_strlen(newarr[i])));
+	i++;
+	while (newarr[i])
+	{
+		ft_lstaddend(&begin, ft_lstnew(newarr[i], ft_strlen(newarr[i])));
+		i++;
+	}
+	return (begin);
 }

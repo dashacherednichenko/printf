@@ -17,7 +17,9 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+# include "libft/libft.h"
 
-void ft_printf(char *str, ...);
+void ft_printf(char *fmt, ...);
+void ft_putstrn(char *str, int n);
 
 #endif

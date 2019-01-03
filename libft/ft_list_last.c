@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_list_last.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpiven <dpiven@student.unit.ua>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/27 15:06:34 by dpiven            #+#    #+#             */
-/*   Updated: 2018/12/27 15:06:58 by dpiven           ###   ########.fr       */
+/*   Created: 2018/11/10 16:37:23 by dpiven            #+#    #+#             */
+/*   Updated: 2018/11/10 16:38:22 by dpiven           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-int	main(void)
+t_list	*ft_list_last(t_list *begin_list)
 {
-//	printf("hello\n");
-//	ft_printf("hello\n");
-	char *s = "hello";
-	printf("--test 1 %.9s\n", "MY_!");
-	ft_printf("mytest 1 %.9s\n", "MY_!");
-	printf("--test 2 %c\n", 'N');
-	ft_printf("mytest 2 %c\n", 'N');
-	printf("--test 3 %.3d\n", 42);
-	ft_printf("mytest 3 %.3d\n", 42);
-//	printf("--test 4 %p\n", &s);
-//	ft_printf("mytest 4 %p\n", &s);
-	return (0);
+	t_list *temp;
+
+	temp = begin_list;
+	while (temp->next)
+		temp = temp->next;
+	return (temp);
 }

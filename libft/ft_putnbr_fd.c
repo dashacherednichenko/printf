@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpiven <dpiven@student.unit.ua>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/27 15:06:34 by dpiven            #+#    #+#             */
-/*   Updated: 2018/12/27 15:06:58 by dpiven           ###   ########.fr       */
+/*   Created: 2018/11/06 15:22:22 by dpiven            #+#    #+#             */
+/*   Updated: 2018/11/06 15:26:44 by dpiven           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-int	main(void)
+void	ft_putnbr_fd(int n, int fd)
 {
-//	printf("hello\n");
-//	ft_printf("hello\n");
-	char *s = "hello";
-	printf("--test 1 %.9s\n", "MY_!");
-	ft_printf("mytest 1 %.9s\n", "MY_!");
-	printf("--test 2 %c\n", 'N');
-	ft_printf("mytest 2 %c\n", 'N');
-	printf("--test 3 %.3d\n", 42);
-	ft_printf("mytest 3 %.3d\n", 42);
-//	printf("--test 4 %p\n", &s);
-//	ft_printf("mytest 4 %p\n", &s);
-	return (0);
+	unsigned int nb;
+
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		nb = -n;
+	}
+	else
+		nb = n;
+	if (nb >= 10)
+	{
+		ft_putnbr_fd(nb / 10, fd);
+		ft_putchar_fd(nb % 10 + 48, fd);
+	}
+	else
+		ft_putchar_fd(nb % 10 + 48, fd);
 }

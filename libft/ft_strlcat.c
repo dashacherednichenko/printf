@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpiven <dpiven@student.unit.ua>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/27 15:06:34 by dpiven            #+#    #+#             */
-/*   Updated: 2018/12/27 15:06:58 by dpiven           ###   ########.fr       */
+/*   Created: 2018/10/30 12:16:38 by dpiven            #+#    #+#             */
+/*   Updated: 2018/10/30 13:18:45 by dpiven           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-int	main(void)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-//	printf("hello\n");
-//	ft_printf("hello\n");
-	char *s = "hello";
-	printf("--test 1 %.9s\n", "MY_!");
-	ft_printf("mytest 1 %.9s\n", "MY_!");
-	printf("--test 2 %c\n", 'N');
-	ft_printf("mytest 2 %c\n", 'N');
-	printf("--test 3 %.3d\n", 42);
-	ft_printf("mytest 3 %.3d\n", 42);
-//	printf("--test 4 %p\n", &s);
-//	ft_printf("mytest 4 %p\n", &s);
-	return (0);
+	size_t			len;
+	size_t			n;
+	size_t			tmp;
+	unsigned int	i;
+
+	i = 0;
+	len = ft_strlen(dst);
+	tmp = len;
+	n = ft_strlen(src);
+	if (dstsize < len)
+		return (dstsize + n);
+	if (dstsize > len)
+	{
+		while (src[i] != '\0' && tmp < (dstsize - 1))
+		{
+			dst[tmp] = src[i];
+			tmp++;
+			i++;
+		}
+		dst[tmp] = '\0';
+	}
+	return (len + n);
 }
