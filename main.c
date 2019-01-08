@@ -28,7 +28,7 @@ int	main(void)
 	printf("--test 4 %d\n", -423);
 	ft_printf("mytest 4 %d\n", -423);
 	printf("--test 4 %p\n", s);
-	printf("--test 4 %p\n", &s);
+	printf("--test 4 %p\n", s);
 	ft_printf("mytest 4 %p\n", s);
 	printf("--test 5 %s %d\n", s, 42);
 	ft_printf("mytest 5 %s %d\n", s, 42);
@@ -128,7 +128,7 @@ int	main(void)
 	printf ("\n6. Вывод указателя:\n");
 	{ char d1[4]="abc";
 		printf ("%p\n",d1);
-//		ft_printf("%p\n",d1);
+		ft_printf("%p\n",d1);
 	}
 	printf ("\n7. Подсчет выведенных символов:\n");
 	{ int d1=0;

@@ -20,7 +20,7 @@ void	ft_printf(char *fmt, ...)
 	char *s;
 	char c;
 	int d;
-	unsigned int ptr;
+	long long int ptr;
 //	char *p;
 	va_list arg;
 	va_start(arg, fmt);
@@ -62,25 +62,10 @@ void	ft_printf(char *fmt, ...)
 		}
 		else if (s[i] == 'p')
 		{
-			ptr = va_arg(arg, unsigned int);
+			ptr = va_arg(arg, long long int);
 //			p = ft_itoa_base(ptr, 16);
 			ft_putstr(ft_strlowcase(ft_itoa_base(ptr, 16)));
 		}
-/*			int a;
-			a = va_arg(arg, int);
-			unsigned int p = (unsigned int)&a;
-			char s[2*sizeof(p)];
-			for(int i = 2*sizeof(p)-1; i >= 0; --i)
-			{
-
-				s[i] = "0123456789abcdef"[p & 0x0F];
-				p >>= 4;
-			}
-			for(int i = 0; i < 2*sizeof(p); ++i)
-			{
-				ft_putchar(s[i]);
-			}
-		}*/
 		i++;
 		if (s[i] == '\n')
 			ft_putchar('\n');

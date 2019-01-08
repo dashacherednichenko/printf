@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static size_t	ft_len(unsigned value, int base)
+static size_t	ft_len(unsigned long long value, int base)
 {
 	size_t len;
 
@@ -25,11 +25,11 @@ static size_t	ft_len(unsigned value, int base)
 	return (len);
 }
 
-char			*ft_itoa_base(int value, int base)
+char			*ft_itoa_base(long long int value, int base)
 {
 	char		*str;
 	size_t		len;
-	unsigned	nb;
+	unsigned long long int	nb;
 
 	if (base < 2 || base > 16)
 		return (NULL);
