@@ -10,34 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libftprintf.h"
+#include "libftprintf.h"
 
 void	ft_putnbrn(int n, int z)
 {
-	unsigned int nb;
-	int i;
+	char			*str;
+	unsigned int	nb;
 
-	i = 1;
-	if (n < 0)
+	(n < 0) ? (nb = -n) : 1;
+	(n < 0) ? z++ : (nb = n);
+	str = (char*)malloc(sizeof(char) * (z + 1));
+	str[z--] = '\0';
+	while (nb >= 10)
 	{
-		ft_putchar('-');
-		nb = -n;
+		str[z--] = (nb % 10 + '0');
+		nb = nb / 10;
 	}
-	else
-		nb = n;
-	if (i <= z)
-	{
-		ft_putchar('0');
-	}
-	if (nb >= 10)
-	{
-		ft_putnbr(nb / 10);
-		ft_putchar(nb % 10 + '0');
-		i++;
-	}
+	str[z--] = nb + '0';
+	if (n >= 0)
+		while (z >= 0)
+			str[z--] = '0';
 	else
 	{
-		ft_putchar(nb + '0');
-		i++;
+		while (z > 0)
+			str[z--] = '0';
+		str[z] = '-';
 	}
+	ft_putstr(str);
+	free(str);
 }

@@ -20,12 +20,14 @@ void	ft_printf(char *fmt, ...)
 	char *s;
 	char c;
 	int d;
-//	unsigned int *ptr;
+	unsigned int ptr;
+//	char *p;
 	va_list arg;
 	va_start(arg, fmt);
 
 	i = 0;
 	s = fmt;
+	n = 0;
 	while (s[i])
 	{
 		while (s[i] != '%')
@@ -38,27 +40,33 @@ void	ft_printf(char *fmt, ...)
 		{
 			i++;
 			n = ft_atoi(&s[i]);
-//			printf("n %d\n", n);
-			i++;
+			while (s[i] >= '0' && s[i]<= '9')
+				i++;
 		}
+//		printf("n %d\n", n);
 		if (s[i] == 'c')
 		{
-			c = (char) va_arg(arg, int);
+			c = (char)va_arg(arg, int);
 			ft_putchar(c);
 		}
 		else if (s[i] == 's')
 		{
 			str = va_arg(arg, char*);
-			ft_putstrn(str, n);
+			n == 0 ? ft_putstr(str) : ft_putstrn(str, n);
 		}
 		else if (s[i] == 'd')
 		{
-			d = va_arg(arg, int);
-			ft_putnbrn(d, n);
+			d = va_arg(arg, unsigned int);
+//			printf("n %d\n", n);
+			n == 0 ? ft_putnbr(d) : ft_putnbrn(d, n);
 		}
-/*		else if (s[i] == 'p')
+		else if (s[i] == 'p')
 		{
-			int a;
+			ptr = va_arg(arg, unsigned int);
+//			p = ft_itoa_base(ptr, 16);
+			ft_putstr(ft_strlowcase(ft_itoa_base(ptr, 16)));
+		}
+/*			int a;
 			a = va_arg(arg, int);
 			unsigned int p = (unsigned int)&a;
 			char s[2*sizeof(p)];
