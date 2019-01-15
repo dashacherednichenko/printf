@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putnbrn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpiven <dpiven@student.unit.ua>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/27 15:38:15 by dpiven            #+#    #+#             */
-/*   Updated: 2018/12/27 15:38:21 by dpiven           ###   ########.fr       */
+/*   Created: 2019/01/03 14:32:57 by dpiven            #+#    #+#             */
+/*   Updated: 2019/01/03 14:33:02 by dpiven           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprintf.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# include "libft/libft.h"
+void	ft_putnbrf(unsigned long long n, int z)
+{
+	unsigned long long  nb;
+	char			*str;
 
-void ft_printf(char *fmt, ...);
-void ft_putstrn(char *str, int n);
-void ft_putnbrn(int n, int z);
-void ft_putnbrll(long long int n);
-void ft_putnbrlln(long long int n, int z);
-void ft_putnbrf(unsigned long long int n, int z);
+	str = (char*)malloc(sizeof(char) * (z + 1));
+	str[z--] = '\0';
+	nb = n;
 
-#endif
+	while (z >= 0)
+	{
+		str[z] = nb % 10 + '0';
+		nb = nb / 10;
+		z--;
+	}
+	ft_putstr(str);
+	free(str);
+}

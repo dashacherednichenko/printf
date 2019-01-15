@@ -11,14 +11,25 @@
 #******************************************************************************#
 
 NAME = libftprintf.a
-OBJS = *.o
-SRC = *.c
-LIB = @make -C libft/
+CFLAGS = -Wall -Wextra -Werror -std=c99
+
+SRC_FILES = *.c
+LIB = @make -C libft/ fclean && make -C libft/
+#LIBFT_FILES = *.c
+#LIB_DIR = libft/
+#SRC_DIR = ./
+#INC = -Iincludes/
+#LIBFT = $(addprefix $(LIB_DIR), $(LIBFT_FILES))
+#OBJ = $(SRC_FILES:.c=.o) $(LIBFT_FILES:.c=.o)
+SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
 
 all: $(NAME)
 
 $(NAME):
 	$(LIB)
+#	@gcc -c $(CFLAGS) $(SRC) $(LIBFT) $(INC)
+#	@ar rc $(NAME) $(OBJ)
+#	@ranlib $(NAME)
 	@gcc -Wall -Wextra -Werror -o ft_printf $(SRC) ./libft/libft.a -I./ -I./libft/
 
 clean:
@@ -26,7 +37,7 @@ clean:
 	@rm -f ft_printf
 	@rm -f $(OBJS)
 	@rm -f *.c~
-	@rm -f *.c~
+	@rm -f *.o
 	@rm -f *~
 
 fclean: clean
