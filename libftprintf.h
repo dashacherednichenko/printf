@@ -19,6 +19,14 @@
 # include <stdarg.h>
 # include "libft/libft.h"
 
+typedef struct		s_flags
+{
+	char			**str;
+	int				w;
+	int				h;
+	char			type;
+}					t_flags;
+
 void ft_printf(char *fmt, ...);
 void ft_putstrn(char *str, int n);
 void ft_putnbrn(int n, int z, int w);

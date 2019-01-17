@@ -28,6 +28,9 @@ void	ft_printf(char *fmt, ...)
 	long double ld;
 	int w;
 	w = 0;
+	int plus;
+
+	plus = 0;
 //	char *p;
 	va_list arg;
 	va_start(arg, fmt);
@@ -46,6 +49,11 @@ void	ft_printf(char *fmt, ...)
 //		{
 //			i++;
 //		}
+		if (s[i] == '+')
+		{
+			plus = 1;
+			i++;
+		}
 		if (s[i] >= '0' && s[i] <= '9')
 		{
 			w = ft_atoi(&s[i]);
@@ -111,7 +119,7 @@ void	ft_printf(char *fmt, ...)
 		else if (s[i] == 'd' || s[i] == 'i')
 		{
 			d = va_arg(arg, long long int);
-			n == 0  ? ft_putnbr(d) : ft_putnbrn(d, n, w);
+			n == 0  ? ft_putnbr(d) : ft_putnbrn(d, n, w, plus);
 		}
 		else if (s[i] == 'o')
 		{
