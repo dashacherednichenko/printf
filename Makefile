@@ -30,7 +30,7 @@ $(NAME):
 #	@gcc -c $(CFLAGS) $(SRC) $(LIBFT) $(INC)
 #	@ar rc $(NAME) $(OBJ)
 #	@ranlib $(NAME)
-	@gcc -Wall -Wextra -Werror -o ft_printf $(SRC) ./libft/libft.a -I./ -I./libft/
+	@gcc  -o ft_printf $(SRC) ./libft/libft.a -I./ -I./libft/
 
 clean:
 	@$(LIB) clean

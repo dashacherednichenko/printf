@@ -12,18 +12,24 @@
 
 #include "libftprintf.h"
 
-void	ft_putnbrf(unsigned long long n, int z)
+void	ft_putnbrf(unsigned long long n, long long int z)
 {
 	unsigned long long  nb;
 	char			*str;
+	int i;
+	int ii;
 
 	str = (char*)malloc(sizeof(char) * (z + 1));
 	str[z--] = '\0';
 	nb = n;
-
+	ii = 0;
+	i = nb % 10;
+	nb = nb / 10;
 	while (z >= 0)
 	{
 		str[z] = nb % 10 + '0';
+		if (ii++ == 0 && i >= 5)
+			str[z] = nb % 10 + 1 + '0';
 		nb = nb / 10;
 		z--;
 	}

@@ -21,9 +21,9 @@
 
 void ft_printf(char *fmt, ...);
 void ft_putstrn(char *str, int n);
-void ft_putnbrn(int n, int z);
+void ft_putnbrn(int n, int z, int w);
 void ft_putnbrll(long long int n);
 void ft_putnbrlln(long long int n, int z);
-void ft_putnbrf(unsigned long long int n, int z);
+void ft_putnbrf(unsigned long long int n, long long int z);
 
 #endif

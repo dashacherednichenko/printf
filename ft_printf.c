@@ -15,7 +15,7 @@
 void	ft_printf(char *fmt, ...)
 {
 	int i;
-	int n;
+	long long int n;
 	char *str;
 	char *s;
 	char c;
@@ -24,20 +24,34 @@ void	ft_printf(char *fmt, ...)
 	unsigned long long f;
 	long long int ptr;
 	double a;
+	int ii;
+	long double ld;
+	int w;
+	w = 0;
 //	char *p;
 	va_list arg;
 	va_start(arg, fmt);
 
 	i = 0;
 	s = fmt;
-	n = 0;
 	while (s[i])
 	{
+		n = 0;
 		while (s[i] != '%')
 		{
 			ft_putchar(s[i++]);
 		}
 		i++;
+//		if (s[i] == '-')
+//		{
+//			i++;
+//		}
+		if (s[i] >= '0' && s[i] <= '9')
+		{
+			w = ft_atoi(&s[i]);
+			while (s[i] >= '0' && s[i]<= '9')
+				i++;
+		}
 		if (s[i] == '.')
 		{
 			i++;
@@ -59,6 +73,26 @@ void	ft_printf(char *fmt, ...)
 				i++;
 			}
 		}
+		if (s[i] == 'L')
+		{
+			if (s[++i] == 'f')
+			{
+				ld = va_arg(arg, long double);
+				ft_putnbrll(ld);
+				ft_putchar('.');
+				n == 0? n = 6 : n;
+				ii = n;
+				g = 10;
+				while (ii-- > 0)
+					g = g * 10;
+				if (ld < 0)
+					f = ld * (-g);
+				else
+					f = ld * g;
+				ft_putnbrf(f, n);
+				i++;
+			}
+		}
 		if (s[i] == 'c')
 		{
 			c = (char)va_arg(arg, int);
@@ -77,7 +111,7 @@ void	ft_printf(char *fmt, ...)
 		else if (s[i] == 'd' || s[i] == 'i')
 		{
 			d = va_arg(arg, long long int);
-			n == 0 ? ft_putnbr(d) : ft_putnbrn(d, n);
+			n == 0  ? ft_putnbr(d) : ft_putnbrn(d, n, w);
 		}
 		else if (s[i] == 'o')
 		{
@@ -104,17 +138,26 @@ void	ft_printf(char *fmt, ...)
 			a = va_arg(arg, double);
 			ft_putnbrll(a);
 			ft_putchar('.');
+			n == 0? n = 6 : n;
+			ii = n;
+			g = 10;
+			while (ii-- > 0)
+				g = g * 10;
 			if (a < 0)
-				f = a * (-1000000);
+				f = a * (-g);
 			else
-				f = a * 1000000;
-			n == 0 ? ft_putnbrf(f, 6) : ft_putnbrf(f, n);
+				f = a * g;
+			ft_putnbrf(f, n);
 		}
 		i++;
-		if (s[i] == '\n')
+		if (s[i++] == '\n')
 			ft_putchar('\n');
+//		while (s[i] != '%' && s[i])
+//		{
+//			ft_putchar(s[i]);
+//			i++;
+//		}
 		break;
-		i++;
 	}
 
 
