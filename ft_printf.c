@@ -119,7 +119,7 @@ void	ft_printf(char *fmt, ...)
 		else if (s[i] == 'd' || s[i] == 'i')
 		{
 			d = va_arg(arg, long long int);
-			n == 0  ? ft_putnbr(d) : ft_putnbrn(d, n, w, plus);
+			n == 0  ? ft_putnbr(d) : ft_putnbrn(d, n, w);
 		}
 		else if (s[i] == 'o')
 		{

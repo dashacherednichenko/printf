@@ -21,10 +21,15 @@
 
 typedef struct		s_flags
 {
-	char			**str;
-	int				w;
-	int				h;
-	char			type;
+	int				min;
+	int				plus;
+	int				prob;
+	int 			resh;
+	int				zero;
+	int 			w;
+	int				pres;
+	char 			*mod;
+	char 			type;
 }					t_flags;
 
 void ft_printf(char *fmt, ...);
