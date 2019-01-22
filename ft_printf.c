@@ -29,53 +29,41 @@ void	ft_printf(char *fmt, ...)
 	int w;
 	t_flags *flags;
 
-	w = 0;
-//	int plus;
-
-//	plus = 0;
-	flags = (t_flags*)malloc(sizeof(t_flags));
-//	char *p;
 	va_list arg;
 	va_start(arg, fmt);
 
-	i = -1;
+	w = 0;
+	flags = (t_flags*)malloc(sizeof(t_flags));
+	i = 0;
 	s = fmt;
 	while (s[i])
 	{
 		n = 0;
-		while (s[i++] != '%')
-			ft_putchar(s[i]);
-//		i++;
-		while (s[i] != 'c' && s[i] != 's' && s[i] != 'p' && s[i] != 'd' && s[i] != 'i' && s[i] != 'o' && s[i] != 'u' && s[i] != 'x' && s[i] != 'X' && s[i] != 'f')
-		{
-//			s[i] == '-' ? flags->min = 1 : i;
-
-			if (s[i] == '-')
+		while (s[i] != '%' && s[i])
+			ft_putchar(s[i++]);
+		if (s[i])
+			i++;
+		else
+			break;
+//		s[i + 1] ? i++ : i;
+		while (!(ft_strrchr("cspdiouxXf", s[i])) && s[i])
 			{
-				flags->min = 1;
-				i++;
-			}
-			if (s[i] == ' ')
-			{
-				flags->space = 1;
-				i++;
-			}
-			if (s[i] == '+')
-			{
-				flags->plus = 1;
-				i++;
-			}
+			s[i] == '-' ? flags->min = 1 : i;
+			s[i] == ' ' ? flags->space = 1 : i;
+			s[i] == '+' ? flags->plus = 1 : i;
+			(s[i] == '0' && s[i - 1] < '0' && s[i - 1] > '9') ? flags->zero = 1 : i;
+//			s[i] > '0' && s[i] <= '9' ? flags->width = ft_atoi(&s[i]) : i;
 			if (s[i] > '0' && s[i] <= '9')
 			{
 				w = ft_atoi(&s[i]);
-				flags->width = w;
+				w == 0 ? flags->width = w : i;
 				while (s[i] >= '0' && s[i] <= '9')
 					i++;
 			}
 			if (s[i] == '.')
 			{
-				i++;
-				n = ft_atoi(&s[i]);
+//				i++;
+				n = ft_atoi(&s[++i]);
 				flags->precision = n;
 				while (s[i] >= '0' && s[i] <= '9')
 					i++;
@@ -111,7 +99,7 @@ void	ft_printf(char *fmt, ...)
 					else
 						f = ld * g;
 					ft_putnbrf(f, n);
-					i++;
+//					i++;
 				}
 			}
 //			i++;
@@ -124,7 +112,8 @@ void	ft_printf(char *fmt, ...)
 		else if (s[i] == 's')
 		{
 			str = va_arg(arg, char*);
-			n == 0 ? ft_putstr(str) : ft_putstrn(str, n);
+//			printf("%d\n", n);
+			n == 0 ? ft_putstr(str) : ft_putstrn(str, flags->precision);
 		}
 		else if (s[i] == 'p')
 		{
@@ -134,7 +123,7 @@ void	ft_printf(char *fmt, ...)
 		else if (s[i] == 'd' || s[i] == 'i')
 		{
 			d = va_arg(arg, long long int);
-			n == 0  ? ft_putnbr(d) : ft_putnbrn(d, n, w);
+			n == 0  ? ft_putnbr(d) : ft_putnbrn(d, flags->precision, w);
 		}
 		else if (s[i] == 'o')
 		{
@@ -172,7 +161,11 @@ void	ft_printf(char *fmt, ...)
 				f = a * g;
 			ft_putnbrf(f, n);
 		}
-		i++;
+		else if (!s[i])
+			break;
+//		else
+//			break;
+		s[i + 1] ? i++ : i;
 //		if (s[i] == '\n')
 //		{
 //			ft_putchar('\n');

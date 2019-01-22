@@ -17,8 +17,8 @@ int	main(void)
 //	printf("hello\n");
 //	ft_printf("hello\n");
 	char *s = "hello";
-	printf("--test 1 %.9s\n", "MY_!");
-	ft_printf("mytest 1 %.9s\n", "MY_!");
+	printf("--test 1 %.2s\n", "MY_!");
+	ft_printf("mytest 1 %.2s\n", "MY_!");
 	printf("--test 1.1 %s\n", "MY_!");
 	ft_printf("mytest 1.1 %s\n", "MY_!");
 	printf("--test 2 %c\n", 'N');
@@ -53,7 +53,7 @@ int	main(void)
 		printf ("%d\n",d1);
 		printf ("% d\n",d1);
 		ft_printf ("%d\n",d1);
-		ft_printf ("% d\n",d1);
+		//ft_printf ("% d\n",d1);
 	}
 	printf ("\n2.2 Вывод чисел c выравниванием по правому краю:\n");
 	{ int d1=123, d2=42, d3=1543;
@@ -63,7 +63,7 @@ int	main(void)
 	printf ("\n2.3 Вывод чисел c выравниванием по левому краю:\n");
 	{ int d1=123, d2=42, d3=1543;
 		printf ("%-6d\n%-6d\n%-6d\n",d1,d2,d3);
-		ft_printf ("%-6d\n%-6d\n%-6d\n",d1,d2,d3);
+	//	ft_printf ("%-6d\n%-6d\n%-6d\n",d1,d2,d3);
 	}
 	printf ("\n2.4 Вывод числа с выводом 0 в недостающих символах:\n");
 	{ int d1=-123;
