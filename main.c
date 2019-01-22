@@ -30,8 +30,8 @@ int	main(void)
 	printf("--test 4 %p\n", s);
 	printf("--test 4 %p\n", s);
 	ft_printf("mytest 4 %p\n", s);
-//	printf("--test 5 %s %d\n", s, 42);
-//	ft_printf("mytest 5 %s %d\n", s, 42);
+	printf("--test 5 %s %d\n %s\n", s, 42, s);
+	ft_printf("mytest 5 %s %d\n %s\n", s, 42, s);
 	printf("--test 6 %i\n", 42);
 	ft_printf("mytest 6 %i\n", 42);
 	printf("--test 7 %c\n", 0);
@@ -51,17 +51,19 @@ int	main(void)
 	printf ("2.1 Вывод числа 123 с форматом по умолчанию:\n");
 	{ int d1=123;
 		printf ("%d\n",d1);
+		printf ("% d\n",d1);
 		ft_printf ("%d\n",d1);
+		ft_printf ("% d\n",d1);
 	}
 	printf ("\n2.2 Вывод чисел c выравниванием по правому краю:\n");
 	{ int d1=123, d2=42, d3=1543;
 		printf ("%6d\n%6d\n%6d\n",d1,d2,d3);
-		//ft_printf ("%6d\n%6d\n%6d\n",d1,d2,d3);
+		ft_printf ("%6d\n%6d\n%6d\n",d1,d2,d3);
 	}
 	printf ("\n2.3 Вывод чисел c выравниванием по левому краю:\n");
 	{ int d1=123, d2=42, d3=1543;
 		printf ("%-6d\n%-6d\n%-6d\n",d1,d2,d3);
-		//ft_printf ("%-6d\n%-6d\n%-6d\n",d1,d2,d3);
+		ft_printf ("%-6d\n%-6d\n%-6d\n",d1,d2,d3);
 	}
 	printf ("\n2.4 Вывод числа с выводом 0 в недостающих символах:\n");
 	{ int d1=-123;

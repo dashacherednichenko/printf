@@ -23,14 +23,20 @@ typedef struct		s_flags
 {
 	int				min;
 	int				plus;
-	int				prob;
+	int				space;
 	int 			resh;
 	int				zero;
-	int 			w;
-	int				pres;
+	int 			width;
+	int				precision;
 	char 			*mod;
 	char 			type;
 }					t_flags;
+
+typedef struct		s_lst
+{
+	t_flags			flags;
+	struct s_lst	*next;
+}					t_lst;
 
 void ft_printf(char *fmt, ...);
 void ft_putstrn(char *str, int n);
