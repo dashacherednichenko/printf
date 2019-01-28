@@ -21,6 +21,7 @@
 
 typedef struct		s_flags
 {
+	int				length;
 	int				min;
 	int				plus;
 	int				space;
@@ -38,8 +39,8 @@ typedef struct		s_lst
 	struct s_lst	*next;
 }					t_lst;
 
-void ft_printf(char *fmt, ...);
-void ft_putstrn(char *str, int n);
+int ft_printf(char *fmt, ...);
+int ft_putstrn(char *str, int n);
 void ft_putnbrn(int n, int z, int w);
 void ft_putnbrll(long long int n);
 void ft_putnbrlln(long long int n, int z);

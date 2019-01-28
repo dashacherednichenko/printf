@@ -12,12 +12,13 @@
 
 #include "libftprintf.h"
 
-void	ft_printf(char *fmt, ...)
+int	ft_printf(char *fmt, ...)
 {
 	int i;
 	long long int n;
 	char *str;
 	char *s;
+	char *tmp;
 	char c;
 	int d;
 	long long g;
@@ -40,14 +41,16 @@ void	ft_printf(char *fmt, ...)
 	{
 		n = 0;
 		while (s[i] != '%' && s[i])
+		{
 			ft_putchar(s[i++]);
-		if (s[i])
+			flags->length = i;
+		}
+		if (s[i] == '%')
 			i++;
 		else
 			break;
-//		s[i + 1] ? i++ : i;
 		while (!(ft_strrchr("cspdiouxXf", s[i])) && s[i])
-			{
+		{
 			s[i] == '-' ? flags->min = 1 : i;
 			s[i] == ' ' ? flags->space = 1 : i;
 			s[i] == '+' ? flags->plus = 1 : i;
@@ -62,118 +65,157 @@ void	ft_printf(char *fmt, ...)
 			}
 			if (s[i] == '.')
 			{
-//				i++;
 				n = ft_atoi(&s[++i]);
 				flags->precision = n;
 				while (s[i] >= '0' && s[i] <= '9')
 					i++;
 			}
-			if (s[i] == 'h' && s[++i] == 'h')
+			if (s[i] == 'h')
 			{
-				i++;
-			}
-			if (s[i] == 'l' && s[++i] == 'l')
-			{
-				i++;
-				if (s[i] == 'd' || s[i] == 'i')
+				if (s[++i] != 'h')
 				{
-					g = va_arg(arg, long long int);
-					n == 0 ? ft_putnbrll(g) : ft_putnbrlln(g, n);
+					flags->mod =(char*)malloc(sizeof(char) * (1 + 1));
+					flags->mod = "h";
+				}
+				else
+				{
+					flags->mod =(char*)malloc(sizeof(char) * (2 + 1));
+					flags->mod = "hh";
+					i++;
+				}
+			}
+			if (s[i] == 'l')
+			{
+				if (s[++i] != 'l')
+				{
+					flags->mod =(char*)malloc(sizeof(char) * (1 + 1));
+					flags->mod = "l";
+				}
+				else
+				{
+					flags->mod =(char*)malloc(sizeof(char) * (2 + 1));
+					flags->mod = "ll";
 					i++;
 				}
 			}
 			if (s[i] == 'L')
 			{
-				if (s[++i] == 'f')
-				{
-					ld = va_arg(arg, long double);
-					ft_putnbrll(ld);
-					ft_putchar('.');
-					n == 0 ? n = 6 : n;
-					ii = n;
-					g = 10;
-					while (ii-- > 0)
-						g = g * 10;
-					if (ld < 0)
-						f = ld * (-g);
-					else
-						f = ld * g;
-					ft_putnbrf(f, n);
-//					i++;
-				}
+				flags->mod =(char*)malloc(sizeof(char) * (1 + 1));
+				flags->mod = "L";
+				i++;
 			}
-//			i++;
 		}
 		if (s[i] == 'c')
 		{
 			c = (char)va_arg(arg, int);
 			ft_putchar(c);
+			flags->length++;
 		}
 		else if (s[i] == 's')
 		{
 			str = va_arg(arg, char*);
-//			printf("%d\n", n);
-			n == 0 ? ft_putstr(str) : ft_putstrn(str, flags->precision);
+			if (str == 0)
+				str = "(null)";
+			flags->length = flags->length + ft_putstrn(str, flags->precision);
 		}
 		else if (s[i] == 'p')
 		{
 			ptr = va_arg(arg, long long int);
-			ft_putstr(ft_strjoin("0x",ft_strlowcase(ft_itoa_base(ptr, 16))));
+			tmp = ft_strlowcase(ft_itoa_base(ptr, 16));
+			str = ft_strjoin("0x", tmp);
+			ft_putstr(str);
+			free(str);
+			free(tmp);
 		}
 		else if (s[i] == 'd' || s[i] == 'i')
 		{
-			d = va_arg(arg, long long int);
-			n == 0  ? ft_putnbr(d) : ft_putnbrn(d, flags->precision, w);
+			if (flags->mod != 0 && (ft_strcmp(flags->mod,"l") == 0 || ft_strcmp(flags->mod, "ll") == 0))
+			{
+				g = va_arg(arg, long long int);
+				n == 0 ? ft_putnbrll(g) : ft_putnbrlln(g, n);
+				i++;
+			}
+			else
+			{
+				d = va_arg(arg, long long int);
+				n == 0 ? ft_putnbr(d) : ft_putnbrn(d, flags->precision, w);
+			}
 		}
 		else if (s[i] == 'o')
 		{
 			d = va_arg(arg, long long int);
-			ft_putstr(ft_itoa_base(d, 8));
+			str = ft_itoa_base(d, 8);
+			ft_putstr(str);
+			free(str);
 		}
 		else if (s[i] == 'u')
 		{
 			d = va_arg(arg, long long int);
-			ft_putstr(ft_itoa_base(d, 10));
+			str = ft_itoa_base(d, 10);
+			ft_putstr(str);
+			free(str);
 		}
 		else if (s[i] == 'x')
 		{
 			d = va_arg(arg, long long int);
-			ft_putstr(ft_strlowcase(ft_itoa_base(d, 16)));
+			str = ft_strlowcase(ft_itoa_base(d, 16));
+			ft_putstr(str);
+			free(str);
 		}
 		else if (s[i] == 'X')
 		{
 			d = va_arg(arg, long long int);
-			ft_putstr(ft_itoa_base(d, 16));
+			str = ft_itoa_base(d, 16);
+			ft_putstr(str);
+			free(str);
 		}
 		else if (s[i] == 'f')
 		{
-			a = va_arg(arg, double);
-			ft_putnbrll(a);
-			ft_putchar('.');
-			n == 0? n = 6 : n;
-			ii = n;
-			g = 10;
-			while (ii-- > 0)
-				g = g * 10;
-			if (a < 0)
-				f = a * (-g);
+			if (flags->mod && ft_strcmp(flags->mod, "L") == 0)
+			{
+				ld = va_arg(arg, long double);
+				ft_putnbrll(ld);
+				ft_putchar('.');
+				n == 0 ? n = 6 : n;
+				ii = n;
+				g = 10;
+				while (ii-- > 0)
+					g = g * 10;
+				if (ld < 0)
+					f = ld * (-g);
+				else
+					f = ld * g;
+				ft_putnbrf(f, n);
+			}
 			else
-				f = a * g;
-			ft_putnbrf(f, n);
+			{
+				a = va_arg(arg, double);
+				ft_putnbrll(a);
+				ft_putchar('.');
+				n == 0? n = 6 : n;
+				ii = n;
+				g = 10;
+				while (ii-- > 0)
+					g = g * 10;
+				a < 0 ? (f = (a * (-g))) : (f = (a * g));
+				ft_putnbrf(f, n);
+			}
+
 		}
-		else if (!s[i])
+		if (!s[i])
 			break;
-//		else
-//			break;
 		s[i + 1] ? i++ : i;
-//		if (s[i] == '\n')
-//		{
-//			ft_putchar('\n');
-//			i++;
-//		}
 		while (s[i] != '%' && s[i])
+		{
+			flags->length++;
 			ft_putchar(s[i++]);
-//		break;
+		}
+//		if (!s[i])
+//			break;
 	}
 	va_end (arg);
+//	if (flags->mod)
+//		free(flags->mod);
+//	free(flags);
+	return (flags->length);
 }

@@ -12,11 +12,20 @@
 
 #include "libftprintf.h"
 
-void ft_putstrn(char *str, int n)
+int ft_putstrn(char *str, int n)
 {
 	int i;
 
 	i = 0;
-	while (str[i] && i < n)
-		ft_putchar(str[i++]);
+	if (n == 0)
+	{
+		while (str[i])
+			ft_putchar(str[i++]);
+	}
+	else
+	{
+		while (str[i] && i < n)
+			ft_putchar(str[i++]);
+	}
+	return (i);
 }
