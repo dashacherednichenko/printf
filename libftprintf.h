@@ -40,7 +40,7 @@ typedef struct		s_lst
 }					t_lst;
 
 int ft_printf(char *fmt, ...);
-int ft_putstrn(char *str, int n);
+int ft_putstrn(char *str, int n, int w);
 void ft_putnbrn(int n, int z, int w);
 void ft_putnbrll(long long int n);
 void ft_putnbrlln(long long int n, int z);

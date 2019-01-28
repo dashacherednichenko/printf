@@ -12,20 +12,31 @@
 
 #include "libftprintf.h"
 
-int ft_putstrn(char *str, int n)
+int	ft_putstrn(char *str, int n, int w)
 {
-	int i;
+	char	*newstr;
+	int		i;
+	int		t;
+	int		tmp;
 
 	i = 0;
-	if (n == 0)
+	t = ft_strlen(str);
+	tmp = t;
+	((w == 0 && n < tmp) || ((w < n) && (n < tmp))) ? w = n : w;
+	(w == 0 || (w < tmp && n > tmp)) ? w = tmp : w;
+	newstr = ft_memalloc((w--) + 1);
+	(n == 0 || n >= (t--)) ? n = tmp : n;
+	while (str[i] && i < n)
 	{
-		while (str[i])
-			ft_putchar(str[i++]);
+		newstr[w--] = str[((t--) - (tmp - n))];
+		i++;
 	}
-	else
+	while (w >= 0)
 	{
-		while (str[i] && i < n)
-			ft_putchar(str[i++]);
+		newstr[w--] = ' ';
+		i++;
 	}
+	ft_putstr(newstr);
+	free(newstr);
 	return (i);
 }

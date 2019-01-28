@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-# define FMT "[test %s]", "Hello World"
+# define FMT "[test %8.3s]\n", "Hello World"
 
 int	main(void)
 {
@@ -196,6 +196,6 @@ int	main(void)
 		printf ("Derived characters:%n",&d1);
 		printf (" %d\n",d1);
 	}*/
-//	system("leaks ft_printf");
+	system("leaks ft_printf");
 	return (0);
 }

@@ -46,29 +46,35 @@ int	ft_printf(char *fmt, ...)
 			flags->length = i;
 		}
 		if (s[i] == '%')
+		{
 			i++;
+		}
 		else
+		{
 			break;
+		}
 		while (!(ft_strrchr("cspdiouxXf", s[i])) && s[i])
 		{
 			s[i] == '-' ? flags->min = 1 : i;
 			s[i] == ' ' ? flags->space = 1 : i;
 			s[i] == '+' ? flags->plus = 1 : i;
 			(s[i] == '0' && s[i - 1] < '0' && s[i - 1] > '9') ? flags->zero = 1 : i;
-//			s[i] > '0' && s[i] <= '9' ? flags->width = ft_atoi(&s[i]) : i;
 			if (s[i] > '0' && s[i] <= '9')
 			{
-				w = ft_atoi(&s[i]);
-				w == 0 ? flags->width = w : i;
+				w == 0 ? (flags->width = ft_atoi(&s[i])) : i;
 				while (s[i] >= '0' && s[i] <= '9')
+				{
 					i++;
+				}
 			}
 			if (s[i] == '.')
 			{
 				n = ft_atoi(&s[++i]);
 				flags->precision = n;
 				while (s[i] >= '0' && s[i] <= '9')
+				{
 					i++;
+				}
 			}
 			if (s[i] == 'h')
 			{
@@ -114,9 +120,8 @@ int	ft_printf(char *fmt, ...)
 		else if (s[i] == 's')
 		{
 			str = va_arg(arg, char*);
-			if (str == 0)
-				str = "(null)";
-			flags->length = flags->length + ft_putstrn(str, flags->precision);
+			str == 0 ? str = "(null)" : str;
+			flags->length = flags->length + ft_putstrn(str, flags->precision, flags->width);
 		}
 		else if (s[i] == 'p')
 		{
@@ -180,11 +185,17 @@ int	ft_printf(char *fmt, ...)
 				ii = n;
 				g = 10;
 				while (ii-- > 0)
+				{
 					g = g * 10;
+				}
 				if (ld < 0)
+				{
 					f = ld * (-g);
+				}
 				else
+				{
 					f = ld * g;
+				}
 				ft_putnbrf(f, n);
 			}
 			else
@@ -196,14 +207,18 @@ int	ft_printf(char *fmt, ...)
 				ii = n;
 				g = 10;
 				while (ii-- > 0)
+				{
 					g = g * 10;
+				}
 				a < 0 ? (f = (a * (-g))) : (f = (a * g));
 				ft_putnbrf(f, n);
 			}
 
 		}
 		if (!s[i])
+		{
 			break;
+		}
 		s[i + 1] ? i++ : i;
 		while (s[i] != '%' && s[i])
 		{
@@ -216,6 +231,7 @@ int	ft_printf(char *fmt, ...)
 	va_end (arg);
 //	if (flags->mod)
 //		free(flags->mod);
-//	free(flags);
-	return (flags->length);
+	w = flags->length;
+	free(flags);
+	return (w);
 }
