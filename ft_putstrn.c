@@ -24,8 +24,10 @@ int	ft_putstrn(char *str, int n, int w)
 	tmp = t;
 	((w == 0 && n < tmp) || ((w < n) && (n < tmp))) ? w = n : w;
 	(w == 0 || (w < tmp && n > tmp)) ? w = tmp : w;
-	newstr = ft_memalloc((w--) + 1);
-	(n == 0 || n >= (t--)) ? n = tmp : n;
+	newstr = ft_memalloc((w) + 1);
+	(n == 0 || n >= (t)) ? n = tmp : n;
+	t--;
+	w--;
 	while (str[i] && i < n)
 	{
 		newstr[w--] = str[((t--) - (tmp - n))];

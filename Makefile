@@ -15,12 +15,12 @@ CFLAGS = -Wall -Wextra -Werror -std=c99
 
 SRC_FILES = *.c
 LIB = @make -C libft/ fclean && make -C libft/
-#LIBFT_FILES = *.c
+LIBFT_FILES = *.c
 #LIB_DIR = libft/
 #SRC_DIR = ./
 #INC = -Iincludes/
 #LIBFT = $(addprefix $(LIB_DIR), $(LIBFT_FILES))
-#OBJ = $(SRC_FILES:.c=.o) $(LIBFT_FILES:.c=.o)
+OBJ = $(SRC_FILES:.c=.o) $(LIBFT_FILES:.c=.o)
 SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
 
 all: $(NAME)

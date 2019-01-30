@@ -46,4 +46,6 @@ void ft_putnbrll(long long int n);
 void ft_putnbrlln(long long int n, int z);
 void ft_putnbrf(unsigned long long int n, long long int z);
 
+
+
 #endif

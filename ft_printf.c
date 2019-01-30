@@ -28,6 +28,8 @@ int	ft_printf(char *fmt, ...)
 	int ii;
 	long double ld;
 	int w;
+	int l;
+
 	t_flags *flags;
 
 	va_list arg;
@@ -35,10 +37,13 @@ int	ft_printf(char *fmt, ...)
 
 	w = 0;
 	flags = (t_flags*)malloc(sizeof(t_flags));
+
 	i = 0;
 	s = fmt;
 	while (s[i])
 	{
+		flags->width = 0;
+		flags->precision = 0;
 		n = 0;
 		while (s[i] != '%' && s[i])
 		{
@@ -46,82 +51,63 @@ int	ft_printf(char *fmt, ...)
 			flags->length = i;
 		}
 		if (s[i] == '%')
-		{
 			i++;
-		}
 		else
-		{
 			break;
-		}
 		while (!(ft_strrchr("cspdiouxXf", s[i])) && s[i])
 		{
 			s[i] == '-' ? flags->min = 1 : i;
 			s[i] == ' ' ? flags->space = 1 : i;
 			s[i] == '+' ? flags->plus = 1 : i;
-			(s[i] == '0' && s[i - 1] < '0' && s[i - 1] > '9') ? flags->zero = 1 : i;
+			(s[i] == '0' && s[i - 2] < '0' && s[i - 2] > '9') ? flags->zero = 1 : i;
 			if (s[i] > '0' && s[i] <= '9')
 			{
-				w == 0 ? (flags->width = ft_atoi(&s[i])) : i;
+				(flags->width == 0) ? (flags->width = ft_atoi(&s[i])) : i;
+				printf("width [%d]\n", flags->width);
 				while (s[i] >= '0' && s[i] <= '9')
-				{
 					i++;
-				}
 			}
 			if (s[i] == '.')
 			{
 				n = ft_atoi(&s[++i]);
 				flags->precision = n;
 				while (s[i] >= '0' && s[i] <= '9')
-				{
 					i++;
-				}
 			}
 			if (s[i] == 'h')
 			{
 				if (s[++i] != 'h')
-				{
-					flags->mod =(char*)malloc(sizeof(char) * (1 + 1));
 					flags->mod = "h";
-				}
 				else
-				{
-					flags->mod =(char*)malloc(sizeof(char) * (2 + 1));
 					flags->mod = "hh";
-					i++;
-				}
 			}
 			if (s[i] == 'l')
 			{
 				if (s[++i] != 'l')
-				{
-					flags->mod =(char*)malloc(sizeof(char) * (1 + 1));
 					flags->mod = "l";
-				}
 				else
-				{
-					flags->mod =(char*)malloc(sizeof(char) * (2 + 1));
 					flags->mod = "ll";
-					i++;
-				}
 			}
 			if (s[i] == 'L')
-			{
-				flags->mod =(char*)malloc(sizeof(char) * (1 + 1));
 				flags->mod = "L";
+			if (!(ft_strrchr("cspdiouxXf", s[i])) && s[i])
 				i++;
-			}
+//			else
+//				i++;
 		}
 		if (s[i] == 'c')
 		{
 			c = (char)va_arg(arg, int);
 			ft_putchar(c);
 			flags->length++;
+			i++;
 		}
 		else if (s[i] == 's')
 		{
 			str = va_arg(arg, char*);
 			str == 0 ? str = "(null)" : str;
 			flags->length = flags->length + ft_putstrn(str, flags->precision, flags->width);
+			i++;
 		}
 		else if (s[i] == 'p')
 		{
@@ -131,6 +117,7 @@ int	ft_printf(char *fmt, ...)
 			ft_putstr(str);
 			free(str);
 			free(tmp);
+			i++;
 		}
 		else if (s[i] == 'd' || s[i] == 'i')
 		{
@@ -145,6 +132,7 @@ int	ft_printf(char *fmt, ...)
 				d = va_arg(arg, long long int);
 				n == 0 ? ft_putnbr(d) : ft_putnbrn(d, flags->precision, w);
 			}
+			i++;
 		}
 		else if (s[i] == 'o')
 		{
@@ -152,6 +140,7 @@ int	ft_printf(char *fmt, ...)
 			str = ft_itoa_base(d, 8);
 			ft_putstr(str);
 			free(str);
+			i++;
 		}
 		else if (s[i] == 'u')
 		{
@@ -159,6 +148,7 @@ int	ft_printf(char *fmt, ...)
 			str = ft_itoa_base(d, 10);
 			ft_putstr(str);
 			free(str);
+			i++;
 		}
 		else if (s[i] == 'x')
 		{
@@ -166,6 +156,7 @@ int	ft_printf(char *fmt, ...)
 			str = ft_strlowcase(ft_itoa_base(d, 16));
 			ft_putstr(str);
 			free(str);
+			i++;
 		}
 		else if (s[i] == 'X')
 		{
@@ -173,6 +164,7 @@ int	ft_printf(char *fmt, ...)
 			str = ft_itoa_base(d, 16);
 			ft_putstr(str);
 			free(str);
+			i++;
 		}
 		else if (s[i] == 'f')
 		{
@@ -185,17 +177,11 @@ int	ft_printf(char *fmt, ...)
 				ii = n;
 				g = 10;
 				while (ii-- > 0)
-				{
 					g = g * 10;
-				}
 				if (ld < 0)
-				{
 					f = ld * (-g);
-				}
 				else
-				{
 					f = ld * g;
-				}
 				ft_putnbrf(f, n);
 			}
 			else
@@ -207,19 +193,16 @@ int	ft_printf(char *fmt, ...)
 				ii = n;
 				g = 10;
 				while (ii-- > 0)
-				{
 					g = g * 10;
-				}
 				a < 0 ? (f = (a * (-g))) : (f = (a * g));
 				ft_putnbrf(f, n);
 			}
-
+			i++;
 		}
-		if (!s[i])
-		{
+		if (!s[i])m
 			break;
-		}
-		s[i + 1] ? i++ : i;
+//		i++;
+//		s[i + 1] ? i++ : i;
 		while (s[i] != '%' && s[i])
 		{
 			flags->length++;
@@ -231,7 +214,7 @@ int	ft_printf(char *fmt, ...)
 	va_end (arg);
 //	if (flags->mod)
 //		free(flags->mod);
-	w = flags->length;
+	l = flags->length;
 	free(flags);
-	return (w);
+	return (l);
 }
