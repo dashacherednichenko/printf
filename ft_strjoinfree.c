@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbrn.c                                       :+:      :+:    :+:   */
+/*   ft_strjoinfree.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpiven <dpiven@student.unit.ua>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/03 14:32:57 by dpiven            #+#    #+#             */
-/*   Updated: 2019/01/03 14:33:02 by dpiven           ###   ########.fr       */
+/*   Created: 2019/01/30 17:43:38 by dpiven            #+#    #+#             */
+/*   Updated: 2019/01/30 17:43:39 by dpiven           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putnbrf(unsigned long long n, long long int z)
+char	*ft_strjoinfree(char const *s1, char const *s2, int n)
 {
-	unsigned long long	nb;
-	char				*str;
-	int					i;
-	int					ii;
+	char *str;
 
-	str = (char*)malloc(sizeof(char) * (z + 1));
-	str[z--] = '\0';
-	nb = n;
-	ii = 0;
-	i = nb % 10;
-	nb = nb / 10;
-	while (z >= 0)
+	str = ft_strjoin(s1, s2);
+	if (n == 1)
+		free(s1);
+	if (n == 2)
+		free(s2);
+	if (n == 3)
 	{
-		str[z] = nb % 10 + '0';
-		if (ii++ == 0 && i >= 5)
-			str[z] = nb % 10 + 1 + '0';
-		nb = nb / 10;
-		z--;
+		free(s1);
+		free(s2);
 	}
-	ft_putstr(str);
-	free(str);
+	return (str);
 }

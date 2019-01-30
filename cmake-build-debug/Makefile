@@ -123,6 +123,33 @@ ft_printf/fast:
 	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/build
 .PHONY : ft_printf/fast
 
+ft_obnul_flags.o: ft_obnul_flags.c.o
+
+.PHONY : ft_obnul_flags.o
+
+# target to build an object file
+ft_obnul_flags.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_obnul_flags.c.o
+.PHONY : ft_obnul_flags.c.o
+
+ft_obnul_flags.i: ft_obnul_flags.c.i
+
+.PHONY : ft_obnul_flags.i
+
+# target to preprocess a source file
+ft_obnul_flags.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_obnul_flags.c.i
+.PHONY : ft_obnul_flags.c.i
+
+ft_obnul_flags.s: ft_obnul_flags.c.s
+
+.PHONY : ft_obnul_flags.s
+
+# target to generate assembly for a file
+ft_obnul_flags.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_obnul_flags.c.s
+.PHONY : ft_obnul_flags.c.s
+
 ft_printf.o: ft_printf.c.o
 
 .PHONY : ft_printf.o
@@ -149,6 +176,60 @@ ft_printf.s: ft_printf.c.s
 ft_printf.c.s:
 	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_printf.c.s
 .PHONY : ft_printf.c.s
+
+ft_ptr.o: ft_ptr.c.o
+
+.PHONY : ft_ptr.o
+
+# target to build an object file
+ft_ptr.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_ptr.c.o
+.PHONY : ft_ptr.c.o
+
+ft_ptr.i: ft_ptr.c.i
+
+.PHONY : ft_ptr.i
+
+# target to preprocess a source file
+ft_ptr.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_ptr.c.i
+.PHONY : ft_ptr.c.i
+
+ft_ptr.s: ft_ptr.c.s
+
+.PHONY : ft_ptr.s
+
+# target to generate assembly for a file
+ft_ptr.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_ptr.c.s
+.PHONY : ft_ptr.c.s
+
+ft_putcharn.o: ft_putcharn.c.o
+
+.PHONY : ft_putcharn.o
+
+# target to build an object file
+ft_putcharn.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_putcharn.c.o
+.PHONY : ft_putcharn.c.o
+
+ft_putcharn.i: ft_putcharn.c.i
+
+.PHONY : ft_putcharn.i
+
+# target to preprocess a source file
+ft_putcharn.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_putcharn.c.i
+.PHONY : ft_putcharn.c.i
+
+ft_putcharn.s: ft_putcharn.c.s
+
+.PHONY : ft_putcharn.s
+
+# target to generate assembly for a file
+ft_putcharn.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_putcharn.c.s
+.PHONY : ft_putcharn.c.s
 
 ft_putnbrf.o: ft_putnbrf.c.o
 
@@ -284,6 +365,60 @@ ft_putstrn.s: ft_putstrn.c.s
 ft_putstrn.c.s:
 	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_putstrn.c.s
 .PHONY : ft_putstrn.c.s
+
+ft_retnbr_float.o: ft_retnbr_float.c.o
+
+.PHONY : ft_retnbr_float.o
+
+# target to build an object file
+ft_retnbr_float.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_retnbr_float.c.o
+.PHONY : ft_retnbr_float.c.o
+
+ft_retnbr_float.i: ft_retnbr_float.c.i
+
+.PHONY : ft_retnbr_float.i
+
+# target to preprocess a source file
+ft_retnbr_float.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_retnbr_float.c.i
+.PHONY : ft_retnbr_float.c.i
+
+ft_retnbr_float.s: ft_retnbr_float.c.s
+
+.PHONY : ft_retnbr_float.s
+
+# target to generate assembly for a file
+ft_retnbr_float.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_retnbr_float.c.s
+.PHONY : ft_retnbr_float.c.s
+
+ft_strjoinfree.o: ft_strjoinfree.c.o
+
+.PHONY : ft_strjoinfree.o
+
+# target to build an object file
+ft_strjoinfree.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_strjoinfree.c.o
+.PHONY : ft_strjoinfree.c.o
+
+ft_strjoinfree.i: ft_strjoinfree.c.i
+
+.PHONY : ft_strjoinfree.i
+
+# target to preprocess a source file
+ft_strjoinfree.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_strjoinfree.c.i
+.PHONY : ft_strjoinfree.c.i
+
+ft_strjoinfree.s: ft_strjoinfree.c.s
+
+.PHONY : ft_strjoinfree.s
+
+# target to generate assembly for a file
+ft_strjoinfree.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_strjoinfree.c.s
+.PHONY : ft_strjoinfree.c.s
 
 libft/ft_atoi.o: libft/ft_atoi.c.o
 
@@ -2103,9 +2238,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... ft_printf"
+	@echo "... ft_obnul_flags.o"
+	@echo "... ft_obnul_flags.i"
+	@echo "... ft_obnul_flags.s"
 	@echo "... ft_printf.o"
 	@echo "... ft_printf.i"
 	@echo "... ft_printf.s"
+	@echo "... ft_ptr.o"
+	@echo "... ft_ptr.i"
+	@echo "... ft_ptr.s"
+	@echo "... ft_putcharn.o"
+	@echo "... ft_putcharn.i"
+	@echo "... ft_putcharn.s"
 	@echo "... ft_putnbrf.o"
 	@echo "... ft_putnbrf.i"
 	@echo "... ft_putnbrf.s"
@@ -2121,6 +2265,12 @@ help:
 	@echo "... ft_putstrn.o"
 	@echo "... ft_putstrn.i"
 	@echo "... ft_putstrn.s"
+	@echo "... ft_retnbr_float.o"
+	@echo "... ft_retnbr_float.i"
+	@echo "... ft_retnbr_float.s"
+	@echo "... ft_strjoinfree.o"
+	@echo "... ft_strjoinfree.i"
+	@echo "... ft_strjoinfree.s"
 	@echo "... libft/ft_atoi.o"
 	@echo "... libft/ft_atoi.i"
 	@echo "... libft/ft_atoi.s"

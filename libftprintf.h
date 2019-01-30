@@ -21,16 +21,17 @@
 
 typedef struct		s_flags
 {
-	int				length;
+	int				len;
 	int				min;
 	int				plus;
 	int				space;
-	int 			resh;
-	int				zero;
-	int 			width;
-	int				precision;
-	char 			*mod;
-	char 			type;
+	int				resh;
+	int				zr;
+	long long int	w;
+	long long int	tchn;
+	int				tchn_t;
+	char			*mod;
+	char			type;
 }					t_flags;
 
 typedef struct		s_lst
@@ -39,13 +40,17 @@ typedef struct		s_lst
 	struct s_lst	*next;
 }					t_lst;
 
-int ft_printf(char *fmt, ...);
-int ft_putstrn(char *str, int n, int w);
-void ft_putnbrn(int n, int z, int w);
-void ft_putnbrll(long long int n);
-void ft_putnbrlln(long long int n, int z);
-void ft_putnbrf(unsigned long long int n, long long int z);
-
-
+int					ft_printf(char *fmt, ...);
+int					ft_putstrn(char *str, t_flags *flags);
+int					ft_putcharn(char c, t_flags *flags);
+void				ft_putnbrn(int n, int z, int w);
+void				ft_putnbrll(long long int n);
+void				ft_putnbrlln(long long int n, int z);
+void				ft_putnbrf(unsigned long long int n, long long int z);
+long long int		ft_calcnbrost(long long int g);
+int					ft_ptrtype(long long int d, t_flags *flags);
+char				*ft_strjoinfree(char const *s1, char const *s2, int n);
+char				*ft_strtemp(int x, int i, char c);
+t_flags				*ft_obnul_fl(t_flags *flags);
 
 #endif

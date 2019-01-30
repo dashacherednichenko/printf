@@ -14,8 +14,8 @@
 
 void	ft_putnbrlln(long long int n, int z)
 {
-	char			*str;
-	unsigned long long  int	nb;
+	char					*str;
+	unsigned long long int	nb;
 
 	(n < 0) ? (nb = -n) : 1;
 	(n < 0) ? z++ : (nb = n);

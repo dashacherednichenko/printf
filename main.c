@@ -11,23 +11,23 @@
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-//# define FMT "[test %.3s]\n", "Hello World"
+# define FMT "[test %-20.7s]\n", "hello 12345"
 
 int	main(void)
 {
-//	int res;
-//	int res1;
-//	ft_putnbr(res = printf(FMT));
-//	ft_putchar('\n');
-//	ft_putnbr(res1 = ft_printf(FMT));
-//	ft_putchar('\n');
+	int res;
+	int res1;
+	ft_putnbr(res = printf(FMT));
+	ft_putchar('\n');
+	ft_putnbr(res1 = ft_printf(FMT));
+	ft_putchar('\n');
 //	printf("hello\n");
 //	ft_printf("hello\n");
 	char *s = "hello";
-//	printf("--test 1 %.2s\n", "MY_!");
-//	ft_printf("mytest 1 %.2s\n", "MY_!");
-//	printf("--test 1 %.3s\n", 0);
-//	ft_printf("mytest 1 %.3s\n", 0);
+	printf("--test 1 %.2s\n", "MY_!");
+	ft_printf("mytest 1 %.2s\n", "MY_!");
+	printf("--test 1 %.3s\n", 0);
+	ft_printf("mytest 1 %.3s\n", 0);
 	printf("--test 1.1 %s\n", "MY_!");
 	ft_printf("mytest 1.1 %s\n", "MY_!");
 	printf("--test 2 %c\n", 'N');
@@ -46,10 +46,6 @@ int	main(void)
 	printf("--test 7 %c\n", 0);
 	ft_printf("mytest 7 %c\n", 0);
 	printf("--test 8 %d\n%%\n", 5);
-
-
-//	printf("Le fichier{cyan}%s{eoc} contient : {red}%s{eoc}", filename, str);
-
 
 
 	printf ("1. Вывод простой строки\n");
@@ -194,6 +190,8 @@ int	main(void)
 		printf ("Derived characters:%n",&d1);
 		printf (" %d\n",d1);
 	}*/
+//	printf("Le fichier{cyan}%s{eoc} contient : {red}%s{eoc}", filename, str);
+
 	system("leaks ft_printf");
 	return (0);
 }

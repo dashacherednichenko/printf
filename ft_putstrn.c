@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-int	ft_putstrn(char *str, int n, int w)
+int	ft_putstrn(char *str, t_flags *f)
 {
 	char	*newstr;
 	int		i;
@@ -21,21 +21,19 @@ int	ft_putstrn(char *str, int n, int w)
 
 	i = 0;
 	t = ft_strlen(str);
-	tmp = t;
-	((w == 0 && n < tmp) || ((w < n) && (n < tmp))) ? w = n : w;
-	(w == 0 || (w < tmp && n > tmp)) ? w = tmp : w;
-	newstr = ft_memalloc((w) + 1);
-	(n == 0 || n >= (t)) ? n = tmp : n;
-	t--;
-	w--;
-	while (str[i] && i < n)
+	tmp = t--;
+	((!f->w || f->w < f->tchn) && f->tchn < tmp) ? f->w = f->tchn : 0;
+	(!f->w || (f->w < tmp && (f->tchn > tmp || !f->tchn_t))) ? f->w = tmp : 0;
+	newstr = ft_memalloc((f->w--) + 1);
+	(!f->tchn_t || f->tchn >= t) ? f->tchn = tmp : 0;
+	while (str[i] && i < f->tchn)
 	{
-		newstr[w--] = str[((t--) - (tmp - n))];
+		newstr[f->w--] = str[((t--) - (tmp - f->tchn))];
 		i++;
 	}
-	while (w >= 0)
+	while (f->w >= 0)
 	{
-		newstr[w--] = ' ';
+		newstr[f->w--] = (f->zr == 1 ? '0' : ' ');
 		i++;
 	}
 	ft_putstr(newstr);

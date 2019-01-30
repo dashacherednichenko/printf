@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbrn.c                                       :+:      :+:    :+:   */
+/*   ft_putcharn.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpiven <dpiven@student.unit.ua>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/03 14:32:57 by dpiven            #+#    #+#             */
-/*   Updated: 2019/01/03 14:33:02 by dpiven           ###   ########.fr       */
+/*   Created: 2019/01/30 14:52:06 by dpiven            #+#    #+#             */
+/*   Updated: 2019/01/30 14:52:09 by dpiven           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putnbrf(unsigned long long n, long long int z)
+int	ft_putcharn(char c, t_flags *flags)
 {
-	unsigned long long	nb;
-	char				*str;
-	int					i;
-	int					ii;
+	int i;
+	int w;
+	int z;
 
-	str = (char*)malloc(sizeof(char) * (z + 1));
-	str[z--] = '\0';
-	nb = n;
-	ii = 0;
-	i = nb % 10;
-	nb = nb / 10;
-	while (z >= 0)
+	i = 1;
+	w = flags->w;
+	z = flags->zr;
+	while (i < w)
 	{
-		str[z] = nb % 10 + '0';
-		if (ii++ == 0 && i >= 5)
-			str[z] = nb % 10 + 1 + '0';
-		nb = nb / 10;
-		z--;
+		z == 1 ? ft_putchar('0') : ft_putchar(' ');
+		i++;
 	}
-	ft_putstr(str);
-	free(str);
+	ft_putchar(c);
+	return (i);
 }

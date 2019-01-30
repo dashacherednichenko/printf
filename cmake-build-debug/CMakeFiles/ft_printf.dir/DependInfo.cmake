@@ -4,12 +4,17 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/Users/dpiven/CLionProjects/ft_printf/ft_obnul_flags.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_obnul_flags.c.o"
   "/Users/dpiven/CLionProjects/ft_printf/ft_printf.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_printf.c.o"
+  "/Users/dpiven/CLionProjects/ft_printf/ft_ptr.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_ptr.c.o"
+  "/Users/dpiven/CLionProjects/ft_printf/ft_putcharn.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_putcharn.c.o"
   "/Users/dpiven/CLionProjects/ft_printf/ft_putnbrf.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_putnbrf.c.o"
   "/Users/dpiven/CLionProjects/ft_printf/ft_putnbrll.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_putnbrll.c.o"
   "/Users/dpiven/CLionProjects/ft_printf/ft_putnbrlln.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_putnbrlln.c.o"
   "/Users/dpiven/CLionProjects/ft_printf/ft_putnbrn.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_putnbrn.c.o"
   "/Users/dpiven/CLionProjects/ft_printf/ft_putstrn.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_putstrn.c.o"
+  "/Users/dpiven/CLionProjects/ft_printf/ft_retnbr_float.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_retnbr_float.c.o"
+  "/Users/dpiven/CLionProjects/ft_printf/ft_strjoinfree.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_strjoinfree.c.o"
   "/Users/dpiven/CLionProjects/ft_printf/libft/ft_atoi.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/libft/ft_atoi.c.o"
   "/Users/dpiven/CLionProjects/ft_printf/libft/ft_bzero.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/libft/ft_bzero.c.o"
   "/Users/dpiven/CLionProjects/ft_printf/libft/ft_isalnum.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/libft/ft_isalnum.c.o"

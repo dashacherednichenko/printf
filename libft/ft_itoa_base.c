@@ -27,8 +27,8 @@ static size_t	ft_len(unsigned long long value, int base)
 
 char			*ft_itoa_base(long long int value, int base)
 {
-	char		*str;
-	size_t		len;
+	char					*str;
+	size_t					len;
 	unsigned long long int	nb;
 
 	if (base < 2 || base > 16)

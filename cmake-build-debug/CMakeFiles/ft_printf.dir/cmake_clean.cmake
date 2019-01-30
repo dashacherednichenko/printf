@@ -72,6 +72,11 @@ file(REMOVE_RECURSE
   "CMakeFiles/ft_printf.dir/ft_putnbrlln.c.o"
   "CMakeFiles/ft_printf.dir/ft_putnbrn.c.o"
   "CMakeFiles/ft_printf.dir/ft_putstrn.c.o"
+  "CMakeFiles/ft_printf.dir/ft_retnbr_float.c.o"
+  "CMakeFiles/ft_printf.dir/ft_putcharn.c.o"
+  "CMakeFiles/ft_printf.dir/ft_obnul_flags.c.o"
+  "CMakeFiles/ft_printf.dir/ft_ptr.c.o"
+  "CMakeFiles/ft_printf.dir/ft_strjoinfree.c.o"
   "ft_printf.pdb"
   "ft_printf"
 )

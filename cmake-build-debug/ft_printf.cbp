@@ -80,7 +80,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_obnul_flags.c">
+			<Option target="ft_printf"/>
+		</Unit>
 		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_printf.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_ptr.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_putcharn.c">
 			<Option target="ft_printf"/>
 		</Unit>
 		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_putnbrf.c">
@@ -96,6 +105,12 @@
 			<Option target="ft_printf"/>
 		</Unit>
 		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_putstrn.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_retnbr_float.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_strjoinfree.c">
 			<Option target="ft_printf"/>
 		</Unit>
 		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/libft/ft_atoi.c">

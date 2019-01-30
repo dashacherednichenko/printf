@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbrn.c                                       :+:      :+:    :+:   */
+/*   ft_obnul_flags.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpiven <dpiven@student.unit.ua>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/03 14:32:57 by dpiven            #+#    #+#             */
-/*   Updated: 2019/01/03 14:33:02 by dpiven           ###   ########.fr       */
+/*   Created: 2019/01/30 16:25:20 by dpiven            #+#    #+#             */
+/*   Updated: 2019/01/30 16:28:29 by dpiven           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_putnbrf(unsigned long long n, long long int z)
+t_flags	*ft_obnul_fl(t_flags *fl)
 {
-	unsigned long long	nb;
-	char				*str;
-	int					i;
-	int					ii;
-
-	str = (char*)malloc(sizeof(char) * (z + 1));
-	str[z--] = '\0';
-	nb = n;
-	ii = 0;
-	i = nb % 10;
-	nb = nb / 10;
-	while (z >= 0)
-	{
-		str[z] = nb % 10 + '0';
-		if (ii++ == 0 && i >= 5)
-			str[z] = nb % 10 + 1 + '0';
-		nb = nb / 10;
-		z--;
-	}
-	ft_putstr(str);
-	free(str);
+	fl->w = 0;
+	fl->tchn = 0;
+	fl->zr = 0;
+	fl->min = 0;
+	fl->space = 0;
+	fl->plus = 0;
+	fl->tchn_t = 0;
+	return (fl);
 }
