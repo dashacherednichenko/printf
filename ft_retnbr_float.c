@@ -21,3 +21,17 @@ long long int		ft_calcnbrost(long long int i)
 		g = g * 10;
 	return (g);
 }
+
+int					ft_calc_nbr(long long int d)
+{
+	int i;
+
+	i = 1;
+//	d < 0 ? d = -d : 0;
+	while (d >= 10)
+	{
+		d = d / 10;
+		i++;
+	}
+	return (i);
+}

@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/Users/dpiven/CLionProjects/ft_printf/ft_declima.c
+libftprintf.h
+/Users/dpiven/CLionProjects/ft_printf/libftprintf.h
+
+/Users/dpiven/CLionProjects/ft_printf/ft_putnbrlln.c
+libftprintf.h
+/Users/dpiven/CLionProjects/ft_printf/libftprintf.h
+
 /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
 fcntl.h
 -
@@ -27,8 +35,4 @@ stdarg.h
 -
 libft/libft.h
 /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
-
-/Users/dpiven/CLionProjects/ft_printf/main.c
-libftprintf.h
-/Users/dpiven/CLionProjects/ft_printf/libftprintf.h
 

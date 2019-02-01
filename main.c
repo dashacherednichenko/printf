@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-# define FMT "[test %90.10s TEST    %s]\n", "hello 12345", "iii"
+# define FMT "[test %90.10s TEST    %.9d]\n", "hello 12345", -123
 
 int	main(void)
 {

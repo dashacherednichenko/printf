@@ -12,13 +12,28 @@
 
 #include "libftprintf.h"
 
-void	ft_putnbrlln(long long int n, int z)
+int	ft_putnbrlln(long long int n, t_flags *f)
 {
 	char					*str;
 	unsigned long long int	nb;
+	int						z;
+	int						i;
 
-	(n < 0) ? (nb = -n) : 1;
-	(n < 0) ? z++ : (nb = n);
+//	i = ft_calc_nbr(n);
+//	printf("IIII%d\n", i);
+	z = f->tchn;
+
+//	printf("\n%d\n\n", ft_calc_nbr(n));
+if (n < 0)
+	nb = n * (-1);
+else
+	nb = n;
+//	nb = n < 0 ? (-1*n) : n;
+	printf("IIII%d\n", nb);
+	i = ft_calc_nbr(nb);
+	printf("IIII%d\n", i);
+	z < i ? z = i : 0;
+	n < 0 ? z++ : 0;
 	str = (char*)malloc(sizeof(char) * (z + 1));
 	str[z--] = '\0';
 	while (nb >= 10)
@@ -37,5 +52,7 @@ void	ft_putnbrlln(long long int n, int z)
 		str[z] = '-';
 	}
 	ft_putstr(str);
+	i = ft_strlen(str);
 	free(str);
+	return (i);
 }

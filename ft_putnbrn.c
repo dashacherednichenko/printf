@@ -17,7 +17,7 @@ void	ft_putnbrn(int n, int z, int w)
 	char			*str;
 	unsigned int	nb;
 	int t;
-//printf("%d\n %d\n", z, w);
+
 	(n < 0) ? (nb = -n) : 1;
 	(n < 0) ? z++ : (nb = n);
 	t = z;
