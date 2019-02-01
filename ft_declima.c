@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_declima.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpiven <dpiven@student.unit.ua>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/27 15:32:29 by dpiven            #+#    #+#             */
-/*   Updated: 2018/12/27 15:32:30 by dpiven           ###   ########.fr       */
+/*   Created: 2019/02/01 15:39:54 by dpiven            #+#    #+#             */
+/*   Updated: 2019/02/01 15:39:55 by dpiven           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_printf(char *fmt, ...)
+int	ft_d(va_list ar, t_flags *f)
 {
-	int					i;
-	char				*s;
-	t_flags				*f;
-	va_list				ar;
+	int				i;
+	long long int	d;
 
-	va_start(ar, fmt);
-	f = (t_flags*)malloc(sizeof(t_flags));
-	i = 0;
-	s = fmt;
-	f->l = 0;
-	f->l = ft_pars(ar, f, i, s);
-	va_end(ar);
-	i = f->l;
-	free(f);
+	d = va_arg(ar, long long int);
+	f->mod && !ft_strcmp(f->mod, "h") ? d = (short)d : 0;
+	f->mod && !ft_strcmp(f->mod, "hh") ? d = (char)d : 0;
+	if (f->mod && !ft_strcmp(f->mod, "ll"))
+	{
+		!f->tchn ? ft_putnbrll(d) : ft_putnbrlln(d, f->tchn);
+		i++;
+	}
+	else
+		!f->tchn ? ft_putnbr(d) : ft_putnbrn(d, f->tchn, f->w);
 	return (i);
 }

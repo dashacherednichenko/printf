@@ -123,6 +123,87 @@ ft_printf/fast:
 	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/build
 .PHONY : ft_printf/fast
 
+ft_declima.o: ft_declima.c.o
+
+.PHONY : ft_declima.o
+
+# target to build an object file
+ft_declima.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_declima.c.o
+.PHONY : ft_declima.c.o
+
+ft_declima.i: ft_declima.c.i
+
+.PHONY : ft_declima.i
+
+# target to preprocess a source file
+ft_declima.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_declima.c.i
+.PHONY : ft_declima.c.i
+
+ft_declima.s: ft_declima.c.s
+
+.PHONY : ft_declima.s
+
+# target to generate assembly for a file
+ft_declima.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_declima.c.s
+.PHONY : ft_declima.c.s
+
+ft_flags.o: ft_flags.c.o
+
+.PHONY : ft_flags.o
+
+# target to build an object file
+ft_flags.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_flags.c.o
+.PHONY : ft_flags.c.o
+
+ft_flags.i: ft_flags.c.i
+
+.PHONY : ft_flags.i
+
+# target to preprocess a source file
+ft_flags.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_flags.c.i
+.PHONY : ft_flags.c.i
+
+ft_flags.s: ft_flags.c.s
+
+.PHONY : ft_flags.s
+
+# target to generate assembly for a file
+ft_flags.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_flags.c.s
+.PHONY : ft_flags.c.s
+
+ft_float.o: ft_float.c.o
+
+.PHONY : ft_float.o
+
+# target to build an object file
+ft_float.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_float.c.o
+.PHONY : ft_float.c.o
+
+ft_float.i: ft_float.c.i
+
+.PHONY : ft_float.i
+
+# target to preprocess a source file
+ft_float.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_float.c.i
+.PHONY : ft_float.c.i
+
+ft_float.s: ft_float.c.s
+
+.PHONY : ft_float.s
+
+# target to generate assembly for a file
+ft_float.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_float.c.s
+.PHONY : ft_float.c.s
+
 ft_obnul_flags.o: ft_obnul_flags.c.o
 
 .PHONY : ft_obnul_flags.o
@@ -149,6 +230,60 @@ ft_obnul_flags.s: ft_obnul_flags.c.s
 ft_obnul_flags.c.s:
 	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_obnul_flags.c.s
 .PHONY : ft_obnul_flags.c.s
+
+ft_octal.o: ft_octal.c.o
+
+.PHONY : ft_octal.o
+
+# target to build an object file
+ft_octal.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_octal.c.o
+.PHONY : ft_octal.c.o
+
+ft_octal.i: ft_octal.c.i
+
+.PHONY : ft_octal.i
+
+# target to preprocess a source file
+ft_octal.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_octal.c.i
+.PHONY : ft_octal.c.i
+
+ft_octal.s: ft_octal.c.s
+
+.PHONY : ft_octal.s
+
+# target to generate assembly for a file
+ft_octal.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_octal.c.s
+.PHONY : ft_octal.c.s
+
+ft_pars.o: ft_pars.c.o
+
+.PHONY : ft_pars.o
+
+# target to build an object file
+ft_pars.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_pars.c.o
+.PHONY : ft_pars.c.o
+
+ft_pars.i: ft_pars.c.i
+
+.PHONY : ft_pars.i
+
+# target to preprocess a source file
+ft_pars.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_pars.c.i
+.PHONY : ft_pars.c.i
+
+ft_pars.s: ft_pars.c.s
+
+.PHONY : ft_pars.s
+
+# target to generate assembly for a file
+ft_pars.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_pars.c.s
+.PHONY : ft_pars.c.s
 
 ft_printf.o: ft_printf.c.o
 
@@ -2238,9 +2373,24 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... ft_printf"
+	@echo "... ft_declima.o"
+	@echo "... ft_declima.i"
+	@echo "... ft_declima.s"
+	@echo "... ft_flags.o"
+	@echo "... ft_flags.i"
+	@echo "... ft_flags.s"
+	@echo "... ft_float.o"
+	@echo "... ft_float.i"
+	@echo "... ft_float.s"
 	@echo "... ft_obnul_flags.o"
 	@echo "... ft_obnul_flags.i"
 	@echo "... ft_obnul_flags.s"
+	@echo "... ft_octal.o"
+	@echo "... ft_octal.i"
+	@echo "... ft_octal.s"
+	@echo "... ft_pars.o"
+	@echo "... ft_pars.i"
+	@echo "... ft_pars.s"
 	@echo "... ft_printf.o"
 	@echo "... ft_printf.i"
 	@echo "... ft_printf.s"

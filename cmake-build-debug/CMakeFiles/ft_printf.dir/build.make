@@ -1071,6 +1071,71 @@ CMakeFiles/ft_printf.dir/ft_strjoinfree.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_printf.dir/ft_strjoinfree.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/dpiven/CLionProjects/ft_printf/ft_strjoinfree.c -o CMakeFiles/ft_printf.dir/ft_strjoinfree.c.s
 
+CMakeFiles/ft_printf.dir/ft_octal.c.o: CMakeFiles/ft_printf.dir/flags.make
+CMakeFiles/ft_printf.dir/ft_octal.c.o: ../ft_octal.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building C object CMakeFiles/ft_printf.dir/ft_octal.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_printf.dir/ft_octal.c.o   -c /Users/dpiven/CLionProjects/ft_printf/ft_octal.c
+
+CMakeFiles/ft_printf.dir/ft_octal.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_printf.dir/ft_octal.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/dpiven/CLionProjects/ft_printf/ft_octal.c > CMakeFiles/ft_printf.dir/ft_octal.c.i
+
+CMakeFiles/ft_printf.dir/ft_octal.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_printf.dir/ft_octal.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/dpiven/CLionProjects/ft_printf/ft_octal.c -o CMakeFiles/ft_printf.dir/ft_octal.c.s
+
+CMakeFiles/ft_printf.dir/ft_declima.c.o: CMakeFiles/ft_printf.dir/flags.make
+CMakeFiles/ft_printf.dir/ft_declima.c.o: ../ft_declima.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building C object CMakeFiles/ft_printf.dir/ft_declima.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_printf.dir/ft_declima.c.o   -c /Users/dpiven/CLionProjects/ft_printf/ft_declima.c
+
+CMakeFiles/ft_printf.dir/ft_declima.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_printf.dir/ft_declima.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/dpiven/CLionProjects/ft_printf/ft_declima.c > CMakeFiles/ft_printf.dir/ft_declima.c.i
+
+CMakeFiles/ft_printf.dir/ft_declima.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_printf.dir/ft_declima.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/dpiven/CLionProjects/ft_printf/ft_declima.c -o CMakeFiles/ft_printf.dir/ft_declima.c.s
+
+CMakeFiles/ft_printf.dir/ft_float.c.o: CMakeFiles/ft_printf.dir/flags.make
+CMakeFiles/ft_printf.dir/ft_float.c.o: ../ft_float.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building C object CMakeFiles/ft_printf.dir/ft_float.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_printf.dir/ft_float.c.o   -c /Users/dpiven/CLionProjects/ft_printf/ft_float.c
+
+CMakeFiles/ft_printf.dir/ft_float.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_printf.dir/ft_float.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/dpiven/CLionProjects/ft_printf/ft_float.c > CMakeFiles/ft_printf.dir/ft_float.c.i
+
+CMakeFiles/ft_printf.dir/ft_float.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_printf.dir/ft_float.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/dpiven/CLionProjects/ft_printf/ft_float.c -o CMakeFiles/ft_printf.dir/ft_float.c.s
+
+CMakeFiles/ft_printf.dir/ft_pars.c.o: CMakeFiles/ft_printf.dir/flags.make
+CMakeFiles/ft_printf.dir/ft_pars.c.o: ../ft_pars.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building C object CMakeFiles/ft_printf.dir/ft_pars.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_printf.dir/ft_pars.c.o   -c /Users/dpiven/CLionProjects/ft_printf/ft_pars.c
+
+CMakeFiles/ft_printf.dir/ft_pars.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_printf.dir/ft_pars.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/dpiven/CLionProjects/ft_printf/ft_pars.c > CMakeFiles/ft_printf.dir/ft_pars.c.i
+
+CMakeFiles/ft_printf.dir/ft_pars.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_printf.dir/ft_pars.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/dpiven/CLionProjects/ft_printf/ft_pars.c -o CMakeFiles/ft_printf.dir/ft_pars.c.s
+
+CMakeFiles/ft_printf.dir/ft_flags.c.o: CMakeFiles/ft_printf.dir/flags.make
+CMakeFiles/ft_printf.dir/ft_flags.c.o: ../ft_flags.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building C object CMakeFiles/ft_printf.dir/ft_flags.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ft_printf.dir/ft_flags.c.o   -c /Users/dpiven/CLionProjects/ft_printf/ft_flags.c
+
+CMakeFiles/ft_printf.dir/ft_flags.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ft_printf.dir/ft_flags.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/dpiven/CLionProjects/ft_printf/ft_flags.c > CMakeFiles/ft_printf.dir/ft_flags.c.i
+
+CMakeFiles/ft_printf.dir/ft_flags.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ft_printf.dir/ft_flags.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/dpiven/CLionProjects/ft_printf/ft_flags.c -o CMakeFiles/ft_printf.dir/ft_flags.c.s
+
 # Object files for target ft_printf
 ft_printf_OBJECTS = \
 "CMakeFiles/ft_printf.dir/libft/ft_atoi.c.o" \
@@ -1150,7 +1215,12 @@ ft_printf_OBJECTS = \
 "CMakeFiles/ft_printf.dir/ft_putcharn.c.o" \
 "CMakeFiles/ft_printf.dir/ft_obnul_flags.c.o" \
 "CMakeFiles/ft_printf.dir/ft_ptr.c.o" \
-"CMakeFiles/ft_printf.dir/ft_strjoinfree.c.o"
+"CMakeFiles/ft_printf.dir/ft_strjoinfree.c.o" \
+"CMakeFiles/ft_printf.dir/ft_octal.c.o" \
+"CMakeFiles/ft_printf.dir/ft_declima.c.o" \
+"CMakeFiles/ft_printf.dir/ft_float.c.o" \
+"CMakeFiles/ft_printf.dir/ft_pars.c.o" \
+"CMakeFiles/ft_printf.dir/ft_flags.c.o"
 
 # External object files for target ft_printf
 ft_printf_EXTERNAL_OBJECTS =
@@ -1233,9 +1303,14 @@ ft_printf: CMakeFiles/ft_printf.dir/ft_putcharn.c.o
 ft_printf: CMakeFiles/ft_printf.dir/ft_obnul_flags.c.o
 ft_printf: CMakeFiles/ft_printf.dir/ft_ptr.c.o
 ft_printf: CMakeFiles/ft_printf.dir/ft_strjoinfree.c.o
+ft_printf: CMakeFiles/ft_printf.dir/ft_octal.c.o
+ft_printf: CMakeFiles/ft_printf.dir/ft_declima.c.o
+ft_printf: CMakeFiles/ft_printf.dir/ft_float.c.o
+ft_printf: CMakeFiles/ft_printf.dir/ft_pars.c.o
+ft_printf: CMakeFiles/ft_printf.dir/ft_flags.c.o
 ft_printf: CMakeFiles/ft_printf.dir/build.make
 ft_printf: CMakeFiles/ft_printf.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Linking C executable ft_printf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Linking C executable ft_printf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ft_printf.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

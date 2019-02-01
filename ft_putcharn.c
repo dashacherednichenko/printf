@@ -12,20 +12,26 @@
 
 #include "libftprintf.h"
 
-int	ft_putcharn(char c, t_flags *flags)
+int	ft_putcharn(char c, t_flags *f)
 {
 	int i;
 	int w;
 	int z;
 
 	i = 1;
-	w = flags->w;
-	z = flags->zr;
-	while (i < w)
+	(f->min == 1 && f->w >= 0) ? f->w = -f->w : 0;
+	w = f->w;
+	z = f->min == 1 ? f->zr : 0;
+	while (i < f->w)
 	{
 		z == 1 ? ft_putchar('0') : ft_putchar(' ');
 		i++;
 	}
 	ft_putchar(c);
+	while (w + i < 0)
+	{
+		ft_putchar(' ');
+		i++;
+	}
 	return (i);
 }

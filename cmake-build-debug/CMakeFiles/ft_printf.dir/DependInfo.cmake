@@ -4,7 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/Users/dpiven/CLionProjects/ft_printf/ft_declima.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_declima.c.o"
+  "/Users/dpiven/CLionProjects/ft_printf/ft_flags.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_flags.c.o"
+  "/Users/dpiven/CLionProjects/ft_printf/ft_float.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_float.c.o"
   "/Users/dpiven/CLionProjects/ft_printf/ft_obnul_flags.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_obnul_flags.c.o"
+  "/Users/dpiven/CLionProjects/ft_printf/ft_octal.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_octal.c.o"
+  "/Users/dpiven/CLionProjects/ft_printf/ft_pars.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_pars.c.o"
   "/Users/dpiven/CLionProjects/ft_printf/ft_printf.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_printf.c.o"
   "/Users/dpiven/CLionProjects/ft_printf/ft_ptr.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_ptr.c.o"
   "/Users/dpiven/CLionProjects/ft_printf/ft_putcharn.c" "/Users/dpiven/CLionProjects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir/ft_putcharn.c.o"

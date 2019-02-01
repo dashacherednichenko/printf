@@ -80,7 +80,22 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_declima.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_flags.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_float.c">
+			<Option target="ft_printf"/>
+		</Unit>
 		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_obnul_flags.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_octal.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_pars.c">
 			<Option target="ft_printf"/>
 		</Unit>
 		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_printf.c">

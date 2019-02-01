@@ -77,6 +77,11 @@ file(REMOVE_RECURSE
   "CMakeFiles/ft_printf.dir/ft_obnul_flags.c.o"
   "CMakeFiles/ft_printf.dir/ft_ptr.c.o"
   "CMakeFiles/ft_printf.dir/ft_strjoinfree.c.o"
+  "CMakeFiles/ft_printf.dir/ft_octal.c.o"
+  "CMakeFiles/ft_printf.dir/ft_declima.c.o"
+  "CMakeFiles/ft_printf.dir/ft_float.c.o"
+  "CMakeFiles/ft_printf.dir/ft_pars.c.o"
+  "CMakeFiles/ft_printf.dir/ft_flags.c.o"
   "ft_printf.pdb"
   "ft_printf"
 )
