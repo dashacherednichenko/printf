@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "printf.h"
 
 t_flags	*ft_obnul_fl(t_flags *fl)
 {
@@ -21,5 +21,6 @@ t_flags	*ft_obnul_fl(t_flags *fl)
 	fl->space = 0;
 	fl->plus = 0;
 	fl->tchn_t = 0;
+	fl->percent = 0;
 	return (fl);
 }

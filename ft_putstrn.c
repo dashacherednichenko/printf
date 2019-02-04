@@ -10,7 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "printf.h"
+
+int			ft_printnbr(char *s)
+{
+	int z;
+
+	z = 0;
+	while (s[z])
+		ft_putchar(s[z++]);
+	free(s);
+	return (z);
+}
 
 int	ft_putstrn(char *str, t_flags *f)
 {

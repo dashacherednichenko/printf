@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "printf.h"
 
 int	ft_octal(long long int d, t_flags *f)
 {
@@ -19,6 +19,7 @@ int	ft_octal(long long int d, t_flags *f)
 
 	ft_putstr(str = ft_itoa_base(d, 8));
 	i = ft_strlen(str);
+	f->min = 0;
 	free(str);
 	return (i);
 }
@@ -30,6 +31,7 @@ int	ft_unsig(long long int d, t_flags *f)
 
 	ft_putstr(str = ft_itoa_base(d, 10));
 	i = ft_strlen(str);
+	f->min = 0;
 	free(str);
 	return (i);
 }
@@ -41,6 +43,7 @@ int	ft_hex_low(long long int d, t_flags *f)
 
 	ft_putstr(str = ft_strlowcase(ft_itoa_base(d, 16)));
 	i = ft_strlen(str);
+	f->min = 0;
 	free(str);
 	return (i);
 }
@@ -52,6 +55,7 @@ int	ft_hex(long long int d, t_flags *f)
 
 	ft_putstr(str = ft_itoa_base(d, 16));
 	i = ft_strlen(str);
+	f->min = 0;
 	free(str);
 	return (i);
 }

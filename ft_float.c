@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "printf.h"
 
 int	ft_float(va_list ar, t_flags *f)
 {
@@ -19,6 +19,7 @@ int	ft_float(va_list ar, t_flags *f)
 	double				a;
 	long double			ld;
 
+	i = 0;
 	if (f->mod && !ft_strcmp(f->mod, "L"))
 	{
 		ft_putnbrll(ld = va_arg(ar, long double));
@@ -35,6 +36,7 @@ int	ft_float(va_list ar, t_flags *f)
 		f->tchn == 0 ? f->tchn = 6 : 0;
 		g = ft_calcnbrost(f->tchn);
 		a < 0 ? a = -1 * a : 0;
+//		printf("\nRRR%lld\n", (unsigned long long)(a * g));
 		ft_putnbrf((unsigned long long)(a * g), f->tchn);
 	}
 	return (i);

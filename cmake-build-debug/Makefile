@@ -285,6 +285,33 @@ ft_pars.c.s:
 	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_pars.c.s
 .PHONY : ft_pars.c.s
 
+ft_percent.o: ft_percent.c.o
+
+.PHONY : ft_percent.o
+
+# target to build an object file
+ft_percent.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_percent.c.o
+.PHONY : ft_percent.c.o
+
+ft_percent.i: ft_percent.c.i
+
+.PHONY : ft_percent.i
+
+# target to preprocess a source file
+ft_percent.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_percent.c.i
+.PHONY : ft_percent.c.i
+
+ft_percent.s: ft_percent.c.s
+
+.PHONY : ft_percent.s
+
+# target to generate assembly for a file
+ft_percent.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_percent.c.s
+.PHONY : ft_percent.c.s
+
 ft_printf.o: ft_printf.c.o
 
 .PHONY : ft_printf.o
@@ -2391,6 +2418,9 @@ help:
 	@echo "... ft_pars.o"
 	@echo "... ft_pars.i"
 	@echo "... ft_pars.s"
+	@echo "... ft_percent.o"
+	@echo "... ft_percent.i"
+	@echo "... ft_percent.s"
 	@echo "... ft_printf.o"
 	@echo "... ft_printf.i"
 	@echo "... ft_printf.s"

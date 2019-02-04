@@ -11,37 +11,33 @@
 #******************************************************************************#
 
 NAME = libftprintf.a
-CFLAGS = -Wall -Wextra -Werror -std=c99
+FLAGS = -Wall -Wextra -Werror
+LIBFT_DIR = ./libft
+LIBFT_OBJ = ./libft/*.o
+SRC =	ft_printf.c ft_putnbrf.c\
+		ft_putnbrll.c ft_putnbrlln.c ft_putnbrn.c ft_putstrn.c ft_retnbr_float.c\
+		ft_putcharn.c ft_obnul_flags.c ft_ptr.c ft_strjoinfree.c ft_octal.c\
+		ft_declima.c ft_float.c ft_pars.c ft_flags.c ft_percent.c
 
-SRC_FILES = *.c
-LIB = @make -C libft/ fclean && make -C libft/
-LIBFT_FILES = *.c
-#LIB_DIR = libft/
-#SRC_DIR = ./
-#INC = -Iincludes/
-#LIBFT = $(addprefix $(LIB_DIR), $(LIBFT_FILES))
-OBJ = $(SRC_FILES:.c=.o) $(LIBFT_FILES:.c=.o)
-SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME):
-	$(LIB)
-#	@gcc -c $(CFLAGS) $(SRC) $(LIBFT) $(INC)
-#	@ar rc $(NAME) $(OBJ)
-#	@ranlib $(NAME)
-	@gcc  -o ft_printf $(SRC) ./libft/libft.a -I./ -I./libft/
+$(NAME): $(LIBFT_OBJ) $(OBJ)
+		@ar rc $(NAME) $(OBJ) $(LIBFT_OBJ)
+
+%.o: %.c
+	@gcc -c $(FLAGS) $< -o $@
+
+$(LIBFT_OBJ):
+	@make -C $(LIBFT_DIR)
 
 clean:
-	@$(LIB) clean
-	@rm -f ft_printf
-	@rm -f $(OBJS)
-	@rm -f *.c~
+	@make clean -C ./libft
 	@rm -f *.o
-	@rm -f *~
 
 fclean: clean
-	@$(LIB) fclean
+	@make fclean -C ./libft
 	@rm -f $(NAME)
 
 re: fclean all

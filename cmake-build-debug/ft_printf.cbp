@@ -98,6 +98,9 @@
 		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_pars.c">
 			<Option target="ft_printf"/>
 		</Unit>
+		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_percent.c">
+			<Option target="ft_printf"/>
+		</Unit>
 		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_printf.c">
 			<Option target="ft_printf"/>
 		</Unit>
@@ -326,10 +329,10 @@
 		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/libft/get_next_line.c">
 			<Option target="ft_printf"/>
 		</Unit>
-		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/libftprintf.h">
+		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/main.c">
 			<Option target="ft_printf"/>
 		</Unit>
-		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/main.c">
+		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/printf.h">
 			<Option target="ft_printf"/>
 		</Unit>
 		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/CMakeLists.txt">

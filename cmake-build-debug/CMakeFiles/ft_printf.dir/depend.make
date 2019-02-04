@@ -3,67 +3,71 @@
 
 CMakeFiles/ft_printf.dir/ft_declima.c.o: ../ft_declima.c
 CMakeFiles/ft_printf.dir/ft_declima.c.o: ../libft/libft.h
-CMakeFiles/ft_printf.dir/ft_declima.c.o: ../libftprintf.h
+CMakeFiles/ft_printf.dir/ft_declima.c.o: ../printf.h
 
 CMakeFiles/ft_printf.dir/ft_flags.c.o: ../ft_flags.c
 CMakeFiles/ft_printf.dir/ft_flags.c.o: ../libft/libft.h
-CMakeFiles/ft_printf.dir/ft_flags.c.o: ../libftprintf.h
+CMakeFiles/ft_printf.dir/ft_flags.c.o: ../printf.h
 
 CMakeFiles/ft_printf.dir/ft_float.c.o: ../ft_float.c
 CMakeFiles/ft_printf.dir/ft_float.c.o: ../libft/libft.h
-CMakeFiles/ft_printf.dir/ft_float.c.o: ../libftprintf.h
+CMakeFiles/ft_printf.dir/ft_float.c.o: ../printf.h
 
 CMakeFiles/ft_printf.dir/ft_obnul_flags.c.o: ../ft_obnul_flags.c
 CMakeFiles/ft_printf.dir/ft_obnul_flags.c.o: ../libft/libft.h
-CMakeFiles/ft_printf.dir/ft_obnul_flags.c.o: ../libftprintf.h
+CMakeFiles/ft_printf.dir/ft_obnul_flags.c.o: ../printf.h
 
 CMakeFiles/ft_printf.dir/ft_octal.c.o: ../ft_octal.c
 CMakeFiles/ft_printf.dir/ft_octal.c.o: ../libft/libft.h
-CMakeFiles/ft_printf.dir/ft_octal.c.o: ../libftprintf.h
+CMakeFiles/ft_printf.dir/ft_octal.c.o: ../printf.h
 
 CMakeFiles/ft_printf.dir/ft_pars.c.o: ../ft_pars.c
 CMakeFiles/ft_printf.dir/ft_pars.c.o: ../libft/libft.h
-CMakeFiles/ft_printf.dir/ft_pars.c.o: ../libftprintf.h
+CMakeFiles/ft_printf.dir/ft_pars.c.o: ../printf.h
+
+CMakeFiles/ft_printf.dir/ft_percent.c.o: ../ft_percent.c
+CMakeFiles/ft_printf.dir/ft_percent.c.o: ../libft/libft.h
+CMakeFiles/ft_printf.dir/ft_percent.c.o: ../printf.h
 
 CMakeFiles/ft_printf.dir/ft_printf.c.o: ../ft_printf.c
 CMakeFiles/ft_printf.dir/ft_printf.c.o: ../libft/libft.h
-CMakeFiles/ft_printf.dir/ft_printf.c.o: ../libftprintf.h
+CMakeFiles/ft_printf.dir/ft_printf.c.o: ../printf.h
 
 CMakeFiles/ft_printf.dir/ft_ptr.c.o: ../ft_ptr.c
 CMakeFiles/ft_printf.dir/ft_ptr.c.o: ../libft/libft.h
-CMakeFiles/ft_printf.dir/ft_ptr.c.o: ../libftprintf.h
+CMakeFiles/ft_printf.dir/ft_ptr.c.o: ../printf.h
 
 CMakeFiles/ft_printf.dir/ft_putcharn.c.o: ../ft_putcharn.c
 CMakeFiles/ft_printf.dir/ft_putcharn.c.o: ../libft/libft.h
-CMakeFiles/ft_printf.dir/ft_putcharn.c.o: ../libftprintf.h
+CMakeFiles/ft_printf.dir/ft_putcharn.c.o: ../printf.h
 
 CMakeFiles/ft_printf.dir/ft_putnbrf.c.o: ../ft_putnbrf.c
 CMakeFiles/ft_printf.dir/ft_putnbrf.c.o: ../libft/libft.h
-CMakeFiles/ft_printf.dir/ft_putnbrf.c.o: ../libftprintf.h
+CMakeFiles/ft_printf.dir/ft_putnbrf.c.o: ../printf.h
 
 CMakeFiles/ft_printf.dir/ft_putnbrll.c.o: ../ft_putnbrll.c
 CMakeFiles/ft_printf.dir/ft_putnbrll.c.o: ../libft/libft.h
-CMakeFiles/ft_printf.dir/ft_putnbrll.c.o: ../libftprintf.h
+CMakeFiles/ft_printf.dir/ft_putnbrll.c.o: ../printf.h
 
 CMakeFiles/ft_printf.dir/ft_putnbrlln.c.o: ../ft_putnbrlln.c
 CMakeFiles/ft_printf.dir/ft_putnbrlln.c.o: ../libft/libft.h
-CMakeFiles/ft_printf.dir/ft_putnbrlln.c.o: ../libftprintf.h
+CMakeFiles/ft_printf.dir/ft_putnbrlln.c.o: ../printf.h
 
 CMakeFiles/ft_printf.dir/ft_putnbrn.c.o: ../ft_putnbrn.c
 CMakeFiles/ft_printf.dir/ft_putnbrn.c.o: ../libft/libft.h
-CMakeFiles/ft_printf.dir/ft_putnbrn.c.o: ../libftprintf.h
+CMakeFiles/ft_printf.dir/ft_putnbrn.c.o: ../printf.h
 
 CMakeFiles/ft_printf.dir/ft_putstrn.c.o: ../ft_putstrn.c
 CMakeFiles/ft_printf.dir/ft_putstrn.c.o: ../libft/libft.h
-CMakeFiles/ft_printf.dir/ft_putstrn.c.o: ../libftprintf.h
+CMakeFiles/ft_printf.dir/ft_putstrn.c.o: ../printf.h
 
 CMakeFiles/ft_printf.dir/ft_retnbr_float.c.o: ../ft_retnbr_float.c
 CMakeFiles/ft_printf.dir/ft_retnbr_float.c.o: ../libft/libft.h
-CMakeFiles/ft_printf.dir/ft_retnbr_float.c.o: ../libftprintf.h
+CMakeFiles/ft_printf.dir/ft_retnbr_float.c.o: ../printf.h
 
 CMakeFiles/ft_printf.dir/ft_strjoinfree.c.o: ../ft_strjoinfree.c
 CMakeFiles/ft_printf.dir/ft_strjoinfree.c.o: ../libft/libft.h
-CMakeFiles/ft_printf.dir/ft_strjoinfree.c.o: ../libftprintf.h
+CMakeFiles/ft_printf.dir/ft_strjoinfree.c.o: ../printf.h
 
 CMakeFiles/ft_printf.dir/libft/ft_atoi.c.o: ../libft/ft_atoi.c
 CMakeFiles/ft_printf.dir/libft/ft_atoi.c.o: ../libft/libft.h
@@ -263,7 +267,4 @@ CMakeFiles/ft_printf.dir/libft/ft_toupper.c.o: ../libft/libft.h
 CMakeFiles/ft_printf.dir/libft/get_next_line.c.o: ../libft/get_next_line.c
 CMakeFiles/ft_printf.dir/libft/get_next_line.c.o: ../libft/libft.h
 
-CMakeFiles/ft_printf.dir/main.c.o: ../libft/libft.h
-CMakeFiles/ft_printf.dir/main.c.o: ../libftprintf.h
-CMakeFiles/ft_printf.dir/main.c.o: ../main.c
 

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "printf.h"
 
 char	*ft_strjoinfree(char const *s1, char const *s2, int n)
 {
@@ -18,13 +18,13 @@ char	*ft_strjoinfree(char const *s1, char const *s2, int n)
 
 	str = ft_strjoin(s1, s2);
 	if (n == 1)
-		free(s1);
+		free((void*)s1);
 	if (n == 2)
-		free(s2);
+		free((void*)s2);
 	if (n == 3)
 	{
-		free(s1);
-		free(s2);
+		free((void*)s1);
+		free((void*)s2);
 	}
 	return (str);
 }

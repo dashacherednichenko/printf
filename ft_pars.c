@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "printf.h"
 
 int	ft_pars_type(va_list ar, t_flags *f, int i, char *s)
 {
@@ -23,6 +23,7 @@ int	ft_pars_type(va_list ar, t_flags *f, int i, char *s)
 	s[i] == 'x' ? f->l += ft_hex_low(va_arg(ar, long long int), f) : 0;
 	s[i] == 'X' ? f->l += ft_hex(va_arg(ar, long long int), f) : 0;
 	s[i] == 'f' ? f->l += ft_float(ar, f) : 0;
+	s[i] == '%' ? f->l += ft_percent('%', f) : 0;
 	return (f->l);
 }
 
@@ -33,7 +34,7 @@ int	ft_pars(va_list ar, t_flags *f, int i, char *s)
 		f = ft_obnul_fl(f);
 		s[i] != '%' && s[i] ? i = ft_print_txt(s, f, i) : 0;
 		s[i] == '%' ? i++ : i;
-		while (!ft_strrchr("cspdiouxXf", s[i]) && s[i])
+		while (!ft_strrchr("cspdiouxXf%", s[i]) && s[i])
 		{
 			s[i] == '-' ? f->min = 1 : 0;
 			s[i] == ' ' ? f->space = 1 : 0;
@@ -46,10 +47,15 @@ int	ft_pars(va_list ar, t_flags *f, int i, char *s)
 			if (s[i] == 'l')
 				f->mod = s[++i] == 'l' ? "ll" : "l";
 			s[i] == 'L' ? f->mod = "L" : 0;
-			(!ft_strrchr("cspdiouxXf", s[i]) && s[i]) ? i++ : 0;
+//			if (!s[i + 1])
+//				break;
+			(!ft_strrchr("cspdiouxXf%", s[i]) && s[i]) ? i++ : 0;
 		}
-		ft_strrchr("cspdiouxXf", s[i]) ? f->l = ft_pars_type(ar, f, i++, s) : 0;
+		if (s[i])
+			ft_strrchr("cspdiouxXf%", s[i]) ? f->l = ft_pars_type(ar, f, i++, s) : 0;
 		s[i] != '%' && s[i] ? i = ft_print_txt(s, f, i) : 0;
+//		if (!s[i + 1])
+//			break;
 	}
 	return (f->l);
 }

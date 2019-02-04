@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "printf.h"
 
 long long int		ft_calcnbrost(long long int i)
 {
@@ -19,6 +19,7 @@ long long int		ft_calcnbrost(long long int i)
 	g = 10;
 	while (i-- > 0)
 		g = g * 10;
+//	printf("GGG %d\n", g);
 	return (g);
 }
 
@@ -27,11 +28,11 @@ int					ft_calc_nbr(long long int d)
 	int i;
 
 	i = 1;
-//	d < 0 ? d = -d : 0;
 	while (d >= 10)
 	{
 		d = d / 10;
 		i++;
 	}
+//	printf("i-1111 %d\n",i);
 	return (i);
 }

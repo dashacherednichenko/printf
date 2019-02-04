@@ -82,6 +82,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ft_printf.dir/ft_float.c.o"
   "CMakeFiles/ft_printf.dir/ft_pars.c.o"
   "CMakeFiles/ft_printf.dir/ft_flags.c.o"
+  "CMakeFiles/ft_printf.dir/ft_percent.c.o"
   "ft_printf.pdb"
   "ft_printf"
 )

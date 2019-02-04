@@ -4,67 +4,71 @@
 CMakeFiles/ft_printf.dir/ft_declima.c.o
  /Users/dpiven/CLionProjects/ft_printf/ft_declima.c
  /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
- /Users/dpiven/CLionProjects/ft_printf/libftprintf.h
+ /Users/dpiven/CLionProjects/ft_printf/printf.h
 CMakeFiles/ft_printf.dir/ft_flags.c.o
  /Users/dpiven/CLionProjects/ft_printf/ft_flags.c
  /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
- /Users/dpiven/CLionProjects/ft_printf/libftprintf.h
+ /Users/dpiven/CLionProjects/ft_printf/printf.h
 CMakeFiles/ft_printf.dir/ft_float.c.o
  /Users/dpiven/CLionProjects/ft_printf/ft_float.c
  /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
- /Users/dpiven/CLionProjects/ft_printf/libftprintf.h
+ /Users/dpiven/CLionProjects/ft_printf/printf.h
 CMakeFiles/ft_printf.dir/ft_obnul_flags.c.o
  /Users/dpiven/CLionProjects/ft_printf/ft_obnul_flags.c
  /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
- /Users/dpiven/CLionProjects/ft_printf/libftprintf.h
+ /Users/dpiven/CLionProjects/ft_printf/printf.h
 CMakeFiles/ft_printf.dir/ft_octal.c.o
  /Users/dpiven/CLionProjects/ft_printf/ft_octal.c
  /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
- /Users/dpiven/CLionProjects/ft_printf/libftprintf.h
+ /Users/dpiven/CLionProjects/ft_printf/printf.h
 CMakeFiles/ft_printf.dir/ft_pars.c.o
  /Users/dpiven/CLionProjects/ft_printf/ft_pars.c
  /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
- /Users/dpiven/CLionProjects/ft_printf/libftprintf.h
+ /Users/dpiven/CLionProjects/ft_printf/printf.h
+CMakeFiles/ft_printf.dir/ft_percent.c.o
+ /Users/dpiven/CLionProjects/ft_printf/ft_percent.c
+ /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
+ /Users/dpiven/CLionProjects/ft_printf/printf.h
 CMakeFiles/ft_printf.dir/ft_printf.c.o
  /Users/dpiven/CLionProjects/ft_printf/ft_printf.c
  /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
- /Users/dpiven/CLionProjects/ft_printf/libftprintf.h
+ /Users/dpiven/CLionProjects/ft_printf/printf.h
 CMakeFiles/ft_printf.dir/ft_ptr.c.o
  /Users/dpiven/CLionProjects/ft_printf/ft_ptr.c
  /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
- /Users/dpiven/CLionProjects/ft_printf/libftprintf.h
+ /Users/dpiven/CLionProjects/ft_printf/printf.h
 CMakeFiles/ft_printf.dir/ft_putcharn.c.o
  /Users/dpiven/CLionProjects/ft_printf/ft_putcharn.c
  /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
- /Users/dpiven/CLionProjects/ft_printf/libftprintf.h
+ /Users/dpiven/CLionProjects/ft_printf/printf.h
 CMakeFiles/ft_printf.dir/ft_putnbrf.c.o
  /Users/dpiven/CLionProjects/ft_printf/ft_putnbrf.c
  /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
- /Users/dpiven/CLionProjects/ft_printf/libftprintf.h
+ /Users/dpiven/CLionProjects/ft_printf/printf.h
 CMakeFiles/ft_printf.dir/ft_putnbrll.c.o
  /Users/dpiven/CLionProjects/ft_printf/ft_putnbrll.c
  /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
- /Users/dpiven/CLionProjects/ft_printf/libftprintf.h
+ /Users/dpiven/CLionProjects/ft_printf/printf.h
 CMakeFiles/ft_printf.dir/ft_putnbrlln.c.o
  /Users/dpiven/CLionProjects/ft_printf/ft_putnbrlln.c
  /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
- /Users/dpiven/CLionProjects/ft_printf/libftprintf.h
+ /Users/dpiven/CLionProjects/ft_printf/printf.h
 CMakeFiles/ft_printf.dir/ft_putnbrn.c.o
  /Users/dpiven/CLionProjects/ft_printf/ft_putnbrn.c
  /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
- /Users/dpiven/CLionProjects/ft_printf/libftprintf.h
+ /Users/dpiven/CLionProjects/ft_printf/printf.h
 CMakeFiles/ft_printf.dir/ft_putstrn.c.o
  /Users/dpiven/CLionProjects/ft_printf/ft_putstrn.c
  /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
- /Users/dpiven/CLionProjects/ft_printf/libftprintf.h
+ /Users/dpiven/CLionProjects/ft_printf/printf.h
 CMakeFiles/ft_printf.dir/ft_retnbr_float.c.o
  /Users/dpiven/CLionProjects/ft_printf/ft_retnbr_float.c
  /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
- /Users/dpiven/CLionProjects/ft_printf/libftprintf.h
+ /Users/dpiven/CLionProjects/ft_printf/printf.h
 CMakeFiles/ft_printf.dir/ft_strjoinfree.c.o
  /Users/dpiven/CLionProjects/ft_printf/ft_strjoinfree.c
  /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
- /Users/dpiven/CLionProjects/ft_printf/libftprintf.h
+ /Users/dpiven/CLionProjects/ft_printf/printf.h
 CMakeFiles/ft_printf.dir/libft/ft_atoi.c.o
  /Users/dpiven/CLionProjects/ft_printf/libft/ft_atoi.c
  /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
@@ -264,6 +268,3 @@ CMakeFiles/ft_printf.dir/libft/get_next_line.c.o
  /Users/dpiven/CLionProjects/ft_printf/libft/get_next_line.c
  /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
 CMakeFiles/ft_printf.dir/main.c.o
- /Users/dpiven/CLionProjects/ft_printf/libft/libft.h
- /Users/dpiven/CLionProjects/ft_printf/libftprintf.h
- /Users/dpiven/CLionProjects/ft_printf/main.c

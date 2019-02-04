@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   printf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpiven <dpiven@student.unit.ua>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef PRINTF_H
+# define PRINTF_H
 
 # include <stdio.h>
 # include <unistd.h>
@@ -27,6 +27,7 @@ typedef struct		s_flags
 	int				space;
 	int				resh;
 	int				zr;
+	int 			percent;
 	long long int	w;
 	long long int	tchn;
 	int				tchn_t;
@@ -43,13 +44,14 @@ typedef struct		s_lst
 int					ft_printf(char *fmt, ...);
 int					ft_nb_pass(char *s, int i);
 int					ft_print_txt(char *s, t_flags *f, int i);
+int					ft_printnbr(char *s);
 int					ft_precision(char *s, t_flags *f, int i);
 int					ft_width(char *s, t_flags *f, int i);
 int					ft_pars(va_list ar, t_flags *f, int i, char *s);
 int					ft_pars_type(va_list ar, t_flags *f, int i, char *s);
 int					ft_putstrn(char *str, t_flags *flags);
 int					ft_putcharn(char c, t_flags *flags);
-void				ft_putnbrn(int n, int z, int w);
+char				*ft_putnbrn(char *s, t_flags *f);
 void				ft_putnbrll(long long int n);
 int					ft_putnbrlln(long long int n, t_flags *f);
 void				ft_putnbrf(unsigned long long int n, long long int z);
@@ -57,6 +59,7 @@ long long int		ft_calcnbrost(long long int g);
 int					ft_calc_nbr(long long int d);
 int					ft_ptrtype(long long int d, t_flags *flags);
 int					ft_d(va_list ar, t_flags *flags);
+int					ft_percent(char c, t_flags *flags);
 int					ft_octal(long long int d, t_flags *flags);
 int					ft_unsig(long long int d, t_flags *f);
 int					ft_hex_low(long long int d, t_flags *f);
