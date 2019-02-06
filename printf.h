@@ -35,12 +35,6 @@ typedef struct		s_flags
 	char			type;
 }					t_flags;
 
-typedef struct		s_lst
-{
-	t_flags			flags;
-	struct s_lst	*next;
-}					t_lst;
-
 int					ft_printf(char *fmt, ...);
 int					ft_nb_pass(char *s, int i);
 int					ft_print_txt(char *s, t_flags *f, int i);
