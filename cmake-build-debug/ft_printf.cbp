@@ -119,9 +119,6 @@
 		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_putnbrlln.c">
 			<Option target="ft_printf"/>
 		</Unit>
-		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_putnbrn.c">
-			<Option target="ft_printf"/>
-		</Unit>
 		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_putstrn.c">
 			<Option target="ft_printf"/>
 		</Unit>
@@ -129,6 +126,9 @@
 			<Option target="ft_printf"/>
 		</Unit>
 		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_strjoinfree.c">
+			<Option target="ft_printf"/>
+		</Unit>
+		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_uitoa_base.c">
 			<Option target="ft_printf"/>
 		</Unit>
 		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/libft/ft_atoi.c">

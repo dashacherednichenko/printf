@@ -23,7 +23,7 @@ int			ft_printnbr(char *s)
 	return (z);
 }
 
-int	ft_putstrn(char *str, t_flags *f)
+int			ft_putstrn(char *str, t_flags *f)
 {
 	char	*newstr;
 	int		i;
@@ -33,9 +33,6 @@ int	ft_putstrn(char *str, t_flags *f)
 	!str ? str = "(null)" : 0;
 	i = 0;
 	t = ft_strlen(str);
-//	f->tchn_t == 1
-//printf("tch %d\n", f->tchn);
-//	printf("1w %d\n", f->w);
 	(f->tchn < 0) ? f->w = f->tchn : 0;
 	(f->min == 1 && f->w >= 0) ? f->w = -f->w : 0;
 	w = f->w < 0 ? f->w : 0;
@@ -48,11 +45,8 @@ int	ft_putstrn(char *str, t_flags *f)
 	while (f->w >= 0 && i++ >= 0)
 		newstr[f->w--] = (f->zr == 1 ? '0' : ' ');
 	ft_putstr(newstr);
-	while ((w + i) < 0)
-	{
+	while ((w + i++) < 0)
 		ft_putchar(' ');
-		i++;
-	}
 	free(newstr);
-	return (i);
+	return (i - 1);
 }

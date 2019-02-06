@@ -12,10 +12,26 @@
 
 #include "printf.h"
 
+//int ft_valid_type(char *s, int i)
+//{
+//	while (s[i] && s[i] != '%')
+//		i++;
+//	if (s[i] == '%')
+//		i++;
+//	while (s[i])
+//	{
+//		if (ft_strrchr("cspdDiouUxXf", s[i]))
+//			return (1);
+//		i++;
+//	}
+//	return (0);
+//}
+
 int	ft_printf(char *fmt, ...)
 {
 	int					i;
 	char				*s;
+//	int					x;
 	t_flags				*f;
 	va_list				ar;
 
@@ -24,7 +40,15 @@ int	ft_printf(char *fmt, ...)
 	i = 0;
 	s = fmt;
 	f->l = 0;
-	f->l = ft_pars(ar, f, i, s);
+//	x = ft_valid_type(s , i);
+//	if (x == 0)
+//	{
+//		i = ft_print_txt(s, f, i);
+//		s[i] == '%' ? i++ : i;
+//		return (ft_print_txt(s, f, i) - 1);
+//	}
+//	else
+		f->l = ft_pars(ar, f, i, s);
 	va_end(ar);
 	i = f->l;
 	free(f);

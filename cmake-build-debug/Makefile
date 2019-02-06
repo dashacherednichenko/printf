@@ -474,33 +474,6 @@ ft_putnbrlln.c.s:
 	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_putnbrlln.c.s
 .PHONY : ft_putnbrlln.c.s
 
-ft_putnbrn.o: ft_putnbrn.c.o
-
-.PHONY : ft_putnbrn.o
-
-# target to build an object file
-ft_putnbrn.c.o:
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_putnbrn.c.o
-.PHONY : ft_putnbrn.c.o
-
-ft_putnbrn.i: ft_putnbrn.c.i
-
-.PHONY : ft_putnbrn.i
-
-# target to preprocess a source file
-ft_putnbrn.c.i:
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_putnbrn.c.i
-.PHONY : ft_putnbrn.c.i
-
-ft_putnbrn.s: ft_putnbrn.c.s
-
-.PHONY : ft_putnbrn.s
-
-# target to generate assembly for a file
-ft_putnbrn.c.s:
-	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_putnbrn.c.s
-.PHONY : ft_putnbrn.c.s
-
 ft_putstrn.o: ft_putstrn.c.o
 
 .PHONY : ft_putstrn.o
@@ -581,6 +554,33 @@ ft_strjoinfree.s: ft_strjoinfree.c.s
 ft_strjoinfree.c.s:
 	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_strjoinfree.c.s
 .PHONY : ft_strjoinfree.c.s
+
+ft_uitoa_base.o: ft_uitoa_base.c.o
+
+.PHONY : ft_uitoa_base.o
+
+# target to build an object file
+ft_uitoa_base.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_uitoa_base.c.o
+.PHONY : ft_uitoa_base.c.o
+
+ft_uitoa_base.i: ft_uitoa_base.c.i
+
+.PHONY : ft_uitoa_base.i
+
+# target to preprocess a source file
+ft_uitoa_base.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_uitoa_base.c.i
+.PHONY : ft_uitoa_base.c.i
+
+ft_uitoa_base.s: ft_uitoa_base.c.s
+
+.PHONY : ft_uitoa_base.s
+
+# target to generate assembly for a file
+ft_uitoa_base.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_uitoa_base.c.s
+.PHONY : ft_uitoa_base.c.s
 
 libft/ft_atoi.o: libft/ft_atoi.c.o
 
@@ -2439,9 +2439,6 @@ help:
 	@echo "... ft_putnbrlln.o"
 	@echo "... ft_putnbrlln.i"
 	@echo "... ft_putnbrlln.s"
-	@echo "... ft_putnbrn.o"
-	@echo "... ft_putnbrn.i"
-	@echo "... ft_putnbrn.s"
 	@echo "... ft_putstrn.o"
 	@echo "... ft_putstrn.i"
 	@echo "... ft_putstrn.s"
@@ -2451,6 +2448,9 @@ help:
 	@echo "... ft_strjoinfree.o"
 	@echo "... ft_strjoinfree.i"
 	@echo "... ft_strjoinfree.s"
+	@echo "... ft_uitoa_base.o"
+	@echo "... ft_uitoa_base.i"
+	@echo "... ft_uitoa_base.s"
 	@echo "... libft/ft_atoi.o"
 	@echo "... libft/ft_atoi.i"
 	@echo "... libft/ft_atoi.s"

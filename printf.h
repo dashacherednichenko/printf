@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                      :+:      :+:    :+:   */
+/*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpiven <dpiven@student.unit.ua>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -27,7 +27,7 @@ typedef struct		s_flags
 	int				space;
 	int				resh;
 	int				zr;
-	int 			percent;
+	int				percent;
 	long long int	w;
 	long long int	tchn;
 	int				tchn_t;
@@ -45,7 +45,6 @@ int					ft_pars(va_list ar, t_flags *f, int i, char *s);
 int					ft_pars_type(va_list ar, t_flags *f, int i, char *s);
 int					ft_putstrn(char *str, t_flags *flags);
 int					ft_putcharn(char c, t_flags *flags);
-char				*ft_putnbrn(char *s, t_flags *f);
 void				ft_putnbrll(long long int n);
 int					ft_putnbrlln(long long int n, t_flags *f);
 void				ft_putnbrf(unsigned long long int n, long long int z);
@@ -56,11 +55,11 @@ int					ft_d(va_list ar, t_flags *flags);
 int					ft_percent(char c, t_flags *flags);
 int					ft_octal(long long int d, t_flags *flags);
 int					ft_unsig(long long int d, t_flags *f);
-int					ft_hex_low(long long int d, t_flags *f);
 int					ft_hex(long long int d, t_flags *f);
 int					ft_float(va_list ar, t_flags *f);
 char				*ft_strjoinfree(char const *s1, char const *s2, int n);
 char				*ft_strtemp(int x, int i, char c);
+char				*ft_uitoa_base(unsigned long long int value, int base);
 t_flags				*ft_obnul_fl(t_flags *flags);
 
 #endif

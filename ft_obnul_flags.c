@@ -23,5 +23,6 @@ t_flags	*ft_obnul_fl(t_flags *fl)
 	fl->tchn_t = 0;
 	fl->percent = 0;
 	fl->resh = 0;
+	fl->mod = 0;
 	return (fl);
 }

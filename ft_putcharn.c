@@ -21,7 +21,7 @@ int	ft_putcharn(char c, t_flags *f)
 	i = 1;
 	(f->min == 1 && f->w >= 0) ? f->w = -f->w : 0;
 	w = f->w;
-	z = f->min == 1 ? f->zr : 0;
+	z = f->zr;
 	while (i < f->w)
 	{
 		z == 1 ? ft_putchar('0') : ft_putchar(' ');

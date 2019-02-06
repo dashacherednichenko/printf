@@ -70,7 +70,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/ft_printf.dir/ft_putnbrf.c.o"
   "CMakeFiles/ft_printf.dir/ft_putnbrll.c.o"
   "CMakeFiles/ft_printf.dir/ft_putnbrlln.c.o"
-  "CMakeFiles/ft_printf.dir/ft_putnbrn.c.o"
   "CMakeFiles/ft_printf.dir/ft_putstrn.c.o"
   "CMakeFiles/ft_printf.dir/ft_retnbr_float.c.o"
   "CMakeFiles/ft_printf.dir/ft_putcharn.c.o"
@@ -83,6 +82,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ft_printf.dir/ft_pars.c.o"
   "CMakeFiles/ft_printf.dir/ft_flags.c.o"
   "CMakeFiles/ft_printf.dir/ft_percent.c.o"
+  "CMakeFiles/ft_printf.dir/ft_uitoa_base.c.o"
   "ft_printf.pdb"
   "ft_printf"
 )

@@ -61,7 +61,7 @@ char		*ft_putnbrn(char *s, t_flags *f)
 		tmp[f->w-- - z] = c;
 	s = f->min != 1 ? ft_strjoinfree(tmp, s, 3) : ft_strjoinfree(s, tmp, 3);
 	(f->zr == 1 && g_ii == 1) ? s[0] = '-' : 0;
-	(f->plus == 1 && g_ii != 1 && f->tchn_t != 1) ? s[0] = '+' : 0;
+	(f->plus == 1 && g_ii != 1 && f->tchn_t != 1 && (!f->w || f->zr == 1)) ? s[0] = '+' : 0;
 	return (s);
 }
 
@@ -69,11 +69,11 @@ int			ft_putnbrlln(long long int n, t_flags *f)
 {
 	char	*s;
 	int		z;
-
+	f->type == 'D' ? f->mod = 0 : 0;
 	f->mod && !ft_strcmp(f->mod, "h") ? n = (short)n : 0;
 	f->mod && !ft_strcmp(f->mod, "hh") ? n = (char)n : 0;
 	f->mod && !ft_strcmp(f->mod, "ll") ? n = (long)n : 0;
-	!f->mod ? n = (int)n : 0;
+	!f->mod && f->type != 'D' ? n = (int)n : 0;
 	g_ii = n < 0 ? 1 : 0;
 	g_ii == 1 ? n = -n : 0;
 	g_i = ft_calc_nbr(n);

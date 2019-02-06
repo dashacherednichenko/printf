@@ -12,7 +12,30 @@
 
 #include "printf.h"
 
-int	ft_octal(long long int d, t_flags *f)
+static char	*ft_srtfinall(char *s, t_flags *f, int i, int d)
+{
+	char	*tmp;
+
+	tmp = f->zr == 1 ? ft_strtemp(f->w, i, '0') : ft_strtemp(f->w, i, ' ');
+	s = f->min == 1 ? ft_strjoinfree(s, tmp, 3) : ft_strjoinfree(tmp, s, 3);
+	if (f->type == 'x' || f->type == 'X')
+		f->resh == 1 && d != 0 && f->zr == 1 ? s[1] = 'X' : 0;
+	return (s);
+}
+
+static char	*ft_strprecis(char *s, t_flags *f, int i, int d)
+{
+	char	*tmp;
+
+	(f->tchn_t == 1 || f->min == 1) ? f->zr = 0 : 0;
+	(f->tchn_t == 1 && f->tchn > i) ? tmp = ft_strtemp(f->tchn, i, '0') : 0;
+	(f->tchn_t == 1 && f->tchn > i) ? s = ft_strjoinfree(tmp, s, 3) : 0;
+	f->resh == 1 && d != 0 && !f->zr ? s = ft_strjoinfree("0X", s, 2) : 0;
+	(f->min == 1 && f->w < 0) ? f->w = -f->w : 0;
+	return (s);
+}
+
+int			ft_octal(long long int d, t_flags *f)
 {
 	char	*s;
 	char	*tmp;
@@ -25,10 +48,10 @@ int	ft_octal(long long int d, t_flags *f)
 	(f->tchn_t == 1 && f->tchn > i) ? tmp = ft_strtemp(f->tchn, i, '0') : 0;
 	(f->tchn_t == 1 && f->tchn > i) ? s = ft_strjoinfree(tmp, s, 3) : 0;
 	f->resh == 1 && !f->zr && !f->tchn_t ? s = ft_strjoinfree("0", s, 2) : 0;
-	i = ft_strlen(s);
 	(f->min == 1 && f->w < 0) ? f->w = -f->w : 0;
 	if (f->tchn_t == 1 && !f->tchn && d == 0 && !f->w && !f->resh)
 		return (0);
+	i = ft_strlen(s);
 	if (f->w > i)
 	{
 		tmp = f->zr == 1 ? ft_strtemp(f->w, i, '0') : ft_strtemp(f->w, i, ' ');
@@ -38,53 +61,56 @@ int	ft_octal(long long int d, t_flags *f)
 	return (ft_printnbr(s));
 }
 
-int	ft_unsig(long long int d, t_flags *f)
+int			ft_unsig(long long int d, t_flags *f)
 {
 	char	*s;
 	char	*tmp;
 	int		i;
 
-	s = ft_itoa_base(d, 10);
+	f->type == 'U' ? f->mod = 0 : 0;
+	f->mod && !ft_strcmp(f->mod, "h") ? d = (unsigned short)d : 0;
+	f->mod && !ft_strcmp(f->mod, "hh") ? d = (unsigned char)d : 0;
+	(f->mod && !ft_strcmp(f->mod, "ll")) || f->type == 'U' ?\
+		d = (unsigned long long)d : 0;
+	f->mod && !ft_strcmp(f->mod, "z") ? d = (size_t)d : 0;
+	f->mod && !ft_strcmp(f->mod, "j") ? d = (intmax_t)d : 0;
+	!f->mod && f->type != 'U' ? d = (unsigned)d : 0;
+	s = ft_uitoa_base(d, 10);
 	(f->tchn_t == 1 && !f->tchn && d == 0 && f->w) ? s[0] = ' ' : 0;
+	if (f->tchn_t == 1 && !f->tchn && d == 0 && !f->w)
+		return (0);
 	i = ft_strlen(s);
 	(f->tchn_t == 1 || f->min == 1) ? f->zr = 0 : 0;
 	(f->tchn_t == 1 && f->tchn > i) ? tmp = ft_strtemp(f->tchn, i, '0') : 0;
 	(f->tchn_t == 1 && f->tchn > i) ? s = ft_strjoinfree(tmp, s, 3) : 0;
-	i = ft_strlen(s);
 	(f->min == 1 && f->w < 0) ? f->w = -f->w : 0;
-	if (f->tchn_t == 1 && !f->tchn && d == 0 && !f->w)
-		return (0);
+	i = ft_strlen(s);
 	if (f->w > i)
-	{
-		tmp = f->zr == 1 ? ft_strtemp(f->w, i, '0') : ft_strtemp(f->w, i, ' ');
-		s = f->min == 1 ? ft_strjoinfree(s, tmp, 3) : ft_strjoinfree(tmp, s, 3);
-	}
+		s = ft_srtfinall(s, f, i, d);
 	return (ft_printnbr(s));
 }
 
-int	ft_hex(long long int d, t_flags *f)
+int			ft_hex(long long int d, t_flags *f)
 {
 	char	*s;
-	char	*tmp;
 	int		i;
 
-	s = ft_itoa_base(d, 16);
+	f->mod && !ft_strcmp(f->mod, "h") ? d = (short)d : 0;
+	f->mod && !ft_strcmp(f->mod, "hh") ? d = (char)d : 0;
+	f->mod && !ft_strcmp(f->mod, "z") ? d = (size_t)d : 0;
+	f->mod && !ft_strcmp(f->mod, "j") ? d = (intmax_t)d : 0;
+	f->mod == 0 ? d = (int)d : 0;
+	if (d < 0 && !f->mod)
+		s = ft_uitoa_base((unsigned int)d, 16);
+	else if (d < 0 && f->mod && !ft_strcmp(f->mod, "j"))
+		s = ft_uitoa_base((unsigned long long int)d, 16);
+	else
+		s = ft_itoa_base(d, 16);
 	(f->tchn_t == 1 && !f->tchn && d == 0 && f->w) ? s[0] = ' ' : 0;
-	i = ft_strlen(s);
-	(f->tchn_t == 1 || f->min == 1) ? f->zr = 0 : 0;
-	(f->tchn_t == 1 && f->tchn > i) ? tmp = ft_strtemp(f->tchn, i, '0') : 0;
-	(f->tchn_t == 1 && f->tchn > i) ? s = ft_strjoinfree(tmp, s, 3) : 0;
-	f->resh == 1 && d != 0 && !f->zr ? s = ft_strjoinfree("0X", s, 2) : 0;
-	i = ft_strlen(s);
-	(f->min == 1 && f->w < 0) ? f->w = -f->w : 0;
 	if (f->tchn_t == 1 && !f->tchn && d == 0 && !f->w)
 		return (0);
-	if (f->w > i)
-	{
-		tmp = f->zr == 1 ? ft_strtemp(f->w, i, '0') : ft_strtemp(f->w, i, ' ');
-		s = f->min == 1 ? ft_strjoinfree(s, tmp, 3) : ft_strjoinfree(tmp, s, 3);
-		f->resh == 1 && d != 0 && f->zr == 1 ? s[1] = 'X' : 0;
-	}
-	s = f->type == 'X' ? s : ft_strlowcase(s);
-	return (ft_printnbr(s));
+	s = ft_strprecis(s, f, ft_strlen(s), d);
+	i = ft_strlen(s);
+	(f->w > i) ? s = ft_srtfinall(s, f, i, d) : 0;
+	return (ft_printnbr(f->type == 'X' ? s : ft_strlowcase(s)));
 }

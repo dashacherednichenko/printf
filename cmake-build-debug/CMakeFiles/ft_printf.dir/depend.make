@@ -53,10 +53,6 @@ CMakeFiles/ft_printf.dir/ft_putnbrlln.c.o: ../ft_putnbrlln.c
 CMakeFiles/ft_printf.dir/ft_putnbrlln.c.o: ../libft/libft.h
 CMakeFiles/ft_printf.dir/ft_putnbrlln.c.o: ../printf.h
 
-CMakeFiles/ft_printf.dir/ft_putnbrn.c.o: ../ft_putnbrn.c
-CMakeFiles/ft_printf.dir/ft_putnbrn.c.o: ../libft/libft.h
-CMakeFiles/ft_printf.dir/ft_putnbrn.c.o: ../printf.h
-
 CMakeFiles/ft_printf.dir/ft_putstrn.c.o: ../ft_putstrn.c
 CMakeFiles/ft_printf.dir/ft_putstrn.c.o: ../libft/libft.h
 CMakeFiles/ft_printf.dir/ft_putstrn.c.o: ../printf.h
@@ -68,6 +64,10 @@ CMakeFiles/ft_printf.dir/ft_retnbr_float.c.o: ../printf.h
 CMakeFiles/ft_printf.dir/ft_strjoinfree.c.o: ../ft_strjoinfree.c
 CMakeFiles/ft_printf.dir/ft_strjoinfree.c.o: ../libft/libft.h
 CMakeFiles/ft_printf.dir/ft_strjoinfree.c.o: ../printf.h
+
+CMakeFiles/ft_printf.dir/ft_uitoa_base.c.o: ../ft_uitoa_base.c
+CMakeFiles/ft_printf.dir/ft_uitoa_base.c.o: ../libft/libft.h
+CMakeFiles/ft_printf.dir/ft_uitoa_base.c.o: ../printf.h
 
 CMakeFiles/ft_printf.dir/libft/ft_atoi.c.o: ../libft/ft_atoi.c
 CMakeFiles/ft_printf.dir/libft/ft_atoi.c.o: ../libft/libft.h

@@ -12,9 +12,10 @@
 
 #include "printf.h"
 
-int					ft_percent(char c, t_flags *f)
+int	ft_percent(char c, t_flags *f)
 {
 	int i;
-	 i = ft_putcharn(c, f);
+
+	i = ft_putcharn(c, f);
 	return (i);
 }

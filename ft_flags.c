@@ -34,7 +34,7 @@ int	ft_nb_pass(char *s, int i)
 {
 	while (s[i] >= '0' && s[i] <= '9')
 		i++;
-	return (i);
+	return (i - 1);
 }
 
 int	ft_width(char *s, t_flags *f, int i)
