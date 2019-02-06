@@ -14,14 +14,15 @@
 
 int	ft_pars_type(va_list ar, t_flags *f, int i, char *s)
 {
+	f->type = s[i];
 	s[i] == 'c' ? f->l += ft_putcharn((char)va_arg(ar, int), f) : 0;
 	s[i] == 's' ? f->l += ft_putstrn(va_arg(ar, char*), f) : 0;
 	s[i] == 'p' ? f->l += ft_ptrtype(va_arg(ar, long long int), f) : 0;
 	s[i] == 'd' || s[i] == 'i' ? f->l += ft_d(ar, f) : 0;
 	s[i] == 'o' ? f->l += ft_octal(va_arg(ar, long long int), f) : 0;
 	s[i] == 'u' ? f->l += ft_unsig(va_arg(ar, long long int), f) : 0;
-	s[i] == 'x' ? f->l += ft_hex_low(va_arg(ar, long long int), f) : 0;
-	s[i] == 'X' ? f->l += ft_hex(va_arg(ar, long long int), f) : 0;
+//	s[i] == 'x' ? f->l += ft_hex_low(va_arg(ar, long long int), f) : 0;
+	s[i] == 'X' || s[i] == 'x' ? f->l += ft_hex(va_arg(ar, long long int), f) : 0;
 	s[i] == 'f' ? f->l += ft_float(ar, f) : 0;
 	s[i] == '%' ? f->l += ft_percent('%', f) : 0;
 	return (f->l);
@@ -39,6 +40,7 @@ int	ft_pars(va_list ar, t_flags *f, int i, char *s)
 			s[i] == '-' ? f->min = 1 : 0;
 			s[i] == ' ' ? f->space = 1 : 0;
 			s[i] == '+' ? f->plus = 1 : 0;
+			s[i] == '#' ? f->resh = 1 : 0;
 			s[i] == '0' && !ft_isdigit(s[i - 1]) ? f->zr = 1 : 0;
 			s[i] > '0' && s[i] <= '9' ? i = ft_width(s, f, i) : 0;
 			s[i] == '.' ? i = ft_precision(s, f, i) : 0;

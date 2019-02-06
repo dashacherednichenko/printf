@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "printf.h"
-# define FMT "%hhd", 128
+# define FMT "[%#X]\n", 42
 //# define FMT "[test %90.10s TEST %00d]\n", "hello 12345", -42
 
 int	main(void)
