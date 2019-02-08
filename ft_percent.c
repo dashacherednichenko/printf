@@ -16,6 +16,9 @@ int	ft_percent(char c, t_flags *f)
 {
 	int i;
 
-	i = ft_putcharn(c, f);
+	if (f->percent != -1)
+		i = ft_putcharn(c, f);
+	else
+		i = 0;
 	return (i);
 }

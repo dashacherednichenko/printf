@@ -50,7 +50,7 @@ int	ft_pars(va_list ar, t_flags *f, int i, char *s)
 		{
 			while (s[i])
 			{
-				if (ft_strrchr("bcCsSpdDioOuUxXfF%-+ #0123456789.hlLzj", s[i]))
+				if (ft_strrchr("bcCsSpdDioOuUxXfF%*-+ #0123456789.hlLzj", s[i]))
 					i++;
 				else
 				{
@@ -67,6 +67,10 @@ int	ft_pars(va_list ar, t_flags *f, int i, char *s)
 		}
 		while (!ft_strrchr("bcCsSpdDioOuUxXfF%", s[i]) && s[i])
 		{
+			if (!ft_strrchr("*-+ #0123456789.hlLzj", s[i]))
+			{
+				break;
+			}
 			s[i] == '-' ? f->min = 1 : 0;
 			s[i] == ' ' ? f->space = 1 : 0;
 			s[i] == '+' ? f->plus = 1 : 0;
@@ -92,7 +96,7 @@ int	ft_pars(va_list ar, t_flags *f, int i, char *s)
 			if (s[i] == 'l')
 				f->mod = s[++i] == 'l' ? "ll" : "l";
 			s[i] == 'L' ? f->mod = "L" : 0;
- 			(!ft_strrchr("bcCsSpdDioOuUxXfF%", s[i]) && s[i]) ? i++ : 0;
+			(!ft_strrchr("bcCsSpdDioOuUxXfF%", s[i]) && s[i]) ? i++ : 0;
 		}
 		if (s[i])
 			ft_strrchr("bcCsSpdDioOuUxXfF%", s[i]) ? f->l = ft_pars_type(ar, f, i++, s) : 0;
