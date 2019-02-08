@@ -17,7 +17,7 @@ LIBFT_OBJ = ./libft/*.o
 SRC =	ft_printf.c ft_putnbrf.c\
 		ft_putnbrll.c ft_putnbrlln.c ft_putstrn.c ft_retnbr_float.c\
 		ft_putcharn.c ft_obnul_flags.c ft_ptr.c ft_strjoinfree.c ft_octal.c\
-		ft_declima.c ft_float.c ft_pars.c ft_flags.c ft_percent.c ft_uitoa_base.c
+		ft_declima.c ft_float.c ft_pars.c ft_flags.c ft_percent.c ft_uitoa_base.c ft_binar.c
 
 OBJ = $(SRC:.c=.o)
 

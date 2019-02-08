@@ -28,6 +28,8 @@ int		ft_ptrtype(long long int d, t_flags *fl)
 	char	*tmp;
 	char	*tmp2;
 
+	if (d == 0 && fl->tchn_t == 1 && fl->tchn == 0  && fl->w == 0)
+		return (ft_putstrn("0x", ft_obnul_fl(fl)));
 	tmp = ft_strlowcase(ft_itoa_base(d, 16));
 	if (fl->tchn > (i = ft_strlen(tmp)))
 	{
@@ -46,7 +48,9 @@ int		ft_ptrtype(long long int d, t_flags *fl)
 		tmp2 = ft_strtemp(fl->w, i, ' ');
 		tmp = ft_strjoinfree(tmp2, tmp, 3);
 	}
-	i = ft_putstrn(tmp, ft_obnul_fl(fl));
+	fl->tchn = 0;
+	fl->tchn_t = 0;
+	i = ft_putstrn(tmp, fl);
 	free(tmp);
 	return (i);
 }

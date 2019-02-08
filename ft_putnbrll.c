@@ -12,22 +12,28 @@
 
 #include "printf.h"
 
-void	ft_putnbrll(long long int n)
+int	ft_putnbrll(long long int n, int i)
 {
-	unsigned long long int nb;
+	unsigned long long int	nb;
 
 	if (n < 0)
 	{
 		ft_putchar('-');
+		i++;
 		nb = -n;
 	}
 	else
 		nb = n;
 	if (nb >= 10)
 	{
-		ft_putnbrll(nb / 10);
+		i++;
+		i = ft_putnbrll(nb / 10 , i);
 		ft_putchar(nb % 10 + '0');
 	}
 	else
+	{
 		ft_putchar(nb + '0');
+		i++;
+	}
+	return (i);
 }

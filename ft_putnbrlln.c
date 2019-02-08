@@ -38,6 +38,7 @@ static int	ft_d_flags(t_flags *f)
 	int z;
 
 	g_ii == 1 || f->plus == 1 ? f->space = 0 : 0;
+	f->tchn < 0 ? f->tchn_t = 0 : 0;
 	f->tchn_t == 1 || f->min == 1 ? f->zr = 0 : 0;
 	z = f->tchn < g_i ? g_i : f->tchn;
 	(f->min == 1 && f->w < 0) ? f->w = -(f->w) : 0;
@@ -62,6 +63,7 @@ char		*ft_putnbrn(char *s, t_flags *f)
 	s = f->min != 1 ? ft_strjoinfree(tmp, s, 3) : ft_strjoinfree(s, tmp, 3);
 	(f->zr == 1 && g_ii == 1) ? s[0] = '-' : 0;
 	(f->plus == 1 && g_ii != 1 && f->tchn_t != 1 && (!f->w || f->zr == 1)) ? s[0] = '+' : 0;
+	(f->plus != 1 && f->min != 1 && f->space == 1) ? s[0] = ' ' : 0;
 	return (s);
 }
 

@@ -39,7 +39,7 @@ int	ft_nb_pass(char *s, int i)
 
 int	ft_width(char *s, t_flags *f, int i)
 {
-	f->w == 0 ? f->w = ft_atoi(&s[i]) : 0;
+	f->w = ft_atoi(&s[i]);
 	i = ft_nb_pass(s, i);
 	return (i);
 }

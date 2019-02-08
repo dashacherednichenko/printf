@@ -80,6 +80,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_binar.c">
+			<Option target="ft_printf"/>
+		</Unit>
 		<Unit filename="/Users/dpiven/CLionProjects/ft_printf/ft_declima.c">
 			<Option target="ft_printf"/>
 		</Unit>

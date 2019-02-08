@@ -12,12 +12,13 @@
 
 #include "printf.h"
 
-void	ft_putnbrf(unsigned long long n, long long int z)
+int	ft_putnbrf(unsigned long long n, long long int z)
 {
 	unsigned long long	nb;
 	char				*str;
 	int					i;
 	int					ii;
+	int 				x;
 
 	str = (char*)malloc(sizeof(char) * (z + 1));
 	str[z--] = '\0';
@@ -34,5 +35,7 @@ void	ft_putnbrf(unsigned long long n, long long int z)
 		z--;
 	}
 	ft_putstr(str);
+	x = ft_strlen(str);
 	free(str);
+	return(x);
 }

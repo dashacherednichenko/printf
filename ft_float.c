@@ -22,22 +22,23 @@ int	ft_float(va_list ar, t_flags *f)
 	i = 0;
 	if (f->mod && !ft_strcmp(f->mod, "L"))
 	{
-		ft_putnbrll(ld = va_arg(ar, long double));
+		i = ft_putnbrll(ld = va_arg(ar, long double), 0);
 		ft_putchar('.');
+		i++;
 		f->tchn == 0 ? f->tchn = 6 : 0;
 		g = ft_calcnbrost(f->tchn);
 		ld < 0 ? ld = -1 * ld : 0;
-		ft_putnbrf((unsigned long long)(ld * g), f->tchn);
+		i += ft_putnbrf((unsigned long long)(ld * g), f->tchn);
 	}
 	else
 	{
-		ft_putnbrll(a = va_arg(ar, double));
+		i = ft_putnbrll(a = va_arg(ar, double), 0);
 		ft_putchar('.');
+		i++;
 		f->tchn == 0 ? f->tchn = 6 : 0;
 		g = ft_calcnbrost(f->tchn);
 		a < 0 ? a = -1 * a : 0;
-//		printf("\nRRR%lld\n", (unsigned long long)(a * g));
-		ft_putnbrf((unsigned long long)(a * g), f->tchn);
+		i += ft_putnbrf((unsigned long long)(a * g), f->tchn);
 	}
 	return (i);
 }

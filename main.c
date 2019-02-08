@@ -11,7 +11,9 @@
 /* ************************************************************************** */
 
 #include "printf.h"
-# define FMT "[%5+d]\n", 42
+#include <limits.h>
+
+# define FMT "{%.*s}\n", -5, "42"
 //# define FMT "[test %90.10s TEST %00d]\n", "hello 12345", -42
 
 int	main(void)

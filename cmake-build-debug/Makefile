@@ -123,6 +123,33 @@ ft_printf/fast:
 	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/build
 .PHONY : ft_printf/fast
 
+ft_binar.o: ft_binar.c.o
+
+.PHONY : ft_binar.o
+
+# target to build an object file
+ft_binar.c.o:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_binar.c.o
+.PHONY : ft_binar.c.o
+
+ft_binar.i: ft_binar.c.i
+
+.PHONY : ft_binar.i
+
+# target to preprocess a source file
+ft_binar.c.i:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_binar.c.i
+.PHONY : ft_binar.c.i
+
+ft_binar.s: ft_binar.c.s
+
+.PHONY : ft_binar.s
+
+# target to generate assembly for a file
+ft_binar.c.s:
+	$(MAKE) -f CMakeFiles/ft_printf.dir/build.make CMakeFiles/ft_printf.dir/ft_binar.c.s
+.PHONY : ft_binar.c.s
+
 ft_declima.o: ft_declima.c.o
 
 .PHONY : ft_declima.o
@@ -2400,6 +2427,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... ft_printf"
+	@echo "... ft_binar.o"
+	@echo "... ft_binar.i"
+	@echo "... ft_binar.s"
 	@echo "... ft_declima.o"
 	@echo "... ft_declima.i"
 	@echo "... ft_declima.s"
