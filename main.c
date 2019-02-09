@@ -13,7 +13,7 @@
 #include "printf.h"
 #include <limits.h>
 
-# define FMT "% hZ%\n"
+# define FMT "{%-15Z}\n", 123
 //# define FMT "[test %90.10s TEST %00d]\n", "hello 12345", -42
 
 int	main(void)

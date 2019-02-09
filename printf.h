@@ -33,6 +33,7 @@ typedef struct		s_flags
 	int				tchn_t;
 	char			*mod;
 	char			type;
+	char 			non_v;
 }					t_flags;
 
 int					ft_printf(char *fmt, ...);

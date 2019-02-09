@@ -271,4 +271,7 @@ CMakeFiles/ft_printf.dir/libft/ft_toupper.c.o: ../libft/libft.h
 CMakeFiles/ft_printf.dir/libft/get_next_line.c.o: ../libft/get_next_line.c
 CMakeFiles/ft_printf.dir/libft/get_next_line.c.o: ../libft/libft.h
 
+CMakeFiles/ft_printf.dir/main.c.o: ../libft/libft.h
+CMakeFiles/ft_printf.dir/main.c.o: ../main.c
+CMakeFiles/ft_printf.dir/main.c.o: ../printf.h
 

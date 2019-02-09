@@ -28,16 +28,16 @@ int	ft_pars_type(va_list ar, t_flags *f, int i, char *s)
 	return (f->l);
 }
 
-int ft_valid_type(char *s, int i)
-{
-	while (s[i])
-	{
-		if (ft_strrchr("bcCsSpdDioOuUxXfF%", s[i]))
-			return (1);
-		i++;
-	}
-	return (0);
-}
+//int ft_valid_type(char *s, int i)
+//{
+//	while (s[i])
+//	{
+//		if (ft_strrchr("bcCsSpdDioOuUxXfF%", s[i]))
+//			return (1);
+//		i++;
+//	}
+//	return (0);
+//}
 
 int	ft_pars(va_list ar, t_flags *f, int i, char *s)
 {
@@ -45,61 +45,61 @@ int	ft_pars(va_list ar, t_flags *f, int i, char *s)
 	{
 		f = ft_obnul_fl(f);
 		s[i] != '%' && s[i] ? i = ft_print_txt(s, f, i) : 0;
-		s[i] == '%' ? i++ : i;
-		if (s[i - 1] == '%' && ft_valid_type(s , i) == 0)
+		if (s[i] == '%')
 		{
-			while (s[i])
-			{
-				if (ft_strrchr("bcCsSpdDioOuUxXfF%*-+ #0123456789.hlLzj", s[i]))
-					i++;
-				else
-				{
-					ft_putchar(s[i++]);
-					f->l++;
-					while (s[i])
-					{
-						ft_putchar(s[i++]);
-						f->l++;
-					}
+			i++;
+			while (!ft_strrchr("bcCsSpdDioOuUxXfF%", s[i]) && s[i]) {
+				s[i] == '-' ? f->min = 1 : 0;
+				s[i] == ' ' ? f->space = 1 : 0;
+				s[i] == '+' ? f->plus = 1 : 0;
+				s[i] == '#' ? f->resh = 1 : 0;
+				s[i] == '0' && !ft_isdigit(s[i - 1]) ? f->zr = 1 : 0;
+				if (s[i] == '*' && f->tchn_t != 1) {
+					f->w = va_arg(ar, int);
+					f->w < 0 ? f->min = 1 : 0;
 				}
+				s[i] > '0' && s[i] <= '9' ? i = ft_width(s, f, i) : 0;
+				s[i] == '.' ? i = ft_precision(s, f, i) : 0;
+				if (s[i - 1] == '.' && s[i] == '*' && f->tchn_t == 1)
+					f->tchn = va_arg(ar, int);
+				s[i] == '#' ? f->resh = 1 : 0;
+				if (s[i] == 'h' && !f->mod)
+				{
+					if (s[i + 1] == 'h')
+					{
+						f->mod = "hh";
+						i++;
+					}
+					else
+						f->mod = "h";
+				}
+				s[i] == 'z' ? f->mod = "z" : 0;
+				s[i] == 'j' ? f->mod = "j" : 0;
+				if (s[i] == 'l')
+				{
+					if (s[i + 1] == 'l')
+					{
+						f->mod = "ll";
+						i++;
+					}
+					else
+						f->mod = "l";
+				}
+				s[i] == 'L' ? f->mod = "L" : 0;
+				if (!ft_strrchr("*-+ #0123456789.hlLzj", s[i])) {
+					f->non_v = s[i];
+					break;
+				}
+				(!ft_strrchr("bcCsSpdDioOuUxXfF%", s[i]) && s[i]) ? i++ : 0;
 			}
-			return (f->l);
+			if (s[i])
+				ft_strrchr("bcCsSpdDioOuUxXfF%", s[i]) ? f->l = ft_pars_type(ar, f, i++, s) : 0;
+			if (f->non_v != 0)
+			{
+				f->l += ft_putcharn(f->non_v, f);
+				i++;
+			}
 		}
-		while (!ft_strrchr("bcCsSpdDioOuUxXfF%", s[i]) && s[i])
-		{
-			if (!ft_strrchr("*-+ #0123456789.hlLzj", s[i]))
-			{
-				break;
-			}
-			s[i] == '-' ? f->min = 1 : 0;
-			s[i] == ' ' ? f->space = 1 : 0;
-			s[i] == '+' ? f->plus = 1 : 0;
-			s[i] == '#' ? f->resh = 1 : 0;
-			s[i] == '0' && !ft_isdigit(s[i - 1]) ? f->zr = 1 : 0;
-			if (s[i] == '*' && f->tchn_t != 1)
-			{
-				f->w = va_arg(ar, int);
-				f->w < 0 ? f->min = 1 : 0;
-			}
-			s[i] > '0' && s[i] <= '9' ? i = ft_width(s, f, i) : 0;
-			s[i] == '.' ? i = ft_precision(s, f, i) : 0;
-			if (s[i - 1] == '.' && s[i] == '*'  && f->tchn_t == 1)
-			{
-				f->tchn = va_arg(ar, int);
-//				f->tchn < 0 ? f->min = 1 : 0;
-			}
-			s[i] == '#' ? f->resh = 1 : 0;
-			if (s[i] == 'h' && !f->mod)
-				f->mod = s[++i] == 'h' ? "hh" : "h";
-			s[i] == 'z' ? f->mod = "z" : 0;
-			s[i] == 'j' ? f->mod = "j" : 0;
-			if (s[i] == 'l')
-				f->mod = s[++i] == 'l' ? "ll" : "l";
-			s[i] == 'L' ? f->mod = "L" : 0;
-			(!ft_strrchr("bcCsSpdDioOuUxXfF%", s[i]) && s[i]) ? i++ : 0;
-		}
-		if (s[i])
-			ft_strrchr("bcCsSpdDioOuUxXfF%", s[i]) ? f->l = ft_pars_type(ar, f, i++, s) : 0;
 		s[i] != '%' && s[i] ? i = ft_print_txt(s, f, i) : 0;
 	}
 	return (f->l);
