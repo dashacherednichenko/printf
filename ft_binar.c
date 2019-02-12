@@ -36,7 +36,7 @@ int ft_bin(va_list ar, t_flags *f)
 	{
 		j = 80;
 //		d = va_arg(ar, float);
-		printf("\nHHH %f\n", d);
+//		printf("\nHHH %f\n", d);
 //		s = ft_uitoa_base((long double)d, 2);
 	}
 	ji = j;

@@ -28,8 +28,8 @@ int		ft_ptrtype(long long int d, t_flags *fl)
 	char	*tmp;
 	char	*tmp2;
 
-	if (d == 0 && fl->tchn_t == 1 && fl->tchn == 0  && fl->w == 0)
-		return (ft_putstrn("0x", ft_obnul_fl(fl)));
+	if (d == 0 && fl->tchn_t == 1 && fl->tchn == 0 && fl->w == 0)
+		return (ft_putstrn("0x", ft_obnul_fl(fl), 0));
 	tmp = ft_strlowcase(ft_itoa_base(d, 16));
 	if (fl->tchn > (i = ft_strlen(tmp)))
 	{
@@ -50,7 +50,7 @@ int		ft_ptrtype(long long int d, t_flags *fl)
 	}
 	fl->tchn = 0;
 	fl->tchn_t = 0;
-	i = ft_putstrn(tmp, fl);
+	i = ft_putstrn(tmp, fl, 0);
 	free(tmp);
 	return (i);
 }

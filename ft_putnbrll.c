@@ -27,7 +27,7 @@ int	ft_putnbrll(long long int n, int i)
 	if (nb >= 10)
 	{
 		i++;
-		i = ft_putnbrll(nb / 10 , i);
+		i = ft_putnbrll(nb / 10, i);
 		ft_putchar(nb % 10 + '0');
 	}
 	else

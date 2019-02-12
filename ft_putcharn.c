@@ -12,9 +12,8 @@
 
 #include "printf.h"
 
-int	ft_putcharn(char c, t_flags *f)
+int	ft_putcharn(char c, t_flags *f, int i)
 {
-	int i;
 	int w;
 	int z;
 

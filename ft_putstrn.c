@@ -23,16 +23,14 @@ int			ft_printnbr(char *s)
 	return (z);
 }
 
-int			ft_putstrn(char *str, t_flags *f)
+int			ft_putstrn(char *str, t_flags *f, int i)
 {
 	char	*newstr;
-	int		i;
 	int		t;
 	int		w;
 
-//	f->type == 'S' ? f->mod = "l" : 0;
+	f->tp == 'S' ? f->mod = "l" : 0;
 	!str ? str = "(null)" : 0;
-	i = 0;
 	t = ft_strlen(str);
 	if (f->tchn == 0 && f->w == 0 && f->tchn_t == 1)
 		return (i);
@@ -41,7 +39,6 @@ int			ft_putstrn(char *str, t_flags *f)
 	w = f->w < 0 ? f->w : 0;
 	((!f->w || f->w < f->tchn) && f->tchn < t) ? f->w = f->tchn : 0;
 	(!f->w || (f->w < t && (f->tchn > t || !f->tchn_t))) ? f->w = t : 0;
-	//f->tchn_t == 1 && f->tchn == 0 ? f->w = 0 : 0;
 	newstr = ft_memalloc((f->w--) + 1);
 	(!f->tchn_t || f->tchn >= t) ? f->tchn = t : 0;
 	while (str[i] && i < f->tchn)

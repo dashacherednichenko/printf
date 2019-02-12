@@ -19,7 +19,6 @@ long long int		ft_calcnbrost(long long int i)
 	g = 10;
 	while (i-- > 0)
 		g = g * 10;
-//	printf("GGG %d\n", g);
 	return (g);
 }
 
@@ -33,6 +32,5 @@ int					ft_calc_nbr(long long int d)
 		d = d / 10;
 		i++;
 	}
-//	printf("i-1111 %d\n",i);
 	return (i);
 }
