@@ -43,56 +43,29 @@ char		*ft_pars_color(char *ns, int i)
 	while (ns[i])
 	{
 		if (!ft_strncmp(&ns[i], "C_of", 4))
-		{
-			ns = ft_colorcpy(ns, "\033[0m", i);
-			i = i + 4;
-		}
+			ns = ft_colorcpy(ns, "\033[0m", i++);
 		else if (!ft_strncmp(&ns[i], "C_BLC", 5))
-		{
-			ns = ft_colorcpy(ns, "\033[30m", i);
-			i = i + 5;
-		}
+			ns = ft_colorcpy(ns, "\033[30m", i++);
 		else if (!ft_strncmp(&ns[i], "C_RED", 5))
-		{
-			ns = ft_colorcpy(ns, "\033[31m", i);
-			i = i + 5;
-		}
+			ns = ft_colorcpy(ns, "\033[31m", i++);
 		else if (!ft_strncmp(&ns[i], "C_GRN", 5))
-		{
-			ns = ft_colorcpy(ns, "\033[32m", i);
-			i = i + 5;
-		}
+			ns = ft_colorcpy(ns, "\033[32m", i++);
 		else if (!ft_strncmp(&ns[i], "C_YLL", 5))
-		{
-			ns = ft_colorcpy(ns, "\033[33m", i);
-			i = i + 5;
-		}
+			ns = ft_colorcpy(ns, "\033[33m", i++);
 		else if (!ft_strncmp(&ns[i], "C_BLU", 5))
-		{
-			ns = ft_colorcpy(ns, "\033[34m", i);
-			i = i + 5;
-		}
+			ns = ft_colorcpy(ns, "\033[34m", i++);
 		else if (!ft_strncmp(&ns[i], "C_PUR", 5))
-		{
-			ns = ft_colorcpy(ns, "\033[35m", i);
-			i = i + 5;
-		}
+			ns = ft_colorcpy(ns, "\033[35m", i++);
 		else if (!ft_strncmp(&ns[i], "C_CYA", 5))
-		{
-			ns = ft_colorcpy(ns, "\033[36m", i);
-			i = i + 5;
-		}
+			ns = ft_colorcpy(ns, "\033[36m", i++);
 		else if (!ft_strncmp(&ns[i], "C_WHT", 5))
-		{
-			ns = ft_colorcpy(ns, "\033[37m", i);
-			i = i + 5;
-		}
+			ns = ft_colorcpy(ns, "\033[37m", i++);
 		i++;
 	}
 	return (ns);
 }
 
-int		ft_color_printf(char *fmt, ...)
+int			ft_color_printf(char *fmt, ...)
 {
 	int					i;
 	char				*s;
