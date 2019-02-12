@@ -19,11 +19,11 @@ int ft_bin(va_list ar, t_flags *f)
 	int 			j;
 	int 			ji;
 	char			*s;
-	long long int	d;
+	double	d;
 	char 			*tmp;
 
 	j = 32;
-	d = va_arg(ar, long long int);
+	d = va_arg(ar, double);
 	if (f->mod && !ft_strcmp(f->mod, "h"))
 		j = 16;
 	else if (f->mod && !ft_strcmp(f->mod, "hh"))
@@ -35,7 +35,8 @@ int ft_bin(va_list ar, t_flags *f)
 	else if (f->mod && !ft_strcmp(f->mod, "L"))
 	{
 		j = 80;
-		d = va_arg(ar, long double);
+//		d = va_arg(ar, float);
+		printf("\nHHH %f\n", d);
 //		s = ft_uitoa_base((long double)d, 2);
 	}
 	ji = j;

@@ -29,8 +29,18 @@ int	ft_putnbrf(unsigned long long n, long long int z)
 	while (z >= 0)
 	{
 		str[z] = nb % 10 + '0';
-		if (ii++ == 0 && i >= 5)
+		if (ii == 0 && i >= 5 && i < 9)
+		{
 			str[z] = nb % 10 + 1 + '0';
+			ii++;
+		}
+//		else if (ii == 0 && i == 9)
+//		{
+//			str[z--] = '0';
+//			nb = nb / 10;
+//			nb % 10 != 9 ? str[z] = nb % 10 + 1 + '0' : '0';
+//			ii++;
+//		}
 		nb = nb / 10;
 		z--;
 	}

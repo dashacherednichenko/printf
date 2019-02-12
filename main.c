@@ -13,18 +13,17 @@
 #include "printf.h"
 #include <limits.h>
 
-# define FMT "C_BLU{%-15dC_YLL %s}C_of\n", 123, "some str"
-//# define FMT "[test %90.10s TEST %00d]\n", "hello 12345", -423
-
+//# define FMT "C_BLU{%-15dC_YLL %s}C_of\n", 123, "some str"
+# define FMT "{%f}{%F}\n", 1444565444646.6465424242242, 1444565444646.6465424242242
 int	main(void)
 {
 	int res;
 	int res1;
-//	ft_putnbr(res = printf(FMT));
-//	ft_putchar('\n');
-    ft_putnbr(res = printf("\033[34m{%-15d\033[33m %s}\033[0m\n", 123, "some str"));
+	ft_putnbr(res = printf(FMT));
 	ft_putchar('\n');
-	ft_putnbr(res1 = ft_color_printf(FMT));
+//    ft_putnbr(res = printf("\033[34m{%-15d\033[33m %s}\033[0m\n", 123, "some str"));
+//	ft_putchar('\n');
+	ft_putnbr(res1 = ft_printf(FMT));
 	ft_putchar('\n');
 //	printf("hello\n");
 //	ft_printf("hello\n");

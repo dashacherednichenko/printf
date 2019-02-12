@@ -113,6 +113,8 @@ int			ft_hex(long long int d, t_flags *f)
 		s = ft_uitoa_base((unsigned int)d, 16);
 	else if ((d < 0 && f->mod && !ft_strcmp(f->mod, "j")) || (f->mod && !ft_strcmp(f->mod, "ll")) || (f->mod && !ft_strcmp(f->mod, "l")))
 		s = ft_uitoa_base((unsigned long long int)d, 16);
+	else if (f->mod && !ft_strcmp(f->mod, "z"))
+		s = ft_uitoa_base(d, 16);
 	else
 		s = ft_itoa_base(d, 16);
 	(f->tchn_t == 1 && !f->tchn && d == 0 && f->w) ? s[0] = ' ' : 0;
