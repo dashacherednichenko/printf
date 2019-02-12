@@ -1,4 +1,4 @@
-# Install script for directory: /Users/dashacherednichenko/Desktop/git_0802
+# Install script for directory: /Users/dpiven/Desktop/printf
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/dashacherednichenko/Desktop/git_0802/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/dpiven/Desktop/printf/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

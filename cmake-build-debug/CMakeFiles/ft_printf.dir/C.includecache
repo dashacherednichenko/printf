@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/Users/dashacherednichenko/Desktop/git_0802/ft_printf.c
+/Users/dpiven/Desktop/printf/ft_printf.c
 printf.h
-/Users/dashacherednichenko/Desktop/git_0802/printf.h
+/Users/dpiven/Desktop/printf/printf.h
 
-/Users/dashacherednichenko/Desktop/git_0802/libft/libft.h
+/Users/dpiven/Desktop/printf/libft/libft.h
 fcntl.h
 -
 string.h
@@ -20,7 +20,7 @@ unistd.h
 stdlib.h
 -
 
-/Users/dashacherednichenko/Desktop/git_0802/printf.h
+/Users/dpiven/Desktop/printf/printf.h
 stdio.h
 -
 unistd.h
@@ -30,5 +30,5 @@ stdlib.h
 stdarg.h
 -
 libft/libft.h
-/Users/dashacherednichenko/Desktop/git_0802/libft/libft.h
+/Users/dpiven/Desktop/printf/libft/libft.h
 
