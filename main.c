@@ -13,8 +13,8 @@
 #include "printf.h"
 #include <limits.h>
 
-# define FMT "{%-15Z}\n", 123
-//# define FMT "[test %90.10s TEST %00d]\n", "hello 12345", -42
+# define FMT "{C_blue}{%-15d}\n", 123
+//# define FMT "[test %90.10s TEST %00d]\n", "hello 12345", -423
 
 int	main(void)
 {
@@ -22,7 +22,7 @@ int	main(void)
 	int res1;
 	ft_putnbr(res = printf(FMT));
 	ft_putchar('\n');
-	ft_putnbr(res1 = ft_printf(FMT));
+	ft_putnbr(res1 = ft_color_printf(FMT));
 	ft_putchar('\n');
 //	printf("hello\n");
 //	ft_printf("hello\n");

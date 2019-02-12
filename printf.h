@@ -37,6 +37,7 @@ typedef struct		s_flags
 }					t_flags;
 
 int					ft_printf(char *fmt, ...);
+int					ft_color_printf(char *fmt, ...);
 int					ft_nb_pass(char *s, int i);
 int					ft_print_txt(char *s, t_flags *f, int i);
 int					ft_printnbr(char *s);
