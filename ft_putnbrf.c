@@ -21,7 +21,7 @@ int	ft_putnbrf(va_list ar, t_flags *f)
 	int 				t;
 	long double			ld;
 	long long int		g;
-	unsigned long long	n;
+	long double	n;
 	int					z;
 	int					minus;
 
@@ -32,9 +32,11 @@ int	ft_putnbrf(va_list ar, t_flags *f)
 //	printf("MINUS %d\n", minus);
 	minus = ((*(((char*)&ld) + 9)) >> 7) ? 1 : 0;
 	ld < 0 ? ld = -1 * ld : 0;
-	n = (unsigned long long)(ld * g);
+//	n = (unsigned long long)(ld * g);
+	n = ((double)ld - (long long)ld);
+//	printf("MINUS %Lf\n", n);
 	str = ft_memalloc(z-- + 1);
-	nb = n;
+	nb = (unsigned long long)(n * g);
 	x = nb % 10 == 9 ? 1 : 0;
 	nb = nb / 10;
 	while (z >= 0)

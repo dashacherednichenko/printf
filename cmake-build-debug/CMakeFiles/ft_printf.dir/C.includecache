@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/dashacherednichenko/Desktop/git_1302/ft_putnbrf.c
-printf.h
-/Users/dashacherednichenko/Desktop/git_1302/printf.h
-
 /Users/dashacherednichenko/Desktop/git_1302/libft/libft.h
 fcntl.h
 -
@@ -18,6 +14,12 @@ string.h
 unistd.h
 -
 stdlib.h
+-
+
+/Users/dashacherednichenko/Desktop/git_1302/main.c
+printf.h
+/Users/dashacherednichenko/Desktop/git_1302/printf.h
+limits.h
 -
 
 /Users/dashacherednichenko/Desktop/git_1302/printf.h
