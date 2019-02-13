@@ -84,6 +84,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ft_printf.dir/ft_percent.c.o"
   "CMakeFiles/ft_printf.dir/ft_uitoa_base.c.o"
   "CMakeFiles/ft_printf.dir/ft_binar.c.o"
+  "CMakeFiles/ft_printf.dir/ft_itoa_baseld.c.o"
   "ft_printf.pdb"
   "ft_printf"
 )

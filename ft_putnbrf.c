@@ -20,23 +20,17 @@ int	ft_putnbrf(va_list ar, t_flags *f)
 	int 				x;
 	int 				t;
 	long double			ld;
-	long double			r;
 	long long int		g;
 	unsigned long long	n;
 	int					z;
 	int					minus;
 
-	r = va_arg(ar, long double);
 	ld = va_arg(ar, double);
 	z = f->tchn == 0 ? 6 : f->tchn;
 	g = ft_calcnbrost(z);
-//	printf("MINUS %d\n", minus);
-//	if (r < 0.0l)
-//		r *= -1.0l;
 	minus  = ld < 0.0l ? 1 : 0;
 //	printf("MINUS %d\n", minus);
-//	if (f->type == 'F')
-//		minus = ((*(((char*)&r) + 9)) >> 7) ? 1 : 0;
+	minus = ((*(((char*)&ld) + 9)) >> 7) ? 1 : 0;
 	ld < 0 ? ld = -1 * ld : 0;
 	n = (unsigned long long)(ld * g);
 	str = ft_memalloc(z-- + 1);
@@ -64,7 +58,7 @@ int	ft_putnbrf(va_list ar, t_flags *f)
 		z--;
 	}
 	x == 1 ? ld = ld + 1 : 0;
-	s1 = ft_itoa_base(ld, 10);
+	s1 = ft_itoa_baseld(ld, 10);
 	if (minus == 1)
 		s1 = ft_strjoinfree("-", s1, 2);
 	if (f->tchn_t == 1 && f->tchn == 0)

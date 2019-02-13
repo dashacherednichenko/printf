@@ -17,6 +17,10 @@ CMakeFiles/ft_printf.dir/ft_float.c.o: ../ft_float.c
 CMakeFiles/ft_printf.dir/ft_float.c.o: ../libft/libft.h
 CMakeFiles/ft_printf.dir/ft_float.c.o: ../printf.h
 
+CMakeFiles/ft_printf.dir/ft_itoa_baseld.c.o: ../ft_itoa_baseld.c
+CMakeFiles/ft_printf.dir/ft_itoa_baseld.c.o: ../libft/libft.h
+CMakeFiles/ft_printf.dir/ft_itoa_baseld.c.o: ../printf.h
+
 CMakeFiles/ft_printf.dir/ft_obnul_flags.c.o: ../ft_obnul_flags.c
 CMakeFiles/ft_printf.dir/ft_obnul_flags.c.o: ../libft/libft.h
 CMakeFiles/ft_printf.dir/ft_obnul_flags.c.o: ../printf.h

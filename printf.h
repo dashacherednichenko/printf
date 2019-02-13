@@ -63,6 +63,7 @@ int					ft_float(va_list ar, t_flags *f);
 char				*ft_strjoinfree(char const *s1, char const *s2, int n);
 char				*ft_strtemp(int x, int i, char c);
 char				*ft_uitoa_base(unsigned long long int value, int base);
+char				*ft_itoa_baseld(long double value, int base);
 t_flags				*ft_obnul_fl(t_flags *flags);
 
 #endif
