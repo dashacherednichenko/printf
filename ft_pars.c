@@ -39,10 +39,15 @@ int			ft_pars_tp(va_list ar, t_flags *f, int i, char *s)
 
 static int	ft_flag_h(t_flags *f, int i, char *s, char c)
 {
+	if (f->mod && (!ft_strcmp(f->mod, "z") || !ft_strcmp(f->mod, "j")))
+		return (i);
 	if (s[i + 1] == c)
 	{
-		f->mod = c == 'h' ? "hh" : "ll";
-		i++;
+		if (!f->mod || (!ft_strcmp(f->mod, "h") && !ft_strcmp(f->mod, "l")))
+		{
+			f->mod = c == 'h' ? "hh" : "ll";
+			i++;
+		}
 	}
 	else
 		f->mod = c == 'h' ? "h" : "l";
@@ -81,7 +86,7 @@ int			ft_pars_flag(va_list ar, t_flags *f, int i, char *s)
 	s[i] == '#' ? f->resh = 1 : 0;
 	s[i] == 'z' ? f->mod = "z" : 0;
 	s[i] == 'j' ? f->mod = "j" : 0;
-	if (s[i] == 'h' && !f->mod)
+	if (s[i] == 'h')
 		i = ft_flag_h(f, i, s, 'h');
 	if (s[i] == 'l')
 		i = ft_flag_h(f, i, s, 'l');
