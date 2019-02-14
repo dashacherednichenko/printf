@@ -12,7 +12,7 @@
 
 #include "printf.h"
 
-long long int		ft_calcnbrost(long long int i)
+long long int		ft_calcfost(long long int i)
 {
 	int g;
 

@@ -68,7 +68,7 @@ char		*ft_putnbrn(char *s, t_flags *f)
 	return (s);
 }
 
-int			ft_putnbrlln(long long int n, t_flags *f)
+int			ft_putnbrlln(long long int n, t_flags *f, int fd)
 {
 	char	*s;
 	int		z;
@@ -82,7 +82,7 @@ int			ft_putnbrlln(long long int n, t_flags *f)
 	g_ii == 1 ? n = -n : 0;
 	g_i = ft_calc_nbr(n);
 	z = ft_d_flags(f);
-	if (f->tchn_t == 1 && !f->tchn && n == 0 && !f->w)
+	if (f->tchn_t == 1 && !f->tchn && n == 0 && !f->w && f->space != 1)
 		return (0);
 	s = ft_memalloc(1 + z--);
 	while (n >= 10)
@@ -90,9 +90,9 @@ int			ft_putnbrlln(long long int n, t_flags *f)
 		s[z--] = (n % 10 + '0');
 		n = n / 10;
 	}
-	s[z--] = (f->tchn_t == 1 && !f->tchn && n == 0 && f->w) ? ' ' : n + '0';
+	s[z--] = (f->tchn_t == 1 && !f->tchn && n == 0 && f->w ) ? ' ' : n + '0';
 	(g_ii != 1 && f->plus != 1 && f->space != 1) ? s = ft_putzero_s(s, z) : 0;
 	(g_ii == 1 || f->plus == 1 || f->space == 1) ? s = ft_putzr_sg(s, z, f) : 0;
 	(f->w > f->tchn && f->w > g_i) ? s = ft_putnbrn(s, f) : 0;
-	return (ft_printnbr(s));
+	return (ft_printnbr(s, fd));
 }

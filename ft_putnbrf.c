@@ -12,67 +12,93 @@
 
 #include "printf.h"
 
-int	ft_putnbrf(va_list ar, t_flags *f)
-{
-	unsigned long long	nb;
-	char				*str;
-	char				*s1;
-	int 				x;
-	int 				t;
-	long double			ld;
-	long long int		g;
-	long double	n;
-	int					z;
-	int					minus;
+int g_x = 0;
+int g_f = 0;
 
-	ld = va_arg(ar, double);
-	z = f->tchn == 0 ? 6 : f->tchn;
-	g = ft_calcnbrost(z);
-	minus  = ld < 0.0l ? 1 : 0;
-//	printf("MINUS %d\n", minus);
-	minus = ((*(((char*)&ld) + 9)) >> 7) ? 1 : 0;
-	ld < 0 ? ld = -1 * ld : 0;
-//	n = (unsigned long long)(ld * g);
-	n = ((double)ld - (long long)ld);
-//	printf("MINUS %Lf\n", n);
-	str = ft_memalloc(z-- + 1);
-	nb = (unsigned long long)(n * g);
-	x = nb % 10 == 9 ? 1 : 0;
-	nb = nb / 10;
+static char	*ft_ost(char *str, unsigned long long nb, int z)
+{
 	while (z >= 0)
 	{
-		if (x == 1 && nb % 10 >= 5 && nb % 10 < 9)
+		if (g_x == 1 && nb % 10 >= 5 && nb % 10 < 9)
 		{
 			str[z] = nb % 10 + 1 + '0';
-			x = 0;
+			g_x = 0;
 		}
-		else if (x == 1 && nb % 10 == 9)
+		else if (g_x == 1 && nb % 10 == 9)
 		{
 			str[z] = '0';
-			x = 1;
+			g_x = 1;
 		}
 		else
 		{
-			str[z] = nb % 10 + x + '0';
-			x = 0;
+			str[z] = nb % 10 + g_x + '0';
+			g_x = 0;
 		}
 		nb = nb / 10;
 		z--;
 	}
-	x == 1 ? ld = ld + 1 : 0;
-	s1 = ft_itoa_baseld(ld, 10);
-	if (minus == 1)
-		s1 = ft_strjoinfree("-", s1, 2);
-	if (f->tchn_t == 1 && f->tchn == 0)
+	return (str);
+}
+
+static int	ft_addost_f(char *str, char *s1, t_flags *f, int minus)
+{
+	int t;
+
+	minus == 1 ? s1 = ft_strjoinfree("-", s1, 2) : 0;
+	if (f->tchn_t == 1 && f->tchn == 0 && f->resh != 1)
 		free(str);
 	else
 	{
 		s1 = ft_strjoinfree(s1, ".", 1);
 		s1 = ft_strjoinfree(s1, str, 3);
 	}
-	f->tchn_t = 0;
-	f->tchn = 0;
-	t = ft_putstrn(s1, f, 0);
+	t = ft_puts_n(s1, ft_nultchn(f), minus, g_f);
 	free(s1);
 	return (t);
+}
+
+static char *ft_nan(long double ld, t_flags *f)
+{
+	if (ld != ld)
+	{
+		f->plus = 0;
+		f->space = 0;
+		f->zr = 0;
+		return (ft_strdup("nan"));
+	}
+	else if (ld * 2 == ld && ld != 0)
+	{
+		f->plus = 0;
+		f->space = 0;
+		f->zr = 0;
+		return (ld < 0.0 ? ft_strdup("-inf") : ft_strdup("inf"));
+	}
+	return (0);
+}
+
+int			ft_putnbrf(va_list ar, t_flags *f, int z, int fd)
+{
+	unsigned long long	nb;
+	char				*s1;
+	long double			ld;
+	int					minus;
+	char				*str;
+
+	g_f = fd;
+	ld = va_arg(ar, double);
+	if (ft_nan(ld, f) != 0)
+		return (ft_puts_n(ft_nan(ld, f), f, 0, fd));
+	minus = ((*(((char*)&ld) + 9)) >> 7) ? 1 : 0;
+	ld < 0 ? ld = -1 * ld : 0;
+	str = ft_memalloc(z + 1);
+	nb = (unsigned long long)(((double)ld - (long long)ld) * ft_calcfost(z--));
+	g_x = nb % 10 >= 5 ? 1 : 0;
+	nb = nb / 10;
+	str = ft_ost(str, nb, z);
+	g_x == 1 ? ld = ld + 1 : 0;
+	s1 = ft_itoa_baseld(ld, 10);
+	if (f->plus == 1 || f->space == 1)
+		s1 = f->plus == 1 ?\
+			ft_strjoinfree("+", s1, 2) : ft_strjoinfree(" ", s1, 2);
+	return (ft_addost_f(str, s1, f, minus));
 }

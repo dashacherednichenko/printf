@@ -12,6 +12,13 @@
 
 #include "printf.h"
 
+t_flags	*ft_nultchn(t_flags *f)
+{
+	f->tchn = 0;
+	f->tchn_t = 0;
+	return (f);
+}
+
 char	*ft_strtemp(int x, int i, char c)
 {
 	char *tmp2;
@@ -22,35 +29,23 @@ char	*ft_strtemp(int x, int i, char c)
 	return (tmp2);
 }
 
-int		ft_ptrtype(long long int d, t_flags *fl)
+int		ft_ptrtype(long long int d, t_flags *fl, int fd)
 {
 	int		i;
 	char	*tmp;
-	char	*tmp2;
 
 	if (d == 0 && fl->tchn_t == 1 && fl->tchn == 0 && fl->w == 0)
-		return (ft_putstrn("0x", ft_obnul_fl(fl), 0));
+		return (ft_puts_n("0x", ft_obnul_fl(fl), 0, fd));
 	tmp = ft_strlowcase(ft_itoa_base(d, 16));
 	if (fl->tchn > (i = ft_strlen(tmp)))
-	{
-		tmp2 = ft_strtemp(fl->tchn, i, '0');
-		tmp = ft_strjoinfree(tmp2, tmp, 3);
-	}
+		tmp = ft_strjoinfree(ft_strtemp(fl->tchn, i, '0'), tmp, 3);
 	if (fl->zr == 1 && !fl->tchn_t && fl->w > i + 2)
-	{
-		tmp2 = ft_strtemp(fl->w, i + 2, '0');
-		tmp = ft_strjoinfree(tmp2, tmp, 3);
-	}
+		tmp = ft_strjoinfree(ft_strtemp(fl->w, i + 2, '0'), tmp, 3);
 	tmp = ft_strjoinfree("0x", tmp, 2);
 	i = ft_strlen(tmp);
 	if (fl->w > i)
-	{
-		tmp2 = ft_strtemp(fl->w, i, ' ');
-		tmp = ft_strjoinfree(tmp2, tmp, 3);
-	}
-	fl->tchn = 0;
-	fl->tchn_t = 0;
-	i = ft_putstrn(tmp, fl, 0);
+		tmp = ft_strjoinfree(ft_strtemp(fl->w, i, ' '), tmp, 3);
+	i = ft_puts_n(tmp, ft_nultchn(fl), 0, fd);
 	free(tmp);
 	return (i);
 }

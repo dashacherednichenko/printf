@@ -12,18 +12,16 @@
 
 #include "printf.h"
 
-int ft_bin(va_list ar, t_flags *f)
+int ft_bin(va_list ar, t_flags *f, int j, int fd)
 {
 	int				i;
 	int				ii;
-	int 			j;
 	int 			ji;
 	char			*s;
-	double	d;
+	long long int	d;
 	char 			*tmp;
 
-	j = 32;
-	d = va_arg(ar, double);
+	d = va_arg(ar, long long int);
 	if (f->mod && !ft_strcmp(f->mod, "h"))
 		j = 16;
 	else if (f->mod && !ft_strcmp(f->mod, "hh"))
@@ -33,27 +31,18 @@ int ft_bin(va_list ar, t_flags *f)
 	else if (f->mod && !ft_strcmp(f->mod, "ll"))
 		j = 64;
 	else if (f->mod && !ft_strcmp(f->mod, "L"))
-	{
 		j = 80;
-//		d = va_arg(ar, float);
-//		printf("\nHHH %f\n", d);
-//		s = ft_uitoa_base((long double)d, 2);
-	}
 	ji = j;
-
 	tmp = ft_memalloc(j-- + 1);
 	s = ft_uitoa_base(d, 2);
 	i = ft_strlen(s);
-	ii = i - 1;
-	if (f->plus == 1)
-		f->zr = 1;
+	f->plus == 1 ? f->zr = 1 : 0;
 	if (f->zr == 1)
 	{
 		while (j >= 0)
 			tmp[j--] = '0';
-		ji--;
-		while (ii >= 0)
-			tmp[ji--] = s[ii--];
+		while (i >= 0)
+			tmp[ji--] = s[i--];
 		free(s);
 		s = tmp;
 	}
@@ -61,15 +50,15 @@ int ft_bin(va_list ar, t_flags *f)
 	ii = 0;
 	while (s[ii])
 	{
-		ft_putchar(s[ii++]);
+		ft_putchar_fd(s[ii++], fd);
 		if (f->plus == 1 && ii % 8 == 0 && s[ii])
 		{
-			ft_putchar(' ');
+			ft_putchar_fd(' ', fd);
 			i++;
 		}
 		i++;
 	}
 	free(s);
-//	free(tmp);
+	free(tmp);
 	return (i);
 };

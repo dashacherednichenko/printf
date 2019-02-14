@@ -12,42 +12,70 @@
 
 #include "printf.h"
 
-int			ft_printnbr(char *s)
+int g_d = 0;
+
+static int	ft_addzr_str(t_flags *f, char *ns, int min, int i)
+{
+	if (f->zr == 1 && min == 1 && f->w >= 0 && f->tp != 's' && f->tp != 'S')
+	{
+		ns[f->w + 1] = '0';
+		while (f->w >= 0 && i++ >= 0)
+			ns[f->w--] = (f->zr == 1 ? '0' : ' ');
+		ns[0] = '-';
+	}
+	else if (((f->zr == 1 && f->plus == 1 && f->w >= 0)\
+		|| (f->zr == 1 && f->space == 1 && f->w >= 0))\
+		&& f->tp != 's' && f->tp != 'S')
+	{
+		ns[f->w + 1] = '0';
+		while (f->w >= 0 && i++ >= 0)
+			ns[f->w--] = (f->zr == 1 ? '0' : ' ');
+		ns[0] = f->plus == 1 ? '+' : ' ';
+	}
+	else
+		while (f->w >= 0 && i++ >= 0)
+			ns[f->w--] = (f->zr == 1 ? '0' : ' ');
+	ft_putstr_fd(ns, g_d);
+	free(ns);
+	return (i);
+}
+
+int			ft_printnbr(char *s, int fd)
 {
 	int z;
 
 	z = 0;
 	while (s[z])
-		ft_putchar(s[z++]);
+		ft_putchar_fd(s[z++], fd);
 	free(s);
 	return (z);
 }
 
-int			ft_putstrn(char *str, t_flags *f, int i)
+int			ft_puts_n(char *str, t_flags *f, int min, int fd)
 {
-	char	*newstr;
+	char	*ns;
 	int		t;
 	int		w;
+	int		i;
 
+	i = 0;
+	g_d = fd;
 	f->tp == 'S' ? f->mod = "l" : 0;
 	!str ? str = "(null)" : 0;
 	t = ft_strlen(str);
 	if (f->tchn == 0 && f->w == 0 && f->tchn_t == 1)
 		return (i);
-	(f->tchn < 0) ? f->tchn = t : 0;
+	(f->tchn < 0 && -f->tchn >= t) ? f->tchn = t : 0;
 	(f->min == 1 && f->w >= 0) ? f->w = -f->w : 0;
 	w = f->w < 0 ? f->w : 0;
 	((!f->w || f->w < f->tchn) && f->tchn < t) ? f->w = f->tchn : 0;
 	(!f->w || (f->w < t && (f->tchn > t || !f->tchn_t))) ? f->w = t : 0;
-	newstr = ft_memalloc((f->w--) + 1);
+	ns = ft_memalloc((f->w--) + 1);
 	(!f->tchn_t || f->tchn >= t) ? f->tchn = t : 0;
 	while (str[i] && i < f->tchn)
-		newstr[f->w--] = str[(t - (t + 1 - f->tchn)) - i++];
-	while (f->w >= 0 && i++ >= 0)
-		newstr[f->w--] = (f->zr == 1 ? '0' : ' ');
-	ft_putstr(newstr);
+		ns[f->w--] = str[(t - (t + 1 - f->tchn)) - i++];
+	i = ft_addzr_str(f, ns, min, i);
 	while ((w + i++) < 0)
-		ft_putchar(' ');
-	free(newstr);
+		ft_putchar_fd(' ', fd);
 	return (i - 1);
 }

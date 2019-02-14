@@ -12,12 +12,12 @@
 
 #include "printf.h"
 
-int	ft_percent(char c, t_flags *f)
+int	ft_percent(char c, t_flags *f, int fd)
 {
 	int i;
 
 	if (f->percent != -1)
-		i = ft_putcharn(c, f, 0);
+		i = ft_putcharn(c, f, 0, fd);
 	else
 		i = 0;
 	return (i);

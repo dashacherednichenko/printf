@@ -12,7 +12,7 @@
 
 #include "printf.h"
 
-int	ft_putcharn(char c, t_flags *f, int i)
+int	ft_putcharn(char c, t_flags *f, int i, int fd)
 {
 	int w;
 	int z;
@@ -23,13 +23,13 @@ int	ft_putcharn(char c, t_flags *f, int i)
 	z = f->zr;
 	while (i < f->w)
 	{
-		z == 1 ? ft_putchar('0') : ft_putchar(' ');
+		z == 1 ? ft_putchar_fd('0', fd) : ft_putchar_fd(' ', fd);
 		i++;
 	}
-	ft_putchar(c);
+	ft_putchar_fd(c, fd);
 	while (w + i < 0)
 	{
-		ft_putchar(' ');
+		ft_putchar_fd(' ', fd);
 		i++;
 	}
 	return (i);

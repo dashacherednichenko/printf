@@ -12,10 +12,11 @@
 
 #include "printf.h"
 
-int	ft_d(va_list ar, t_flags *f)
+int	ft_d(va_list ar, t_flags *f, int fd)
 {
 	int				i;
 	long long int	d;
+	char *s;
 
 	d = va_arg(ar, long long int);
 	if ((unsigned long long)d == 9223372036854775808U)
@@ -23,6 +24,18 @@ int	ft_d(va_list ar, t_flags *f)
 		ft_putstr("-9223372036854775808");
 		return (ft_strlen("-9223372036854775808"));
 	}
-	i = ft_putnbrlln(d, f);
+	if (f->w == 0 && f->tchn_t == 1 && f->tchn == 0 && f->space == 1 && d == 0)
+	{
+		s = ft_memalloc(2);
+		s[0] = ' ';
+		return (ft_printnbr(s, fd));
+	}
+	if (f->w == 0 && f->tchn_t == 1 && f->tchn == 0 && f->plus == 1 && d == 0)
+	{
+		s = ft_memalloc(2);
+		s[0] = '+';
+		return (ft_printnbr(s, fd));
+	}
+	i = ft_putnbrlln(d, f, fd);
 	return (i);
 }

@@ -14,19 +14,26 @@
 #include <limits.h>
 
 //# define FMT "C_BLU{%-15dC_YLL %s}C_of\n", 123, "some str"
-# define FMT "{%.5f}{%F}\n", -1444565444646.123457, -0.0
+# define FMT "{%.-1s}\n", "4iii2"
 
 int	main(void)
 {
 	int res;
 	int res1;
+	int fd;
+
+	fd = 1;
+//	fd = open("test.txt", O_WRONLY);
+//	if (fd == -1)
+//		return (0);
 	ft_putnbr(res = printf(FMT));
 	ft_putchar('\n');
-//    ft_putnbr(res = printf("\033[34m{%-15d\033[33m %s}\033[0m\n", 123, "some str"));
+//  ft_putnbr(res = printf("\033[34m{%-15d\033[33m %s}\033[0m\n", 123, "some str"));
 //	ft_putchar('\n');
 	ft_putnbr(res1 = ft_printf(FMT));
+//	ft_putnbr(res1 = ft_fdprintf(fd, FMT));
 	ft_putchar('\n');
-//	printf("Le fichier{cyan}%s{eoc} contient : {red}%s{eoc}", filename, str);
-	system("leaks ft_printf");
+	system("leaks -q ft_printf");
+	close(fd);
 	return (0);
 }

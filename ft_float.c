@@ -12,11 +12,13 @@
 
 #include "printf.h"
 
-int	ft_float(va_list ar, t_flags *f)
+int	ft_float(va_list ar, t_flags *f, int fd)
 {
 	int		i;
+	int		z;
 
 	i = 0;
-	i += ft_putnbrf(ar, f);
+	z = f->tchn == 0 && f->tchn_t != 1 ? 6 : f->tchn;
+	i += ft_putnbrf(ar, f, z, fd);
 	return (i);
 }

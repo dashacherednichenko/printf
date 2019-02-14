@@ -29,7 +29,7 @@ char			*ft_itoa_baseld(long double value, int base)
 {
 	char					*str;
 	size_t					len;
-	unsigned long long nb;
+	unsigned long long		nb;
 
 	if (base < 2 || base > 16)
 		return (NULL);

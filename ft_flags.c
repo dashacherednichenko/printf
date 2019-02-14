@@ -12,11 +12,11 @@
 
 #include "printf.h"
 
-int	ft_print_txt(char *s, t_flags *f, int i)
+int	ft_print_txt(char *s, t_flags *f, int i, int fd)
 {
 	while (s[i] != '%' && s[i])
 	{
-		ft_putchar(s[i++]);
+		ft_putchar_fd(s[i++], fd);
 		f->l++;
 	}
 	return (i);

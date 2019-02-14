@@ -21,10 +21,27 @@ int			ft_printf(char *fmt, ...)
 
 	va_start(ar, fmt);
 	f = (t_flags*)malloc(sizeof(t_flags));
-	i = 0;
 	s = fmt;
 	f->l = 0;
-	f->l = ft_pars(ar, f, i, s);
+	f->l = ft_pars(ar, f, s, 1);
+	va_end(ar);
+	i = f->l;
+	free(f);
+	return (i);
+}
+
+int			ft_fdprintf(int fd, char *fmt, ...)
+{
+	int					i;
+	char				*s;
+	t_flags				*f;
+	va_list				ar;
+
+	va_start(ar, fmt);
+	f = (t_flags*)malloc(sizeof(t_flags));
+	s = fmt;
+	f->l = 0;
+	f->l = ft_pars(ar, f, s, fd);
 	va_end(ar);
 	i = f->l;
 	free(f);
@@ -80,7 +97,7 @@ int			ft_color_printf(char *fmt, ...)
 	ns = ft_strdup(s);
 	ns = ft_pars_color(ns, i);
 	f->l = 0;
-	f->l = ft_pars(ar, f, i, ns);
+	f->l = ft_pars(ar, f, ns, 1);
 	va_end(ar);
 	free(ns);
 	i = f->l;

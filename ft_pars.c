@@ -12,21 +12,28 @@
 
 #include "printf.h"
 
-#define TYPE "bcCsSpdDioOuUxXfF%"
+#define TP "bcCsSpdDioOuUxXfF%"
+
+int g_fd = 0;
 
 int			ft_pars_tp(va_list ar, t_flags *f, int i, char *s)
 {
 	f->tp = s[i];
-	s[i] == 'c' || s[i] == 'C' ? f->l += ft_putcharn((char)va_arg(ar, int), f, 0) : 0;
-	s[i] == 's' || s[i] == 'S' ? f->l += ft_putstrn(va_arg(ar, char*), f, 0) : 0;
-	s[i] == 'p' ? f->l += ft_ptrtype(va_arg(ar, long long int), f) : 0;
-	s[i] == 'd' || s[i] == 'i' || s[i] == 'D' ? f->l += ft_d(ar, f) : 0;
-	s[i] == 'b' ? f->l += ft_bin(ar, f) : 0;
-	s[i] == 'o' || s[i] == 'O' ? f->l += ft_octal(va_arg(ar, long long int), f) : 0;
-	s[i] == 'u' || s[i] == 'U' ? f->l += ft_unsig(va_arg(ar, long long int), f, 0) : 0;
-	s[i] == 'X' || s[i] == 'x' ? f->l += ft_hex(va_arg(ar, long long int), f) : 0;
-	s[i] == 'f' || s[i] == 'F' ? f->l += ft_float(ar, f) : 0;
-	s[i] == '%' ? f->l += ft_percent('%', f) : 0;
+	s[i] == 'c' || s[i] == 'C' ?\
+		f->l += ft_putcharn((char)va_arg(ar, int), f, 0, g_fd) : 0;
+	s[i] == 's' || s[i] == 'S' ?\
+		f->l += ft_puts_n(va_arg(ar, char*), f, 0, g_fd) : 0;
+	s[i] == 'p' ? f->l += ft_ptrtype(va_arg(ar, long long int), f, g_fd) : 0;
+	s[i] == 'd' || s[i] == 'i' || s[i] == 'D' ? f->l += ft_d(ar, f, g_fd) : 0;
+	s[i] == 'b' ? f->l += ft_bin(ar, f, 32, g_fd) : 0;
+	s[i] == 'o' || s[i] == 'O' ?\
+		f->l += ft_octal(va_arg(ar, long long int), f, 0, g_fd) : 0;
+	s[i] == 'u' || s[i] == 'U' ?\
+		f->l += ft_unsig(va_arg(ar, long long int), f, 0, g_fd) : 0;
+	s[i] == 'X' || s[i] == 'x' ?\
+		f->l += ft_hex(va_arg(ar, long long int), f, g_fd) : 0;
+	s[i] == 'f' || s[i] == 'F' ? f->l += ft_float(ar, f, g_fd) : 0;
+	s[i] == '%' ? f->l += ft_percent('%', f, g_fd) : 0;
 	return (f->l);
 }
 
@@ -40,6 +47,16 @@ static int	ft_flag_h(t_flags *f, int i, char *s, char c)
 	else
 		f->mod = c == 'h' ? "h" : "l";
 	return (i);
+}
+
+static int	ft_nonv(t_flags *f, int i, char *s)
+{
+	if (!ft_strrchr("*-+ #0123456789.hlLzj", s[i]))
+	{
+		f->non_v = s[i];
+		return (0);
+	}
+	return (1);
 }
 
 int			ft_pars_flag(va_list ar, t_flags *f, int i, char *s)
@@ -57,7 +74,10 @@ int			ft_pars_flag(va_list ar, t_flags *f, int i, char *s)
 	s[i] > '0' && s[i] <= '9' ? i = ft_width(s, f, i) : 0;
 	s[i] == '.' ? i = ft_precision(s, f, i) : 0;
 	if (s[i - 1] == '.' && s[i] == '*' && f->tchn_t == 1)
+	{
 		f->tchn = va_arg(ar, int);
+		(f->tchn < 0) ? f = ft_nultchn(f) : 0;
+	}
 	s[i] == '#' ? f->resh = 1 : 0;
 	s[i] == 'z' ? f->mod = "z" : 0;
 	s[i] == 'j' ? f->mod = "j" : 0;
@@ -69,31 +89,30 @@ int			ft_pars_flag(va_list ar, t_flags *f, int i, char *s)
 	return (i);
 }
 
-int			ft_pars(va_list ar, t_flags *f, int i, char *s)
+int			ft_pars(va_list ar, t_flags *f, char *s, int fd)
 {
+	int i;
+
+	i = 0;
+	g_fd = fd;
 	while (s[i])
 	{
 		f = ft_obnul_fl(f);
-		s[i] != '%' && s[i] ? i = ft_print_txt(s, f, i) : 0;
+		s[i] != '%' && s[i] ? i = ft_print_txt(s, f, i, fd) : 0;
 		if (s[i] == '%')
 		{
 			i++;
-			while (!ft_strrchr(TYPE, s[i]) && s[i])
+			while (!ft_strrchr(TP, s[i]) && s[i])
 			{
 				i = ft_pars_flag(ar, f, i, s);
-				if (!ft_strrchr("*-+ #0123456789.hlLzj", s[i]))
-				{
-					f->non_v = s[i];
+				if (ft_nonv(f, i, s) == 0)
 					break ;
-				}
-				(!ft_strrchr(TYPE, s[i]) && s[i]) ? i++ : 0;
+				(!ft_strrchr(TP, s[i]) && s[i]) ? i++ : 0;
 			}
-			s[i] && ft_strrchr(TYPE, s[i]) ?\
-				f->l = ft_pars_tp(ar, f, i++, s) : 0;
-			if (f->non_v != 0)
-				f->l += ft_putcharn(f->non_v, f, i++);
+			s[i] && ft_strrchr(TP, s[i]) ? f->l = ft_pars_tp(ar, f, i++, s) : 0;
+			(f->non_v != 0) ? f->l += ft_putcharn(f->non_v, f, i++, fd) : 0;
 		}
-		s[i] != '%' && s[i] ? i = ft_print_txt(s, f, i) : 0;
+		s[i] != '%' && s[i] ? i = ft_print_txt(s, f, i, fd) : 0;
 	}
 	return (f->l);
 }
