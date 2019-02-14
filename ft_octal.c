@@ -55,6 +55,7 @@ int			ft_octal(long long int d, t_flags *f, int i, int fd)
 	(f->tchn_t == 1 && !f->tchn && d == 0 && f->w) ? s[0] = ' ' : 0;
 	i = ft_strlen(s);
 	(f->tchn_t == 1 || f->min == 1) ? f->zr = 0 : 0;
+	(f->tchn_t == 1 && f->tchn > i) ? f->resh = 0 : 0;
 	(f->tchn_t == 1 && f->tchn > i) ?\
 		s = ft_strjoinfree(ft_strtemp(f->tchn, i, '0'), s, 3) : 0;
 	f->resh == 1 && !f->zr && f->tchn_t < i && d ?\
