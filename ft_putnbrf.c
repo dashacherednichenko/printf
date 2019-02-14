@@ -59,6 +59,8 @@ static int	ft_addost_f(char *str, char *s1, t_flags *f, int minus)
 
 static char *ft_nan(long double ld, t_flags *f)
 {
+	char *s;
+
 	if (ld != ld)
 	{
 		f->plus = 0;
@@ -68,10 +70,12 @@ static char *ft_nan(long double ld, t_flags *f)
 	}
 	else if (ld * 2 == ld && ld != 0)
 	{
-		f->plus = 0;
-		f->space = 0;
 		f->zr = 0;
-		return (ld < 0.0 ? ft_strdup("-inf") : ft_strdup("inf"));
+		s = ld < 0.0 ? ft_strdup("-inf") : ft_strdup("inf");
+		f->plus == 1 ? f->space = 0 : 0;
+		f->plus == 1 ? s = ft_strjoinfree("+", s, 2) : 0;
+		f->space == 1 ? s = ft_strjoinfree(" ", s, 2) : 0;
+		return (s);
 	}
 	return (0);
 }
@@ -85,7 +89,7 @@ int			ft_putnbrf(va_list ar, t_flags *f, int z, int fd)
 	char				*str;
 
 	g_f = fd;
-	ld = va_arg(ar, double);
+	ld = f->mod && !ft_strcmp(f->mod, "L") ? va_arg(ar, long double) : va_arg(ar, double);
 	if (ft_nan(ld, f) != 0)
 		return (ft_puts_n(ft_nan(ld, f), f, 0, fd));
 	minus = ((*(((char*)&ld) + 9)) >> 7) ? 1 : 0;
@@ -97,7 +101,7 @@ int			ft_putnbrf(va_list ar, t_flags *f, int z, int fd)
 	str = ft_ost(str, nb, z);
 	g_x == 1 ? ld = ld + 1 : 0;
 	s1 = ft_itoa_baseld(ld, 10);
-	if (f->plus == 1 || f->space == 1)
+	if ((f->plus == 1 || f->space == 1) && minus != 1)
 		s1 = f->plus == 1 ?\
 			ft_strjoinfree("+", s1, 2) : ft_strjoinfree(" ", s1, 2);
 	return (ft_addost_f(str, s1, f, minus));

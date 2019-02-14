@@ -51,7 +51,7 @@ int					ft_putcharn(char c, t_flags *f, int i, int fd);
 int					ft_putnbrll(long long int n, int i);
 int					ft_putnbrlln(long long int n, t_flags *f, int fd);
 int					ft_putnbrf(va_list ar, t_flags *f, int z, int fd);
-long long int		ft_calcfost(long long int g);
+unsigned long long int		ft_calcfost(long long int g);
 int					ft_calc_nbr(long long int d);
 int					ft_ptrtype(long long int d, t_flags *f, int fd);
 int					ft_d(va_list ar, t_flags *f, int fd);

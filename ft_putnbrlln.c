@@ -77,7 +77,7 @@ int			ft_putnbrlln(long long int n, t_flags *f, int fd)
 	f->mod && !ft_strcmp(f->mod, "h") ? n = (short)n : 0;
 	f->mod && !ft_strcmp(f->mod, "hh") ? n = (char)n : 0;
 	f->mod && !ft_strcmp(f->mod, "ll") ? n = (long)n : 0;
-	!f->mod && f->tp != 'D' ? n = (int)n : 0;
+	(!f->mod && f->tp != 'D') || (f->mod && !ft_strcmp(f->mod, "L"))  ? n = (int)n : 0;
 	g_ii = n < 0 ? 1 : 0;
 	g_ii == 1 ? n = -n : 0;
 	g_i = ft_calc_nbr(n);

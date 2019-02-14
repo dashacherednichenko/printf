@@ -12,9 +12,9 @@
 
 #include "printf.h"
 
-long long int		ft_calcfost(long long int i)
+unsigned long long int		ft_calcfost(long long int i)
 {
-	int g;
+	unsigned long long int g;
 
 	g = 10;
 	while (i-- > 0)
