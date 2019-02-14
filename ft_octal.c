@@ -76,7 +76,7 @@ int			ft_unsig(long long int d, t_flags *f, int i, int fd)
 	f->mod && !ft_strcmp(f->mod, "h") ? d = (unsigned short)d : 0;
 	f->mod && !ft_strcmp(f->mod, "hh") ? d = (unsigned char)d : 0;
 	f->mod && !ft_strcmp(f->mod, "l") ? d = (unsigned long)d : 0;
-	f->mod && !ft_strcmp(f->mod, "ll") ? d = (unsigned long long)d : 0;
+//	f->mod && !ft_strcmp(f->mod, "ll") ? d = (unsigned long long)d : 0;
 	f->mod && !ft_strcmp(f->mod, "L") ? d = (unsigned int)d : 0;
 	(f->mod && !ft_strcmp(f->mod, "ll")) || f->tp == 'U' ?\
 		d = (unsigned long long)d : 0;
@@ -102,21 +102,22 @@ int			ft_hex(long long int d, t_flags *f, int fd)
 	char	*s;
 	int		i;
 
+	d = (unsigned long long)d;
 	f->mod && !ft_strcmp(f->mod, "h") ? d = (unsigned short)d : 0;
 	f->mod && !ft_strcmp(f->mod, "hh") ? d = (unsigned char)d : 0;
 	f->mod && !ft_strcmp(f->mod, "z") ? d = (size_t)d : 0;
 	f->mod && !ft_strcmp(f->mod, "j") ? d = (uintmax_t)d : 0;
 	f->mod && !ft_strcmp(f->mod, "L") ? d = (unsigned int)d : 0;
-	f->mod == 0 ? d = (int)d : 0;
+	f->mod && !ft_strcmp(f->mod, "l") ? d = (unsigned long)d : 0;
+	f->mod && !ft_strcmp(f->mod, "ll") ? d = (unsigned long long)d : 0;
+	f->mod == 0 ? d = (unsigned int)d : 0;
 	if (f->tchn_t == 1 && !f->tchn && d == 0 && !f->w)
 		return (0);
 	if (d < 0 && !f->mod)
-		s = ft_uitoa_base((unsigned int)d, 16);
-	else if ((d < 0 && f->mod && !ft_strcmp(f->mod, "j")) ||\
-			(f->mod && !ft_strcmp(f->mod, "ll")) ||\
-				(f->mod && !ft_strcmp(f->mod, "l")))
-		s = ft_uitoa_base((unsigned long long int)d, 16);
-	else if (f->mod && (!ft_strcmp(f->mod, "z") || !ft_strcmp(f->mod, "L")))
+		s = ft_uitoa_base(d, 16);
+	else if ((d < 0 && f->mod && (!ft_strcmp(f->mod, "j") || !ft_strcmp(f->mod, "ll") ||  !ft_strcmp(f->mod, "l"))))
+		s = ft_uitoa_base(d, 16);
+	else if (f->mod && (!ft_strcmp(f->mod, "z") ))
 		s = ft_uitoa_base(d, 16);
 	else
 		s = ft_itoa_base(d, 16);
