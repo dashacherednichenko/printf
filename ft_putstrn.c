@@ -62,6 +62,8 @@ int			ft_puts_n(char *str, t_flags *f, int min, int fd)
 	g_d = fd;
 	f->tp == 'S' ? f->mod = "l" : 0;
 	!str ? str = "(null)" : 0;
+	if (f->tp == 's' && f->tchn_t == 1 && f->tchn == 0)
+		str = "";
 	t = ft_strlen(str);
 	if (f->tchn == 0 && f->w == 0 && f->tchn_t == 1)
 		return (i);

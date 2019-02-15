@@ -14,7 +14,7 @@
 #include <limits.h>
 
 //# define FMT "C_BLU{%-15dC_YLL %s}C_of\n", 123, "some str"
-# define FMT " %lx\n", 30000001245258745
+# define FMT "%7.s\n", 123
 
 int	main(void)
 {
