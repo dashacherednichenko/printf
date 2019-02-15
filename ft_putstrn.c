@@ -70,7 +70,7 @@ int			ft_puts_n(char *str, t_flags *f, int min, int fd)
 	(f->tchn < 0 && -f->tchn >= t) ? f->tchn = t : 0;
 	(f->min == 1 && f->w >= 0) ? f->w = -f->w : 0;
 	w = f->w < 0 ? f->w : 0;
-	((!f->w || f->w < f->tchn) && f->tchn < t) ? f->w = f->tchn : 0;
+	((!f->w || f->w < f->tchn) && f->tchn <= t) ? f->w = f->tchn : 0;
 	((!f->w && f->tchn > 0) || (f->w < t && (f->tchn > t || !f->tchn_t))) ? f->w = t : 0;
 	ns = ft_memalloc((f->w--) + 1);
 	(!f->tchn_t || f->tchn >= t) ? f->tchn = t : 0;

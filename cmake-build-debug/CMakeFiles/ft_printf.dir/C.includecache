@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Users/dpiven/Desktop/ftprintf/ft_putstrn.c
+/Users/dpiven/Desktop/ftprintf/ft_putnbrf.c
 printf.h
 /Users/dpiven/Desktop/ftprintf/printf.h
 
@@ -18,6 +18,12 @@ string.h
 unistd.h
 -
 stdlib.h
+-
+
+/Users/dpiven/Desktop/ftprintf/main.c
+printf.h
+/Users/dpiven/Desktop/ftprintf/printf.h
+limits.h
 -
 
 /Users/dpiven/Desktop/ftprintf/printf.h

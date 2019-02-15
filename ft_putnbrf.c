@@ -15,28 +15,89 @@
 int g_x = 0;
 int g_f = 0;
 
-static char	*ft_ost(char *str, unsigned long long nb, int z)
+//static char	*ft_ost(char *str, unsigned long long nb, int z)
+//{
+//	while (z >= 0)
+//	{
+//		if (g_x == 1 && nb % 10 >= 5 && nb % 10 < 9)
+//		{
+//			str[z] = nb % 10 + 1 + '0';
+//			g_x = 0;
+//		}
+//		else if (g_x == 1 && nb % 10 == 9)
+//		{
+//			str[z] = '0';
+//			g_x = 1;
+//		}
+//		else
+//		{
+//			str[z] = nb % 10 + g_x + '0';
+//			g_x = 0;
+//		}
+//		nb = nb / 10;
+//		z--;
+//	}
+//	return (str);
+//}
+
+static char	*ft_ost(char *str, double nb, int z)
 {
-	while (z >= 0)
+	int i;
+
+	i = 0;
+//	printf("FFF %f\n", nb);
+	while (i < z)
 	{
-		if (g_x == 1 && nb % 10 >= 5 && nb % 10 < 9)
-		{
-			str[z] = nb % 10 + 1 + '0';
-			g_x = 0;
-		}
-		else if (g_x == 1 && nb % 10 == 9)
-		{
-			str[z] = '0';
-			g_x = 1;
-		}
-		else
-		{
-			str[z] = nb % 10 + g_x + '0';
-			g_x = 0;
-		}
-		nb = nb / 10;
-		z--;
+		nb = (nb * 10);
+//		printf("int %d\n", (int)nb);
+//		if ((int)nb == 9)
+//			str[i] = '0';
+//		if (g_x == 1)
+//		{
+//else
+			str[i] = (int)(nb) + '0';
+		//	g_x = 0;
+//		}
+//		else if (g_x == 1 )
+//		{
+//			str[i] = '0';
+//		//	g_x = 1;
+//		}
+//		else
+//		{
+//			str[i] = (int)(nb) + '0';
+		//	g_x = 0;
+//		}
+//		printf("F %f\n", nb);
+		nb = (nb -  (long long)nb);
+		i++;
 	}
+	str[i] = '\0';
+//	printf("I %d\n", i);
+//	printf("S %s\n", str);
+//	printf("Z %d\n", z);
+	nb = nb * 10;
+	z--;
+//	printf("Z %d\n", (int)nb);
+	if ((int)(nb) >= 5)
+	{
+		g_x = 1;
+		while (g_x == 1 && z >= 0)
+		{
+			if (str[z] < '9')
+			{
+				str[z] = str[z] + 1;
+				g_x = 0;
+			}
+			else
+			{
+				str[z] = '0';
+				g_x = 1;
+			}
+			z--;
+		}
+	}
+//	printf("S %s\n", str);
 	return (str);
 }
 
@@ -82,7 +143,7 @@ static char *ft_nan(long double ld, t_flags *f)
 
 int			ft_putnbrf(va_list ar, t_flags *f, int z, int fd)
 {
-	unsigned long long	nb;
+//	unsigned long long	nb;
 	char				*s1;
 	long double			ld;
 	int					minus;
@@ -95,10 +156,10 @@ int			ft_putnbrf(va_list ar, t_flags *f, int z, int fd)
 	minus = ((*(((char*)&ld) + 9)) >> 7) ? 1 : 0;
 	ld < 0 ? ld = -1 * ld : 0;
 	str = ft_memalloc(z + 1);
-	nb = (unsigned long long)(((double)ld - (long long)ld) * ft_calcfost(z--));
-	g_x = nb % 10 >= 5 ? 1 : 0;
-	nb = nb / 10;
-	str = ft_ost(str, nb, z);
+//	nb = (unsigned long long)(((double)ld - (long long)ld) * ft_calcfost(z--));
+//	g_x = nb % 10 >= 5 ? 1 : 0;
+//	nb = nb / 10;
+	str = ft_ost(str, ((double)ld - (long long)ld), z);
 	g_x == 1 ? ld = ld + 1 : 0;
 	s1 = ft_itoa_baseld(ld, 10);
 	if ((f->plus == 1 || f->space == 1) && minus != 1)
