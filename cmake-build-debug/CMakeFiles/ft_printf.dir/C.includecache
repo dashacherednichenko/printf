@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/dpiven/Desktop/ftprintf/ft_putnbrf.c
-printf.h
-/Users/dpiven/Desktop/ftprintf/printf.h
-
 /Users/dpiven/Desktop/ftprintf/libft/libft.h
 fcntl.h
 -

@@ -13,6 +13,8 @@
 #include "printf.h"
 
 int g_d = 0;
+int g_j = 0;
+int g_w = 0;
 
 static int	ft_addzr_str(t_flags *f, char *ns, int min, int i)
 {
@@ -55,29 +57,27 @@ int			ft_puts_n(char *str, t_flags *f, int min, int fd)
 {
 	char	*ns;
 	int		t;
-	int		w;
-	int		i;
 
-	i = 0;
+	g_j = 0;
 	g_d = fd;
 	f->tp == 'S' ? f->mod = "l" : 0;
 	!str ? str = "(null)" : 0;
-	if (f->tp == 's' && f->tchn_t == 1 && f->tchn == 0)
-		str = "";
+	(f->tp == 's' && f->tchn_t == 1 && f->tchn == 0) ? str = "" : 0;
 	t = ft_strlen(str);
 	if (f->tchn == 0 && f->w == 0 && f->tchn_t == 1)
-		return (i);
+		return (0);
 	(f->tchn < 0 && -f->tchn >= t) ? f->tchn = t : 0;
 	(f->min == 1 && f->w >= 0) ? f->w = -f->w : 0;
-	w = f->w < 0 ? f->w : 0;
+	g_w = f->w < 0 ? f->w : 0;
 	((!f->w || f->w < f->tchn) && f->tchn <= t) ? f->w = f->tchn : 0;
-	((!f->w && f->tchn > 0) || (f->w < t && (f->tchn > t || !f->tchn_t))) ? f->w = t : 0;
+	((!f->w && f->tchn > 0) ||\
+		(f->w < t && (f->tchn > t || !f->tchn_t))) ? f->w = t : 0;
 	ns = ft_memalloc((f->w--) + 1);
 	(!f->tchn_t || f->tchn >= t) ? f->tchn = t : 0;
-	while (str[i] && i < f->tchn)
-		ns[f->w--] = str[(t - (t + 1 - f->tchn)) - i++];
-	i = ft_addzr_str(f, ns, min, i);
-	while ((w + i++) < 0)
+	while (str[g_j] && g_j < f->tchn)
+		ns[f->w--] = str[(t - (t + 1 - f->tchn)) - g_j++];
+	g_j = ft_addzr_str(f, ns, min, g_j);
+	while ((g_w + g_j++) < 0)
 		ft_putchar_fd(' ', fd);
-	return (i - 1);
+	return (g_j - 1);
 }

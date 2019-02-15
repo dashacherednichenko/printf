@@ -68,16 +68,16 @@ char		*ft_putnbrn(char *s, t_flags *f)
 	return (s);
 }
 
-int			ft_putnbrlln(long long int n, t_flags *f, int fd)
+int			ft_putnbrlln(long long int n, t_flags *f, int fd, int z)
 {
 	char	*s;
-	int		z;
 
 	f->tp == 'D' ? f->mod = 0 : 0;
 	f->mod && !ft_strcmp(f->mod, "h") ? n = (short)n : 0;
 	f->mod && !ft_strcmp(f->mod, "hh") ? n = (char)n : 0;
 	f->mod && !ft_strcmp(f->mod, "ll") ? n = (long)n : 0;
-	(!f->mod && f->tp != 'D') || (f->mod && !ft_strcmp(f->mod, "L"))  ? n = (int)n : 0;
+	(!f->mod && f->tp != 'D') ||\
+		(f->mod && !ft_strcmp(f->mod, "L")) ? n = (int)n : 0;
 	g_ii = n < 0 ? 1 : 0;
 	g_ii == 1 ? n = -n : 0;
 	g_i = ft_calc_nbr(n);
@@ -90,7 +90,7 @@ int			ft_putnbrlln(long long int n, t_flags *f, int fd)
 		s[z--] = (n % 10 + '0');
 		n = n / 10;
 	}
-	s[z--] = (f->tchn_t == 1 && !f->tchn && n == 0 && f->w ) ? ' ' : n + '0';
+	s[z--] = (f->tchn_t == 1 && !f->tchn && n == 0 && f->w) ? ' ' : n + '0';
 	(g_ii != 1 && f->plus != 1 && f->space != 1) ? s = ft_putzero_s(s, z) : 0;
 	(g_ii == 1 || f->plus == 1 || f->space == 1) ? s = ft_putzr_sg(s, z, f) : 0;
 	(f->w > f->tchn && f->w > g_i) ? s = ft_putnbrn(s, f) : 0;

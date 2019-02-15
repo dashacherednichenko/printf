@@ -16,7 +16,7 @@ int	ft_d(va_list ar, t_flags *f, int fd)
 {
 	int				i;
 	long long int	d;
-	char *s;
+	char			*s;
 
 	d = va_arg(ar, long long int);
 	if ((unsigned long long)d == 9223372036854775808U)
@@ -36,6 +36,6 @@ int	ft_d(va_list ar, t_flags *f, int fd)
 		s[0] = '+';
 		return (ft_printnbr(s, fd));
 	}
-	i = ft_putnbrlln(d, f, fd);
+	i = ft_putnbrlln(d, f, fd, 0);
 	return (i);
 }

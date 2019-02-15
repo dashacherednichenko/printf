@@ -15,6 +15,7 @@
 #define TP "bcCsSpdDioOuUxXfF%"
 
 int g_fd = 0;
+int g_y = 0;
 
 int			ft_pars_tp(va_list ar, t_flags *f, int i, char *s)
 {
@@ -31,7 +32,7 @@ int			ft_pars_tp(va_list ar, t_flags *f, int i, char *s)
 	s[i] == 'u' || s[i] == 'U' ?\
 		f->l += ft_unsig(va_arg(ar, long long int), f, 0, g_fd) : 0;
 	s[i] == 'X' || s[i] == 'x' ?\
-		f->l += ft_hex(va_arg(ar, long long int), f, g_fd) : 0;
+		f->l += ft_hex(va_arg(ar, long long int), f, g_fd, 0) : 0;
 	s[i] == 'f' || s[i] == 'F' ? f->l += ft_float(ar, f, g_fd) : 0;
 	s[i] == '%' ? f->l += ft_percent('%', f, g_fd) : 0;
 	return (f->l);
@@ -86,38 +87,35 @@ int			ft_pars_flag(va_list ar, t_flags *f, int i, char *s)
 	s[i] == '#' ? f->resh = 1 : 0;
 	s[i] == 'z' ? f->mod = "z" : 0;
 	s[i] == 'j' ? f->mod = "j" : 0;
-	if (s[i] == 'h')
-		i = ft_flag_h(f, i, s, 'h');
-	if (s[i] == 'l')
-		i = ft_flag_h(f, i, s, 'l');
+	(s[i] == 'h') ? i = ft_flag_h(f, i, s, 'h') : 0;
+	(s[i] == 'l') ? i = ft_flag_h(f, i, s, 'l') : 0;
 	s[i] == 'L' ? f->mod = "L" : 0;
 	return (i);
 }
 
 int			ft_pars(va_list ar, t_flags *f, char *s, int fd)
 {
-	int i;
-
-	i = 0;
+	g_y = 0;
 	g_fd = fd;
-	while (s[i])
+	while (s[g_y])
 	{
 		f = ft_obnul_fl(f);
-		s[i] != '%' && s[i] ? i = ft_print_txt(s, f, i, fd) : 0;
-		if (s[i] == '%')
+		s[g_y] != '%' && s[g_y] ? g_y = ft_print_txt(s, f, g_y, fd) : 0;
+		if (s[g_y] == '%')
 		{
-			i++;
-			while (!ft_strrchr(TP, s[i]) && s[i])
+			g_y++;
+			while (!ft_strrchr(TP, s[g_y]) && s[g_y])
 			{
-				i = ft_pars_flag(ar, f, i, s);
-				if (ft_nonv(f, i, s) == 0)
+				g_y = ft_pars_flag(ar, f, g_y, s);
+				if (ft_nonv(f, g_y, s) == 0)
 					break ;
-				(!ft_strrchr(TP, s[i]) && s[i]) ? i++ : 0;
+				(!ft_strrchr(TP, s[g_y]) && s[g_y]) ? g_y++ : 0;
 			}
-			s[i] && ft_strrchr(TP, s[i]) ? f->l = ft_pars_tp(ar, f, i++, s) : 0;
-			(f->non_v != 0) ? f->l += ft_putcharn(f->non_v, f, i++, fd) : 0;
+			s[g_y] && ft_strrchr(TP, s[g_y]) ?\
+				f->l = ft_pars_tp(ar, f, g_y++, s) : 0;
+			(f->non_v != 0) ? f->l += ft_putcharn(f->non_v, f, g_y++, fd) : 0;
 		}
-		s[i] != '%' && s[i] ? i = ft_print_txt(s, f, i, fd) : 0;
+		s[g_y] != '%' && s[g_y] ? g_y = ft_print_txt(s, f, g_y, fd) : 0;
 	}
 	return (f->l);
 }

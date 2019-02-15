@@ -12,16 +12,6 @@
 
 #include "printf.h"
 
-unsigned long long int		ft_calcfost(long long int i)
-{
-	unsigned long long int g;
-
-	g = 10;
-	while (i-- > 0)
-		g = g * 10;
-	return (g);
-}
-
 int					ft_calc_nbr(long long int d)
 {
 	int i;
