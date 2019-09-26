@@ -1,2 +1,2 @@
 # printf
-![alt text](https://github.com/dashacherednichenko/printf/subject_en.pdf)
+![alt text](https://github.com/dashacherednichenko/printf/ft_printf.en.pdf)
